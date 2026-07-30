@@ -1,0 +1,225 @@
+.pageWrapper {
+  width: 100%;
+}
+
+/* Hero Banner */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 3.5rem 0;
+}
+
+.heroInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.heroCategory {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
+}
+
+.heroTitle {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.heroSubtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.heroStatCard {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.heroStatValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.heroStatLabel {
+  font-size: 0.6875rem;
+  margin-top: 0.25rem;
+  opacity: 0.7;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.breadcrumbInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.breadcrumbLink {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.breadcrumbLink:hover {
+  color: #3b82f6;
+}
+
+.breadcrumbSep {
+  color: #d1d5db;
+  font-size: 0.75rem;
+}
+
+.breadcrumbCurrent {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Main content area */
+.contentArea {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+}
+
+.mainCol {
+  min-width: 0;
+}
+
+/* Game container */
+.gameContainer {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 2.5rem;
+}
+
+.gameArea {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Info section below game */
+.infoArea {
+  margin-top: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.sidebarCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebarTitle {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.relatedTest {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: background 0.15s;
+  margin-bottom: 0.25rem;
+}
+
+.relatedTest:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.relatedTestIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .heroStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contentArea {
+    padding: 1.5rem 1rem;
+  }
+}

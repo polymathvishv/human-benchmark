@@ -1,0 +1,118 @@
+.playArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+.levelDisplay {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.highlighted {
+  background: var(--primary-color) !important;
+  opacity: 0.6;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.startScreen h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.startScreen p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.startBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+.startBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.gameHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.gameHeader h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.square.clickable {
+  cursor: pointer;
+}
+
+.square.clickable:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.square.clickable:active {
+  transform: scale(0.95);
+}
+
+.square.active {
+  background: var(--primary-color);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .square {
+    width: 80px;
+    height: 80px;
+  }
+}

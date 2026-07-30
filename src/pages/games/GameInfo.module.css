@@ -1,0 +1,158 @@
+.infoSection {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  text-align: left;
+  color: #374151; /* gray-700 */
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827; /* gray-900 */
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #bfdbfe; /* blue-200 */
+}
+
+.text {
+  line-height: 1.625;
+  margin-bottom: 1rem;
+}
+
+.box {
+  background: #f9fafb; /* gray-50 */
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.boxTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.chainRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.chainTime {
+  width: 60px;
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.chainBox {
+  flex: 1;
+  padding: 0.625rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table th {
+  background: #111827;
+  color: white;
+  padding: 0.875rem 1.25rem;
+  font-weight: 700;
+}
+
+.table td {
+  padding: 0.875rem 1.25rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.table tr:hover {
+  background: #f9fafb;
+}
+
+.highlightBadge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.factCard {
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.factTitle {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.factText {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.statCard {
+  text-align: center;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

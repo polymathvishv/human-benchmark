@@ -1,0 +1,125 @@
+.playArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  width: 100%;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.startScreen h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.startScreen p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.startBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+.startBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.lives {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lifeActive {
+  color: var(--game-red);
+}
+
+.lifeLost {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.grid {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--surface-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cell {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.cell.clickable {
+  cursor: pointer;
+}
+
+.cell.clickable:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cell.clickable:active {
+  transform: scale(0.95);
+}
+
+.cell.active {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.cell.wrong {
+  background-color: var(--game-red);
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

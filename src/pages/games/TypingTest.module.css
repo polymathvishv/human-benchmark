@@ -1,0 +1,165 @@
+.playArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  width: 100%;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.startScreen h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.startScreen p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.startBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+.startBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.iconSm {
+  color: var(--primary-color);
+}
+
+.typeArea {
+  width: 100%;
+  max-width: 800px;
+  background: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  outline: none; /* Remove focus outline */
+  position: relative;
+  transition: border-color 0.3s ease;
+  border-bottom: 2px solid transparent;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 0 0.5rem;
+}
+
+.typeArea:focus {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.typeArea::after {
+  content: 'Click here to focus and type';
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.typeArea:focus::after {
+  opacity: 0;
+}
+
+.textDisplay {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.3);
+  user-select: none;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace; /* Monospace for typing tests is good */
+}
+
+.statsIcon {
+  color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace; /* Monospace for typing tests is good */
+}
+
+.char {
+  position: relative;
+}
+
+.char.correct {
+  color: var(--text-main);
+}
+
+.char.incorrect {
+  color: var(--game-red);
+  background-color: rgba(239, 68, 68, 0.2);
+  border-radius: 2px;
+}
+
+.char.current {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.char.current::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .textDisplay {
+    font-size: 1.25rem;
+  }
+}

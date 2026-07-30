@@ -1,0 +1,131 @@
+.playArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  width: 100%;
+}
+
+.startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.icon {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.startScreen h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.startScreen p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 500px;
+}
+
+.startBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+}
+
+.startBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.statsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 4rem;
+}
+
+.lives {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lifeActive {
+  color: var(--game-red);
+}
+
+.lifeLost {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.scoreDisplay {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.word {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
+  text-align: center;
+  word-break: break-word;
+}
+
+.word.animate {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+}
+
+.actionBtn {
+  background-color: var(--surface-hover);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
+  padding: 1rem 3rem;
+  border-radius: var(--border-radius);
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  min-width: 160px;
+}
+
+.actionBtn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+@keyframes popIn {
+  from { opacity: 0.5; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
