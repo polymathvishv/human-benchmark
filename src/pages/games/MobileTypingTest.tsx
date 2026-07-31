@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
-import { Smartphone, Zap, MessageCircle, BarChart3, Clock, Trophy } from 'lucide-react';
+import { Smartphone, Zap, MessageCircle } from 'lucide-react';
 import styles from './MobileTypingTest.module.css';
 import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
