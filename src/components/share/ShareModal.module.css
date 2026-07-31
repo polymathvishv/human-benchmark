@@ -1,0 +1,118 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overlay.isOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--surface-color);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cardWrapper {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.overlay.isOpen .modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: rgba(0,0,0,0.1);
+  color: var(--text-main);
+  transform: scale(1.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+/* Offscreen container for high-res image export */
+.exportContainer {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  width: 1080px;
+  height: 1080px;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  
+  .modal {
+    border-radius: 24px 24px 0 0;
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+
+  .overlay.isOpen .modal {
+    transform: translateY(0);
+  }
+  
+  .overlay:not(.isOpen) .modal {
+    transform: translateY(100%);
+  }
+}

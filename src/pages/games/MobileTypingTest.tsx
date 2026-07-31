@@ -190,6 +190,13 @@ export default function MobileTypingTest() {
           label={`Accuracy: ${accuracy}%`}
           icon={<Smartphone size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'mobile-typing',
+            gameName: 'Mobile Typing Test',
+            score: wpm,
+            unit: 'WPM',
+            isLowerBetter: false,
+          }}
         >
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', width: '100%', marginBottom: '1.5rem' }}>
             <div style={{ background: 'rgba(0,0,0,0.05)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>

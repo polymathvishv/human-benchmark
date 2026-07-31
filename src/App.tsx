@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const About = lazy(() => import('./pages/About'));
@@ -16,10 +17,12 @@ const ChimpTest = lazy(() => import('./pages/games/ChimpTest'));
 const VisualMemory = lazy(() => import('./pages/games/VisualMemory'));
 const TypingTest = lazy(() => import('./pages/games/TypingTest'));
 const MobileTypingTest = lazy(() => import('./pages/games/MobileTypingTest'));
+const StatsPage = lazy(() => import('./pages/StatsPage'));
 
 function App() {
   return (
     <div className="app-container">
+      <ScrollToTop />
       <Header />
       <main className="main-content">
         <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading...</div>}>
@@ -35,6 +38,7 @@ function App() {
             <Route path="/typing" element={<TypingTest />} />
             <Route path="/mobile-typing" element={<MobileTypingTest />} />
             <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<StatsPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

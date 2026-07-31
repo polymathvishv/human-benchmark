@@ -97,6 +97,13 @@ export default function ChimpTest() {
           label="Chimp Test Score"
           icon={<Smile size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'chimp-test',
+            gameName: 'Chimp Test',
+            score: level - 1,
+            unit: 'Level',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={level - 1} 

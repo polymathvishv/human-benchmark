@@ -84,10 +84,17 @@ export default function NumberMemory() {
     if (gameState === 'result') {
       return (
         <GameResult
-          score={`${level - 1} Digits`}
-          label="Number Memory Score"
+          score={`Level ${level - 1}`}
+          label="Number Memory"
           icon={<Hash size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'number-memory',
+            gameName: 'Number Memory',
+            score: level - 1,
+            unit: 'Level',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={level - 1} 

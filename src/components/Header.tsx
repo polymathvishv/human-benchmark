@@ -11,7 +11,8 @@ export default function Header() {
           <span>Human Benchmark</span>
         </Link>
         <nav className={styles.nav}>
-          <Link to="/" className={styles.navLink}>Dashboard</Link>
+          <Link to="/" className={styles.navLink}>Home</Link>
+          <Link to="/dashboard" className={styles.navLink}>Score Card</Link>
           <Link to="/about" className={styles.navLink}>About</Link>
           <Link to="/contact" className={styles.navLink}>Contact</Link>
         </nav>

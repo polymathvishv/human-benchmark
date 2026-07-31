@@ -103,6 +103,13 @@ export default function TypingTest() {
           label={`Accuracy: ${accuracy}%`}
           icon={<Keyboard size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'typing',
+            gameName: 'Typing Test',
+            score: wpm,
+            unit: 'WPM',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={wpm} 

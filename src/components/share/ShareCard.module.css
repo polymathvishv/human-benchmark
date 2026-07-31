@@ -1,0 +1,177 @@
+.cardContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* Themes */
+.theme-classic {
+  background: white;
+  color: #111827;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.theme-dark {
+  background: #111827;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.theme-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.theme-classic .iconWrapper {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.theme-dark .iconWrapper {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.theme-gradient .iconWrapper {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.gameName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  z-index: 2;
+  animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.score {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.theme-classic .score {
+  color: #3b82f6;
+}
+
+.unit {
+  font-size: 2rem;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+}
+
+.percentileBadge {
+  background: rgba(255,255,255,0.2);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+.theme-classic .percentileBadge {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.branding {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.cta {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+/* Background Decorations */
+.bgDecoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.theme-dark .bgDecoration {
+  opacity: 0.3;
+}
+
+.dec1 {
+  width: 300px;
+  height: 300px;
+  background: #3b82f6;
+  top: -100px;
+  right: -100px;
+}
+
+.dec2 {
+  width: 200px;
+  height: 200px;
+  background: #8b5cf6;
+  bottom: -50px;
+  left: -50px;
+}
+
+.theme-gradient .bgDecoration {
+  display: none;
+}

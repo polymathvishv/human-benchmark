@@ -81,7 +81,14 @@ export default function VerbalMemory() {
           score={`${score} words`}
           label="Verbal Memory Score"
           icon={<MessageSquare size={40} />}
-          onRetry={startGame}
+          onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'verbal-memory',
+            gameName: 'Verbal Memory',
+            score: score,
+            unit: 'words',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={score} 

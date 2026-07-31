@@ -56,7 +56,12 @@ export default function ReactionTime() {
         setGameState('attempt_result');
       }
     } else if (gameState === 'too_early') {
-      setGameState('waiting');
+      setGameState('ready');
+      const randomDelay = Math.floor(Math.random() * 3000) + 2000;
+      timeoutRef.current = window.setTimeout(() => {
+        setGameState('now');
+        startTimeRef.current = performance.now();
+      }, randomDelay);
     } else if (gameState === 'attempt_result') {
       setGameState('ready');
       const randomDelay = Math.floor(Math.random() * 3000) + 2000;
@@ -84,11 +89,18 @@ export default function ReactionTime() {
         <GameResult
           score={`${score} ms`}
           label="Average Reaction Time"
-          icon={<Clock size={40} />}
+          icon={<Zap size={40} />}
           onRetry={() => {
             setGameState('waiting');
             setScore(0);
             setAttempts([]);
+          }}
+          shareConfig={{
+            gameId: 'reaction-time',
+            gameName: 'Reaction Time',
+            score: score,
+            unit: 'ms',
+            isLowerBetter: true,
           }}
         >
           <GameInsight 
@@ -113,7 +125,7 @@ export default function ReactionTime() {
             <Zap size={56} className={styles.icon} />
             <h2>Reaction Time Test</h2>
             <p>When the red box turns green, click as quickly as you can.</p>
-            <p className={styles.instruction}>Click anywhere to start.</p>
+            <button className={styles.startButton}>Start Game</button>
           </div>
         )}
 

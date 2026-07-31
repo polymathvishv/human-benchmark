@@ -60,9 +60,16 @@ export default function AimTrainer() {
       return (
         <GameResult
           score={`${averageTime} ms`}
-          label="Average Time Per Target"
+          label="Average Time per Target"
           icon={<Target size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'aim-trainer',
+            gameName: 'Aim Trainer',
+            score: averageTime,
+            unit: 'ms',
+            isLowerBetter: true,
+          }}
         >
           <GameInsight 
             score={averageTime} 

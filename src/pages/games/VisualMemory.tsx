@@ -96,10 +96,17 @@ export default function VisualMemory() {
     if (gameState === 'result') {
       return (
         <GameResult
-          score={`Level ${score}`}
+          score={`Level ${level - 1}`}
           label="Visual Memory Score"
           icon={<Grid3x3 size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'visual-memory',
+            gameName: 'Visual Memory',
+            score: level - 1,
+            unit: 'Level',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={score} 

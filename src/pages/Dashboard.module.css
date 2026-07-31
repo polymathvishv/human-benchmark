@@ -150,16 +150,16 @@
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .card {
     padding: 2rem 1rem;
   }
-  
+
   .dashboard {
     gap: 2rem;
     padding-bottom: 2rem;

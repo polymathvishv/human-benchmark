@@ -81,10 +81,17 @@ export default function SequenceMemory() {
     if (gameState === 'result') {
       return (
         <GameResult
-          score={`Level ${level}`}
-          label="Sequence Memory Score"
+          score={`Level ${level - 1}`}
+          label="Sequence Memory"
           icon={<Grid3x3 size={40} />}
           onRetry={() => setGameState('waiting')}
+          shareConfig={{
+            gameId: 'sequence-memory',
+            gameName: 'Sequence Memory',
+            score: level - 1,
+            unit: 'Level',
+            isLowerBetter: false,
+          }}
         >
           <GameInsight 
             score={level} 
