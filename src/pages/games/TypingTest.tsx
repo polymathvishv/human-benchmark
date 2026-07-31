@@ -148,6 +148,7 @@ export default function TypingTest() {
 
   return (
     <GamePageLayout
+      path="/typing"
       title="Typing Speed Test"
       subtitle="Type the passage as fast and accurately as you can. Your score is measured in words per minute (WPM)."
       category="Motor Skill - Psychomotor Speed"

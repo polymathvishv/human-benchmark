@@ -112,7 +112,16 @@
 
 @media (max-width: 500px) {
   .square {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .grid {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .startScreen h2 {
+    font-size: 2rem;
   }
 }

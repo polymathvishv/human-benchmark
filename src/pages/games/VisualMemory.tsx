@@ -172,6 +172,7 @@ export default function VisualMemory() {
 
   return (
     <GamePageLayout
+      path="/visual-memory"
       title="Visual Memory Test"
       subtitle="Squares flash on a grid. Memorize which ones lit up, then click them. Each correct level adds more squares. You have 3 lives."
       category="Visuospatial Working Memory"

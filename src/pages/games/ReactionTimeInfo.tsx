@@ -4,12 +4,23 @@ export default function ReactionTimeInfo() {
   return (
     <div className={styles.infoSection}>
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>What reaction time measures</h2>
+        <h2 className={styles.sectionTitle}>What is Reaction Time?</h2>
+        <dl style={{ marginBottom: '1.5rem', backgroundColor: '#f8fafc', padding: '1.5rem', borderRadius: '12px' }}>
+          <dt style={{ fontWeight: 700, color: '#111827', fontSize: '1.125rem' }}>Definition</dt>
+          <dd style={{ color: '#4b5563', marginTop: '0.5rem', marginBottom: '1rem' }}>
+            Simple visual reaction time (SRT) is the elapsed time between a visual stimulus appearing on screen and your motor response completing (e.g., clicking a mouse).
+          </dd>
+          <dt style={{ fontWeight: 700, color: '#111827', fontSize: '1.125rem' }}>Global Average</dt>
+          <dd style={{ color: '#4b5563', marginTop: '0.5rem' }}>
+            The global average reaction time is approximately 250 to 280 milliseconds (ms) in laboratory conditions, or roughly 284ms on web-based platforms due to hardware latency.
+          </dd>
+        </dl>
+        
         <p className={styles.text}>
-          Simple visual reaction time (SRT) is the elapsed time between a stimulus appearing on screen and your motor response completing. It is the most fundamental benchmark of neural processing speed - Capturing the entire perceptual-motor chain from photon hitting your retina to your finger registering a click. Franciscus Donders first measured it systematically in 1868; over 150 years of research have established the global average at 250–280ms in laboratory conditions, or around 284ms in large web-based test datasets where hardware variation is included.
+          It is the most fundamental benchmark of neural processing speed - Capturing the entire perceptual-motor chain from a photon hitting your retina to your finger registering a click. Franciscus Donders first measured it systematically in 1868.
         </p>
         <p className={styles.text}>
-          SRT is distinct from more complex variants. <span className={styles.link}>Choice reaction time</span> adds a stimulus-identification decision that costs ~100–150ms. <span className={styles.link}>Audio reaction time</span> uses sound instead of light and is typically 30–50ms faster. <span className={styles.link}>Aim Trainer</span> adds a motor targeting component on top. This test isolates the pure detection-to-response interval - The irreducible floor of human response speed.
+          SRT is distinct from more complex variants. <strong>Choice reaction time</strong> adds a stimulus-identification decision that costs ~100–150ms. <strong>Audio reaction time</strong> uses sound instead of light and is typically 30–50ms faster. This test isolates the pure detection-to-response interval.
         </p>
 
         <div className={styles.box}>
@@ -271,6 +282,44 @@ export default function ReactionTimeInfo() {
           <div className={styles.statCard} style={{ backgroundColor: '#fef2f2', border: '1px solid #fecaca' }}>
             <div className={styles.statValue} style={{ color: '#b91c1c' }}>310ms</div>
             <div className={styles.statLabel}>Age 65+</div>
+          </div>
+        </div>
+      </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is a good reaction time?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              A good reaction time is anything below 250ms. A score between 250ms and 300ms is considered average for an adult. Anything below 200ms is excellent and typical of competitive gamers or professional athletes.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why is my reaction time so slow?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Slow reaction times are often caused by hardware latency (using a wireless mouse, playing on a 60Hz monitor, or using a mobile phone). Biological factors like lack of sleep, dehydration, fatigue, or increasing age also significantly slow down your reaction speed.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Can you improve your reaction time?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, you can improve your reaction time through practice, getting adequate sleep, staying hydrated, and doing aerobic exercise. Upgrading your hardware (e.g., using a 144Hz+ monitor and a wired gaming mouse) will also instantly improve your measured score.
+            </p>
           </div>
         </div>
       </section>

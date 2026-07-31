@@ -136,6 +136,7 @@ export default function VerbalMemory() {
 
   return (
     <GamePageLayout
+      path="/verbal-memory"
       title="Verbal Memory Test"
       subtitle="Words appear one at a time. Click Seen if you've encountered the word before, New if it's your first time. Three strikes and the test ends."
       category="Episodic Memory - Recognition"

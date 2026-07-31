@@ -1,0 +1,16 @@
+{
+  "name": "Human Benchmark",
+  "short_name": "Benchmark",
+  "description": "Measure your brain's performance with a suite of cognitive tests.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

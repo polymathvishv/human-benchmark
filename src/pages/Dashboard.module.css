@@ -135,3 +135,33 @@
   color: var(--text-main);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.5rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    padding: 2rem 1rem;
+  }
+  
+  .dashboard {
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+}

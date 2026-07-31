@@ -211,15 +211,29 @@
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding: 2rem 0;
+  }
+  
   .heroTitle {
     font-size: 2rem;
   }
 
+  .heroSubtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
   .heroStats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
   }
 
   .contentArea {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .gameArea {
+    min-height: 280px;
   }
 }

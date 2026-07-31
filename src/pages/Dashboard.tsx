@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard, Smile } from 'lucide-react';
+import { Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard, Smile, Smartphone } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
+import SEO from '../components/SEO';
 import styles from './Dashboard.module.css';
 
 // Using some standard icons for now since lucide doesn't have a monkey icon
@@ -69,18 +70,61 @@ const GAMES = [
     icon: Keyboard,
     color: '#6366f1', // indigo
     formatScore: (s: number) => `${s} WPM`
+  },
+  {
+    id: 'mobile-typing',
+    name: 'Mobile Typing',
+    description: 'How fast can you type on your phone?',
+    icon: Smartphone,
+    color: '#0ea5e9', // light blue
+    formatScore: (s: number) => `${s} WPM`
   }
 ];
 
 export default function Dashboard() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://humanbenchmark.in/#website",
+        "url": "https://humanbenchmark.in/",
+        "name": "Human Benchmark",
+        "description": "Measure your abilities with brain games and cognitive tests.",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://humanbenchmark.in/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://humanbenchmark.in/#organization",
+        "name": "Human Benchmark",
+        "url": "https://humanbenchmark.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://humanbenchmark.in/favicon.svg"
+        }
+      }
+    ]
+  };
+
   return (
-    <div className="main-content-contained">
+    <>
+      <SEO jsonLd={schema} />
+      <div className="main-content-contained">
     <div className={styles.dashboard}>
       <div className={styles.hero}>
         <Zap className={styles.heroIcon} />
         <h1 className={styles.title}>Human Benchmark</h1>
         <p className={styles.subtitle}>Measure your abilities with brain games and cognitive tests.</p>
-        <button className={styles.ctaButton}>Get Started</button>
+        <Link to="/reaction-time" className={styles.ctaButton}>Get Started</Link>
       </div>
 
       <div className={styles.grid}>
@@ -103,7 +147,8 @@ export default function Dashboard() {
           );
         })}
       </div>
-    </div>
-    </div>
+      </div>
+      </div>
+    </>
   );
 }

@@ -149,6 +149,7 @@ export default function NumberMemory() {
 
   return (
     <GamePageLayout
+      path="/number-memory"
       title="Number Memory Test"
       subtitle="Remember the longest number you can. The average person can hold 7 digits in working memory."
       category="Working Memory"

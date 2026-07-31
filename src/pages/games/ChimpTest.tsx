@@ -157,6 +157,7 @@ export default function ChimpTest() {
 
   return (
     <GamePageLayout
+      path="/chimp-test"
       title="Chimp Test"
       subtitle="Numbers flash briefly on screen. Remember their positions, then click them in order. Based on the research that revealed chimpanzees outperform humans."
       category="Memory Test"

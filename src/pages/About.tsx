@@ -1,8 +1,22 @@
 import styles from './About.module.css';
+import SEO from '../components/SEO';
 
 export default function About() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://humanbenchmark.in/about"
+    },
+    "name": "About Human Benchmark",
+    "description": "Learn about the science behind Human Benchmark and our mission to help people understand their cognitive strengths."
+  };
+
   return (
-    <div className={styles.container}>
+    <>
+      <SEO title="About" description={schema.description} canonical="https://humanbenchmark.in/about" jsonLd={schema} />
+      <div className={styles.container}>
       <div className={styles.content}>
         <h2 className={styles.heading}>Welcome to Human Benchmark</h2>
         <p className={styles.text}>
@@ -38,7 +52,8 @@ export default function About() {
             Contact us at <a href="mailto:contact@humanbenchmark.in" className={styles.link}>contact@humanbenchmark.in</a>.
           </p>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

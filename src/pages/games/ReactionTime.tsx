@@ -41,7 +41,8 @@ export default function ReactionTime() {
       setGameState('too_early');
     } else if (gameState === 'now') {
       const endTime = performance.now();
-      const currentScore = Math.floor(endTime - startTimeRef.current);
+      const rawScore = Math.floor(endTime - startTimeRef.current);
+      const currentScore = Math.max(0, rawScore - 60); // Account for 60ms device latency
       const newAttempts = [...attempts, currentScore];
       setAttempts(newAttempts);
 
@@ -150,6 +151,7 @@ export default function ReactionTime() {
 
   return (
     <GamePageLayout
+      path="/reaction-time"
       title="Reaction Time Test"
       subtitle="Click the moment the screen turns green. We average five attempts for your score."
       category="Speed Test"

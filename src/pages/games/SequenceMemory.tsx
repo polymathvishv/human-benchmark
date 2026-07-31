@@ -126,6 +126,7 @@ export default function SequenceMemory() {
 
   return (
     <GamePageLayout
+      path="/sequence-memory"
       title="Sequence Memory Test"
       subtitle="Remember an increasingly long pattern of button presses. How far can you go?"
       category="Working Memory"

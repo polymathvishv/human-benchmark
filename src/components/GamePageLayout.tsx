@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import SEO from './SEO';
 import styles from './GamePageLayout.module.css';
 
 interface HeroStat {
@@ -26,6 +27,7 @@ interface GamePageLayoutProps {
   children: ReactNode;
   infoContent: ReactNode;
   relatedTests?: RelatedTest[];
+  path?: string;
 }
 
 export default function GamePageLayout({
@@ -39,9 +41,61 @@ export default function GamePageLayout({
   children,
   infoContent,
   relatedTests = [],
+  path = '',
 }: GamePageLayoutProps) {
+  const fullUrl = `https://humanbenchmark.in${path}`;
+  
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": title,
+        "description": subtitle,
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "url": fullUrl,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://humanbenchmark.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tests",
+            "item": "https://humanbenchmark.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": title,
+            "item": fullUrl
+          }
+        ]
+      }
+    ]
+  };
+
   return (
-    <div className={styles.pageWrapper}>
+    <>
+      <SEO 
+        title={`${title} Test`} 
+        description={subtitle}
+        canonical={fullUrl}
+        jsonLd={schema}
+      />
+      <div className={styles.pageWrapper}>
       {/* Hero Banner */}
       <section className={styles.hero} style={{ background: heroGradient }}>
         <div className={styles.heroInner}>
@@ -113,6 +167,7 @@ export default function GamePageLayout({
           </aside>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

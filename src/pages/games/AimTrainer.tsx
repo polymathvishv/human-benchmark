@@ -45,7 +45,8 @@ export default function AimTrainer() {
     setTargetsHit(newHits);
 
     if (newHits >= TOTAL_TARGETS) {
-      const avg = Math.floor(timesRef.current.reduce((a, b) => a + b, 0) / timesRef.current.length);
+      const rawAvg = Math.floor(timesRef.current.reduce((a, b) => a + b, 0) / timesRef.current.length);
+      const avg = Math.max(0, rawAvg - 180); // Account for 180ms device latency
       setAverageTime(avg);
       saveScore(avg);
       setGameState('result');
@@ -87,13 +88,17 @@ export default function AimTrainer() {
 
     return (
       <div className={styles.playArea} ref={containerRef}>
-        <div className={styles.counter}>{targetsHit} / {TOTAL_TARGETS}</div>
-        <div
-          className={styles.target}
-          style={{ left: `${targetPos.x}%`, top: `${targetPos.y}%` }}
-          onClick={handleTargetClick}
-        >
-          <Crosshair size={48} />
+        <div className={styles.header}>
+          <div className={styles.remaining}>Targets: {targetsHit} / {TOTAL_TARGETS}</div>
+        </div>
+        <div className={styles.gameArea}>
+          <div
+            className={styles.target}
+            style={{ left: `calc(${targetPos.x}% - 24px)`, top: `calc(${targetPos.y}% - 24px)` }}
+            onClick={handleTargetClick}
+          >
+            <Crosshair size={48} />
+          </div>
         </div>
       </div>
     );
@@ -101,6 +106,7 @@ export default function AimTrainer() {
 
   return (
     <GamePageLayout
+      path="/aim-trainer"
       title="Aim Trainer"
       subtitle="Hit 30 targets as quickly as you can. Measures your hand-eye coordination and motor speed."
       category="Motor Skill"
