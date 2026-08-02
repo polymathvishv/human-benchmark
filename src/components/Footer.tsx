@@ -5,6 +5,10 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
+        <Link to="/" className={styles.brand}>
+          <img src="/logo.png" alt="Human Benchmark Logo" className={styles.brandLogo} />
+          <span className={styles.brandName}>Human Benchmark</span>
+        </Link>
         <div className={styles.links}>
           <Link to="/about" className={styles.link}>About</Link>
           <Link to="/privacy" className={styles.link}>Privacy Policy</Link>

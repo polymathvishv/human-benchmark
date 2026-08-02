@@ -16,7 +16,7 @@ export default function SEO({
   description = 'Measure your brain\'s performance with a suite of cognitive tests including reaction time, visual memory, sequence memory, and more. Compare your scores globally.',
   canonical = 'https://humanbenchmark.in',
   type = 'website',
-  image = 'https://humanbenchmark.in/og-image.jpg',
+  image = 'https://humanbenchmark.in/og-image.png',
   jsonLd,
   children
 }: SEOProps) {

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Activity } from 'lucide-react';
 import styles from './Header.module.css';
 
 export default function Header() {
@@ -7,8 +6,8 @@ export default function Header() {
     <header className={`${styles.header} glass`}>
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
-          <Activity className={styles.icon} />
-          <span>Human Benchmark</span>
+          <img src="/logo.png" alt="Human Benchmark Logo" className={styles.logoImg} />
+          <span className={styles.logoText}>Human Benchmark</span>
         </Link>
         <nav className={styles.nav}>
           <Link to="/" className={styles.navLink}>Home</Link>

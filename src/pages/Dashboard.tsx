@@ -107,7 +107,7 @@ export default function Dashboard() {
         "url": "https://humanbenchmark.in/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://humanbenchmark.in/favicon.svg"
+          "url": "https://humanbenchmark.in/logo.png"
         }
       }
     ]
