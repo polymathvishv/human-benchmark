@@ -11,30 +11,57 @@ type GameState = 'waiting' | 'countdown' | 'playing' | 'result';
 
 const GAME_DURATION = 45; // 45 seconds
 
-// Structured dataset imitating natural messaging
+// Mobile-optimized sentence bank containing ONLY alphabets, commas, and full stops (.)
+// Zero numbers, apostrophes, question marks, or symbols that require secondary keyboard screens (?123).
 const SENTENCES = [
-  // Easy (short, mostly lowercase, minimal punctuation)
-  "I'm almost there.",
-  "Can you send me the address?",
-  "I'll call you in five minutes.",
-  "Let's order pizza tonight.",
+  // Short everyday messages
+  "I am almost there.",
+  "Please send me the address.",
+  "I will call you in five minutes.",
+  "Let us order pizza tonight.",
   "We should meet after work.",
-  "My phone battery is almost dead.",
-  "See you soon!",
-  // Medium (longer, some punctuation)
-  "That movie was surprisingly good.",
-  "The weather is beautiful today, isn't it?",
-  "I can't believe how fast this year went by.",
-  "Don't forget to grab some milk on your way home.",
-  "I'll text you when I arrive at the station.",
-  "Are we still on for lunch tomorrow at 1?",
-  // Hard (numbers, symbols, URLs)
-  "See you at 7:30 PM tonight.",
-  "My email is hello@example.com.",
-  "Check out humanbenchmark.in for more tests!",
-  "Wait, really?! That's 100% crazy.",
-  "Call me back ASAP. 911-555-0198",
-  "It costs $45.99, but shipping is free."
+  "My phone battery is low.",
+  "See you soon.",
+  "I just woke up, give me a minute.",
+  "Let me know when you arrive.",
+  "Have a great day ahead.",
+  "Thanks for the help today.",
+  "I will be waiting outside for you.",
+  "Can we talk later today.",
+  "Everything looks good to me.",
+  "I am heading out now, see you.",
+
+  // Conversational sentences with commas and full stops
+  "That movie was surprisingly good, I really liked the ending.",
+  "The weather is beautiful today, we should go for a walk.",
+  "I cannot believe how fast this whole year went by.",
+  "Do not forget to grab some bread and milk on your way home.",
+  "I will text you when I reach the train station, see you there.",
+  "We can go for lunch tomorrow around noon, let me know.",
+  "The coffee shop around the corner has great drinks.",
+  "Please remember to lock the front door when you leave.",
+  "I was thinking about our plans, and I think we should go early.",
+  "Take your time, there is no need to rush.",
+  "She told me about the new project, it sounds very exciting.",
+  "I finished reading the book, and it was truly amazing.",
+  "If you have some free time, give me a quick call.",
+  "We should try that new restaurant downtown this weekend.",
+  "The sunset looks incredible today, look out the window.",
+
+  // Flow and rhythm sentences
+  "Practice makes typing faster, especially when using two thumbs.",
+  "Touch typing on glass takes practice, but muscle memory helps a lot.",
+  "Speed and accuracy are both important, so keep a steady pace.",
+  "Quick brown foxes jump over lazy dogs, as the old saying goes.",
+  "Good morning, I hope you slept well and feel energized.",
+  "I left my keys on the table, please keep them safe for me.",
+  "We are planning a road trip next month, you should join us.",
+  "The train was slightly delayed, but I am on my way now.",
+  "Always stay focused, breathe calmly, and keep your thumbs moving.",
+  "Every small improvement counts, so keep practicing every day.",
+  "Finding a good balance between speed and precision is the key.",
+  "It is always a pleasure to learn new things and build great habits.",
+  "Listen carefully, follow the rhythm, and do your best."
 ];
 
 export default function MobileTypingTest() {
@@ -45,6 +72,7 @@ export default function MobileTypingTest() {
   const [sentenceIndex, setSentenceIndex] = useState(0);
   const [targetText, setTargetText] = useState('');
   const [typedChars, setTypedChars] = useState<string[]>([]);
+  const lastIndexRef = useRef<number>(-1);
   
   // Metrics
   const [totalCorrectChars, setTotalCorrectChars] = useState(0);
@@ -95,8 +123,13 @@ export default function MobileTypingTest() {
   }, [gameState]);
 
   const loadRandomSentence = () => {
-    // Pick random sentence from pool
-    const newText = SENTENCES[Math.floor(Math.random() * SENTENCES.length)];
+    // Pick random sentence from pool, avoiding immediate repetition
+    let nextIdx = Math.floor(Math.random() * SENTENCES.length);
+    if (nextIdx === lastIndexRef.current && SENTENCES.length > 1) {
+      nextIdx = (nextIdx + 1) % SENTENCES.length;
+    }
+    lastIndexRef.current = nextIdx;
+    const newText = SENTENCES[nextIdx];
     setTargetText(newText);
     setTypedChars([]);
     // Clear the hidden input

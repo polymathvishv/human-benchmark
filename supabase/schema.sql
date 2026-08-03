@@ -87,3 +87,8 @@ WITH CHECK (auth.uid() = user_id);
 -- Create index on game_id and score for fast querying
 CREATE INDEX IF NOT EXISTS idx_scores_game_score ON public.scores(game_id, score);
 CREATE INDEX IF NOT EXISTS idx_scores_user ON public.scores(user_id);
+CREATE INDEX IF NOT EXISTS idx_scores_game_created ON public.scores(game_id, created_at DESC);
+
+-- Enable Supabase Realtime for instant leaderboard updates
+ALTER PUBLICATION supabase_realtime ADD TABLE public.scores;
+

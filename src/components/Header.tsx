@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, LogOut, ChevronDown, Award, Settings } from 'lucide-react';
+import { User, LogOut, ChevronDown, Award, Settings, Trophy } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './auth/AuthModal';
 import EditProfileModal from './auth/EditProfileModal';
@@ -45,6 +45,9 @@ export default function Header() {
           
           <nav className={styles.nav}>
             <Link to="/" className={styles.navLink}>Home</Link>
+            <Link to="/leaderboard" className={styles.navLink}>
+              Leaderboard
+            </Link>
             <Link to="/dashboard" className={styles.navLink}>Score Card</Link>
             <Link to="/about" className={styles.navLink}>About</Link>
             <Link to="/contact" className={styles.navLink}>Contact</Link>
@@ -69,8 +72,7 @@ export default function Header() {
                   {isDropdownOpen && (
                     <div className={styles.dropdownMenu}>
                       <div className={styles.dropdownHeader}>
-                        <div className={styles.dropdownUserLabel}>Signed in as</div>
-                        <div className={styles.dropdownUserEmail}>{user.email}</div>
+                        <p className={styles.dropdownUserEmail}>{user.email}</p>
                       </div>
 
                       <Link
@@ -79,7 +81,16 @@ export default function Header() {
                         onClick={() => setIsDropdownOpen(false)}
                       >
                         <Award size={16} />
-                        <span>Score Card</span>
+                        <span>My Score Card</span>
+                      </Link>
+
+                      <Link
+                        to="/leaderboard"
+                        className={styles.dropdownItem}
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        <Trophy size={16} />
+                        <span>Global Leaderboards</span>
                       </Link>
 
                       <button

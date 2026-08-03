@@ -18,6 +18,7 @@ const VisualMemory = lazy(() => import('./pages/games/VisualMemory'));
 const TypingTest = lazy(() => import('./pages/games/TypingTest'));
 const MobileTypingTest = lazy(() => import('./pages/games/MobileTypingTest'));
 const StatsPage = lazy(() => import('./pages/StatsPage'));
+const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -31,6 +32,7 @@ function App() {
           <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading...</div>}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/reaction-time" element={<ReactionTime />} />
               <Route path="/sequence-memory" element={<SequenceMemory />} />
               <Route path="/aim-trainer" element={<AimTrainer />} />

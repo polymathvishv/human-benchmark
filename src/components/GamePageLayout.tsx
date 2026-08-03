@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import SEO from './SEO';
+import GameLeaderboardWidget from './leaderboard/GameLeaderboardWidget';
 import styles from './GamePageLayout.module.css';
 
 interface HeroStat {
@@ -28,6 +29,7 @@ interface GamePageLayoutProps {
   infoContent: ReactNode;
   relatedTests?: RelatedTest[];
   path?: string;
+  gameId?: string;
 }
 
 export default function GamePageLayout({
@@ -42,6 +44,7 @@ export default function GamePageLayout({
   infoContent,
   relatedTests = [],
   path = '',
+  gameId,
 }: GamePageLayoutProps) {
   const fullUrl = `https://humanbenchmark.in${path}`;
   
@@ -144,6 +147,15 @@ export default function GamePageLayout({
 
           {/* Sidebar */}
           <aside className={styles.sidebar}>
+            {/* Real-Time Global Leaderboard Widget */}
+            {(gameId || path.replace('/', '')) && (
+              <GameLeaderboardWidget
+                gameId={gameId || path.replace('/', '')}
+                gameTitle={title}
+                limit={5}
+              />
+            )}
+
             {relatedTests.length > 0 && (
               <div className={styles.sidebarCard}>
                 <h3 className={styles.sidebarTitle}>Related Tests</h3>
@@ -161,7 +173,7 @@ export default function GamePageLayout({
             <div className={styles.sidebarCard}>
               <h3 className={styles.sidebarTitle}>About This Test</h3>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', lineHeight: 1.6 }}>
-                This test measures a specific cognitive ability. Your results are stored locally in your browser. Take it multiple times to get your true baseline.
+                This test measures a specific cognitive ability. Play to climb the global leaderboard and track your brain metrics!
               </p>
             </div>
           </aside>
