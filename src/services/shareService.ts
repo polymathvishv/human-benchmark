@@ -123,3 +123,34 @@ export const getScoreCardShareMessage = (items: ScoreCardItem[], overallPercenti
 
   return `🧠 My Human Benchmark Scorecard:\n\n${lines.join('\n')}\n\n${overallText}\nCan you beat my brain score?\n${getScoreCardShareUrl()}`;
 };
+
+export const getBattleShareUrl = (roomCode: string) => `${BASE_URL}/battle/${roomCode}`;
+
+export interface BattleShareData {
+  roomCode: string;
+  gameName: string;
+  hostName: string;
+  scores: Array<{
+    playerName: string;
+    scoreFormatted: string;
+  }>;
+}
+
+export const getBattleShareMessage = (data: BattleShareData): string => {
+  const { roomCode, gameName, hostName, scores } = data;
+  const url = getBattleShareUrl(roomCode);
+
+  let leaderboardText = '';
+  if (scores.length > 0) {
+    const medals = ['🥇', '🥈', '🥉'];
+    const rows = scores.map((s, idx) => {
+      const prefix = idx < 3 ? medals[idx] : `#${idx + 1}`;
+      return `${prefix} ${s.playerName}: ${s.scoreFormatted}`;
+    });
+    leaderboardText = `\n\n🏆 Live Leaderboard:\n${rows.join('\n')}`;
+  } else {
+    leaderboardText = `\n\nNo scores on the board yet — be the first to play!`;
+  }
+
+  return `⚔️ ${gameName} Battle!\nRoom: ${roomCode} (Hosted by ${hostName})${leaderboardText}\n\n🎮 Can you top the leaderboard? Join the battle:\n${url}`;
+};

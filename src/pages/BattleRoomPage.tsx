@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
-  Swords, Copy, Check, Play, Loader2, Trophy, Clock, ArrowRight
+  Swords, Copy, Check, Play, Loader2, Trophy, Clock, ArrowRight, Share2
 } from 'lucide-react';
 import {
   fetchBattleRoom,
@@ -12,6 +12,7 @@ import {
 } from '../services/battleService';
 import type { BattleRoomWithScores } from '../services/battleService';
 import { setBattleContext } from '../hooks/useBattleAutoSubmit';
+import BattleShareModal from '../components/share/BattleShareModal';
 import SEO from '../components/SEO';
 import styles from './BattleRoomPage.module.css';
 
@@ -59,6 +60,9 @@ export default function BattleRoomPage() {
   // Play form state
   const [playerName, setPlayerName] = useState('');
   const [nameError, setNameError] = useState('');
+
+  // Share modal state
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   // Copy link state
   const [copied, setCopied] = useState(false);
@@ -225,6 +229,13 @@ export default function BattleRoomPage() {
               </div>
 
               <div className={styles.roomActions}>
+                <button
+                  className={styles.shareLeaderboardBtn}
+                  onClick={() => setIsShareOpen(true)}
+                >
+                  <Share2 size={15} />
+                  Share Leaderboard
+                </button>
                 <button className={styles.copyLinkBtn} onClick={handleCopyLink}>
                   {copied ? <Check size={15} /> : <Copy size={15} />}
                   {copied ? 'Copied!' : 'Copy Room Link'}
@@ -321,9 +332,18 @@ export default function BattleRoomPage() {
                 {!room.isExpired && <div className={styles.lbLiveDot} />}
                 Live Leaderboard
               </div>
-              <span className={styles.lbCount}>
-                {room.playerCount} / {room.maxPlayers} entries
-              </span>
+              <div className={styles.lbHeaderActions}>
+                <button
+                  className={styles.lbShareBtn}
+                  onClick={() => setIsShareOpen(true)}
+                >
+                  <Share2 size={13} />
+                  Share Board
+                </button>
+                <span className={styles.lbCount}>
+                  {room.playerCount} / {room.maxPlayers} entries
+                </span>
+              </div>
             </div>
 
             {room.scores.length === 0 ? (
@@ -393,7 +413,21 @@ export default function BattleRoomPage() {
           </div>
 
           {/* ── Bottom CTAs ── */}
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => setIsShareOpen(true)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                border: '1px solid rgba(52,211,153,0.4)',
+                color: '#fff', fontSize: '0.85rem', fontWeight: 700,
+                padding: '0.65rem 1.25rem', borderRadius: 12, cursor: 'pointer',
+                boxShadow: '0 4px 14px 0 rgba(16, 185, 129, 0.35)'
+              }}
+            >
+              <Share2 size={15} />
+              Share Leaderboard
+            </button>
             <button
               onClick={handleCopyLink}
               style={{
@@ -404,7 +438,7 @@ export default function BattleRoomPage() {
               }}
             >
               {copied ? <Check size={15} /> : <Copy size={15} />}
-              {copied ? 'Link Copied!' : 'Share Battle Link'}
+              {copied ? 'Link Copied!' : 'Copy Room Link'}
             </button>
             <Link to="/battle" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
@@ -419,6 +453,13 @@ export default function BattleRoomPage() {
 
         </div>
       </div>
+
+      {/* ── Share Leaderboard Modal ── */}
+      <BattleShareModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        room={room}
+      />
     </>
   );
 }
