@@ -36,33 +36,90 @@ export const getShareMessage = (config: ShareConfig): string => {
   }
 };
 
-// Mock function to generate percentiles based on local storage scores until backend is ready.
-// In reality, this would query a database.
+// Approximate error function for standard normal cumulative distribution
+function erf(x: number): number {
+  const sign = x >= 0 ? 1 : -1;
+  x = Math.abs(x);
+
+  const a1 = 0.254829592;
+  const a2 = -0.284496736;
+  const a3 = 1.421413741;
+  const a4 = -1.453152027;
+  const a5 = 1.061405429;
+  const p = 0.3275911;
+
+  const t = 1.0 / (1.0 + p * x);
+  const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+
+  return sign * y;
+}
+
+// Normal Cumulative Distribution Function (CDF)
+function normalCDF(x: number, mean: number, stdDev: number): number {
+  const z = (x - mean) / (stdDev * Math.SQRT2);
+  return 0.5 * (1 + erf(z));
+}
+
+// Real Human Benchmark distribution benchmarks (mean & standard deviation)
+const GAME_DISTRIBUTIONS: Record<string, { mean: number; stdDev: number; isLowerBetter?: boolean }> = {
+  'reaction-time': { mean: 273, stdDev: 42, isLowerBetter: true },
+  'aim-trainer': { mean: 410, stdDev: 75, isLowerBetter: true },
+  'typing': { mean: 65, stdDev: 20, isLowerBetter: false },
+  'mobile-typing': { mean: 38, stdDev: 12, isLowerBetter: false },
+  'sequence-memory': { mean: 7.8, stdDev: 2.4, isLowerBetter: false },
+  'number-memory': { mean: 9.0, stdDev: 2.1, isLowerBetter: false },
+  'verbal-memory': { mean: 38, stdDev: 22, isLowerBetter: false },
+  'chimp-test': { mean: 9.8, stdDev: 2.8, isLowerBetter: false },
+  'visual-memory': { mean: 9.5, stdDev: 2.3, isLowerBetter: false },
+};
+
+/**
+ * Generates an accurate percentile rank (1-99) based on standard normal distribution of scores.
+ */
 export const generateMockPercentile = (score: number, gameId: string, isLowerBetter: boolean = false): number => {
-  // Simple heuristic just to show the UI feature
-  let baseline = 100;
-  let variance = 50;
+  const dist = GAME_DISTRIBUTIONS[gameId];
+  if (!dist) return 50;
 
-  switch (gameId) {
-    case 'reaction-time': baseline = 270; variance = 100; break;
-    case 'aim-trainer': baseline = 400; variance = 150; break;
-    case 'typing': baseline = 50; variance = 40; break;
-    case 'mobile-typing': baseline = 40; variance = 30; break;
-    case 'sequence-memory': baseline = 9; variance = 5; break;
-    case 'number-memory': baseline = 9; variance = 5; break;
-    case 'verbal-memory': baseline = 40; variance = 30; break;
-    case 'chimp-test': baseline = 10; variance = 5; break;
-    case 'visual-memory': baseline = 9; variance = 4; break;
+  const lowerBetter = dist.isLowerBetter ?? isLowerBetter;
+  let cdf = normalCDF(score, dist.mean, dist.stdDev);
+
+  // If lower is better (e.g. reaction time 180ms), lower score means higher performance percentile
+  if (lowerBetter) {
+    cdf = 1 - cdf;
   }
 
-  let zScore = 0;
-  if (isLowerBetter) {
-    zScore = (baseline - score) / variance;
-  } else {
-    zScore = (score - baseline) / variance;
-  }
+  const percentile = Math.round(cdf * 100);
+  return Math.min(Math.max(percentile, 1), 99);
+};
 
-  // Convert z-score to rough percentile (clamped 1-99)
-  let p = Math.round(50 + (zScore * 34));
-  return Math.min(Math.max(p, 1), 99);
+export interface ScoreCardItem {
+  gameId: string;
+  gameName: string;
+  scoreFormatted: string;
+  percentile: number;
+}
+
+export const getScoreCardShareUrl = () => `${BASE_URL}/dashboard`;
+
+export const getScoreCardShareMessage = (items: ScoreCardItem[], overallPercentile: number): string => {
+  const gameEmojis: Record<string, string> = {
+    'reaction-time': '⚡',
+    'sequence-memory': '🧠',
+    'aim-trainer': '🎯',
+    'number-memory': '🔢',
+    'verbal-memory': '🗣️',
+    'chimp-test': '🐵',
+    'visual-memory': '👁️',
+    'typing': '⌨️',
+    'mobile-typing': '📱',
+  };
+
+  const lines = items.map(item => {
+    const emoji = gameEmojis[item.gameId] || '📊';
+    return `${emoji} ${item.gameName}: ${item.scoreFormatted} (Top ${100 - item.percentile}%)`;
+  });
+
+  const overallText = overallPercentile > 0 ? `🏆 Overall Rating: Top ${100 - overallPercentile}%\n` : '';
+
+  return `🧠 My Human Benchmark Scorecard:\n\n${lines.join('\n')}\n\n${overallText}\nCan you beat my brain score?\n${getScoreCardShareUrl()}`;
 };
