@@ -4,6 +4,7 @@ import { type ReactNode } from 'react';
 interface SEOProps {
   title?: string;
   description?: string;
+  keywords?: string;
   canonical?: string;
   type?: string;
   image?: string;
@@ -12,8 +13,9 @@ interface SEOProps {
 }
 
 export default function SEO({
-  title = 'Human Benchmark - Cognitive & Physical Tests',
-  description = 'Measure your brain\'s performance with a suite of cognitive tests including reaction time, visual memory, sequence memory, and more. Compare your scores globally.',
+  title = 'Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks',
+  description = 'Measure your brain\'s performance with the official Human Benchmark test suite. Accurate tests for reaction time, sequence memory, aim trainer, typing speed, verbal memory, and more.',
+  keywords = 'human benchmark, human benchmark test, humanbenchmark, human bench mark, human benchmarks, human bench mrk, human bechmark, human benchamrk, human benchnmark, human becnhmark, cognitive tests, brain benchmarks',
   canonical = 'https://humanbenchmark.in',
   type = 'website',
   image = 'https://humanbenchmark.in/og-image.png',
@@ -27,6 +29,7 @@ export default function SEO({
       {/* Standard Metadata */}
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonical} />
 
       {/* OpenGraph */}

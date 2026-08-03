@@ -15,7 +15,13 @@ export default function About() {
 
   return (
     <>
-      <SEO title="About" description={schema.description} canonical="https://humanbenchmark.in/about" jsonLd={schema} />
+      <SEO
+        title="About Human Benchmark - Brain & Cognitive Benchmarks"
+        description={schema.description}
+        keywords="about human benchmark, human benchmark test, humanbenchmark, human bench mark, human benchmarks, cognitive test science, brain performance benchmarks"
+        canonical="https://humanbenchmark.in/about"
+        jsonLd={schema}
+      />
       <div className={styles.container}>
       <div className={styles.content}>
         <h2 className={styles.heading}>Welcome to Human Benchmark</h2>

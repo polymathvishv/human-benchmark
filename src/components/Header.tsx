@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, LogOut, ChevronDown, Award, Settings, Trophy } from 'lucide-react';
+import { User, LogOut, ChevronDown, Award, Settings, Trophy, Swords } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './auth/AuthModal';
 import EditProfileModal from './auth/EditProfileModal';
@@ -45,8 +45,10 @@ export default function Header() {
           
           <nav className={styles.nav}>
             <Link to="/" className={styles.navLink}>Home</Link>
-            <Link to="/leaderboard" className={styles.navLink}>
-              Leaderboard
+            <Link to="/leaderboard" className={styles.navLink}>Leaderboard</Link>
+            <Link to="/battle" className={styles.navLink} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Swords size={14} />
+              Battles
             </Link>
             <Link to="/dashboard" className={styles.navLink}>Score Card</Link>
             <Link to="/about" className={styles.navLink}>About</Link>

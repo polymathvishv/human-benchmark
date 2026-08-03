@@ -1,0 +1,341 @@
+/* ============================================================
+   BattlePage.module.css — /battle hub page
+   ============================================================ */
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #030f07 0%, #042010 25%, #064e3b 55%, #0a5c45 80%, #0d7a5c 100%);
+  min-height: 320px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(16,185,129,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(52,211,153,0.09) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: rgba(110,231,183,0.9);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(167,243,208,0.85);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.heroTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.heroTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(110,231,183,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.heroTag:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── Stats Strip ── */
+.statsStrip {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  padding: 2rem 1.5rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Main content area ── */
+.mainArea {
+  background: #050812;
+  padding: 4rem 0 5rem;
+}
+
+.mainInner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ── Create + How It Works grid ── */
+.createGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #34d399;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Form Card ── */
+.formCard {
+  background: #0f1117;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.formCardAccent {
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.formBody {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(156,163,175,0.9);
+  margin-bottom: 0.5rem;
+}
+
+.nameInput {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.nameInput::placeholder { color: rgba(156,163,175,0.5); }
+.nameInput:focus { border-color: #10b981; }
+
+/* ── Test Picker Grid ── */
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.testBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: rgba(209,213,219,0.85);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.testBtn:hover {
+  border-color: #10b981;
+  background: rgba(16,185,129,0.08);
+  color: #fff;
+}
+
+.testBtnActive {
+  border-color: #10b981;
+  background: rgba(16,185,129,0.15);
+  color: #fff;
+}
+
+.testBtnEmoji {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Create Button ── */
+.createBtn {
+  width: 100%;
+  background: #10b981;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 1rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.createBtn:hover:not(:disabled) {
+  background: #34d399;
+  transform: translateY(-1px);
+}
+
+.createBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.createError {
+  font-size: 0.825rem;
+  color: #f87171;
+  text-align: center;
+}
+
+/* ── How It Works ── */
+.howSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.howStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #0f1117;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #34d399;
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.stepDesc {
+  font-size: 0.78rem;
+  color: rgba(156,163,175,0.85);
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .createGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroInner {
+    padding: 3.5rem 1.25rem 3rem;
+  }
+}

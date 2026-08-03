@@ -19,6 +19,8 @@ const TypingTest = lazy(() => import('./pages/games/TypingTest'));
 const MobileTypingTest = lazy(() => import('./pages/games/MobileTypingTest'));
 const StatsPage = lazy(() => import('./pages/StatsPage'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
+const BattlePage = lazy(() => import('./pages/BattlePage'));
+const BattleRoomPage = lazy(() => import('./pages/BattleRoomPage'));
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -33,6 +35,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/leaderboard" element={<LeaderboardPage />} />
+              <Route path="/battle" element={<BattlePage />} />
+              <Route path="/battle/:roomCode" element={<BattleRoomPage />} />
               <Route path="/reaction-time" element={<ReactionTime />} />
               <Route path="/sequence-memory" element={<SequenceMemory />} />
               <Route path="/aim-trainer" element={<AimTrainer />} />
