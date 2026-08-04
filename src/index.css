@@ -90,3 +90,15 @@ button {
 .spinning {
   animation: spin 0.9s linear infinite;
 }
+
+@media (max-width: 768px) {
+  .main-content-contained {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content-contained {
+    padding: 1rem 0.75rem;
+  }
+}

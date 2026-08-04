@@ -339,3 +339,23 @@
     padding: 3.5rem 1.25rem 3rem;
   }
 }
+
+@media (max-width: 480px) {
+  .heroInner {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .heroTitle {
+    font-size: 1.9rem;
+  }
+
+  .testGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+}
