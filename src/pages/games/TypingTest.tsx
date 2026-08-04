@@ -31,6 +31,17 @@ export default function TypingTest() {
     if (gameState === 'playing' && containerRef.current) {
       containerRef.current.focus();
     }
+
+    const handleWindowKeyDown = (e: KeyboardEvent) => {
+      if (gameState === 'playing' && (e.key === ' ' || e.code === 'Space')) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', handleWindowKeyDown, { passive: false });
+    return () => {
+      window.removeEventListener('keydown', handleWindowKeyDown);
+    };
   }, [gameState]);
 
   const startGame = () => {
@@ -42,7 +53,13 @@ export default function TypingTest() {
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (gameState !== 'playing') return;
-    if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'Meta') return;
+
+    // Prevent default browser scrolling and actions for spacebar, backspace, and typing keys
+    if (e.key === ' ' || e.key === 'Backspace' || e.key === 'Tab' || e.key.startsWith('Arrow') || e.key.length === 1) {
+      e.preventDefault();
+    }
+
+    if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'Meta' || e.key === 'Tab') return;
     if (e.key.startsWith('Arrow')) return;
 
     if (typedChars.length === 0 && e.key.length === 1) {
