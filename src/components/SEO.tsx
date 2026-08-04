@@ -18,7 +18,7 @@ export default function SEO({
   keywords = 'human benchmark, human benchmark test, humanbenchmark, human bench mark, human benchmarks, human bench mrk, human bechmark, human benchamrk, human benchnmark, human becnhmark, cognitive tests, brain benchmarks',
   canonical = 'https://humanbenchmark.in',
   type = 'website',
-  image = 'https://humanbenchmark.in/og-image.png',
+  image = 'https://humanbenchmark.in/og-image.png?v=2.0',
   jsonLd,
   children
 }: SEOProps) {
