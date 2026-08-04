@@ -15,14 +15,24 @@ export default function ReactionTime() {
   const [score, setScore] = useState<number>(0);
   const [attempts, setAttempts] = useState<number[]>([]);
   const timeoutRef = useRef<number | null>(null);
+  const autoNextTimeoutRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const { saveScore } = useHighScore('reaction-time', false);
 
+  const clearAllTimers = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    if (autoNextTimeoutRef.current) {
+      clearTimeout(autoNextTimeoutRef.current);
+      autoNextTimeoutRef.current = null;
+    }
+  };
+
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      clearAllTimers();
     };
   }, []);
 
@@ -32,16 +42,19 @@ export default function ReactionTime() {
     soundService.playReactionGreen();
   };
 
+  const startNextAttempt = () => {
+    clearAllTimers();
+    setGameState('ready');
+    const randomDelay = Math.floor(Math.random() * 3000) + 2000;
+    timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
+  };
+
   const handleClick = () => {
     if (gameState === 'waiting') {
       setAttempts([]);
-      setGameState('ready');
-      const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
+      startNextAttempt();
     } else if (gameState === 'ready') {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      clearAllTimers();
       soundService.playReactionEarly();
       setGameState('too_early');
     } else if (gameState === 'now') {
@@ -52,6 +65,7 @@ export default function ReactionTime() {
       setAttempts(newAttempts);
 
       if (newAttempts.length >= 5) {
+        clearAllTimers();
         const average = Math.floor(newAttempts.reduce((a, b) => a + b, 0) / newAttempts.length);
         setScore(average);
         saveScore(average);
@@ -61,15 +75,18 @@ export default function ReactionTime() {
         setScore(currentScore);
         soundService.playReactionResult();
         setGameState('attempt_result');
+
+        // Automatically turn red after 1 second without requiring a tap
+        clearAllTimers();
+        autoNextTimeoutRef.current = window.setTimeout(() => {
+          startNextAttempt();
+        }, 1000);
       }
     } else if (gameState === 'too_early') {
-      setGameState('ready');
-      const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
+      startNextAttempt();
     } else if (gameState === 'attempt_result') {
-      setGameState('ready');
-      const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
+      // Allow early tap to skip the remainder of the 1-second delay
+      startNextAttempt();
     }
   };
 
@@ -92,6 +109,7 @@ export default function ReactionTime() {
           label="Average Reaction Time"
           icon={<Zap size={40} />}
           onRetry={() => {
+            clearAllTimers();
             setGameState('waiting');
             setScore(0);
             setAttempts([]);
@@ -154,7 +172,7 @@ export default function ReactionTime() {
           <div className={styles.content}>
             <Clock size={56} className={styles.icon} />
             <h2>{score} ms</h2>
-            <p>Click to keep going.</p>
+            <p>Next round starting in 1s...</p>
             <p className={styles.instruction}>Attempt {attempts.length} of 5</p>
           </div>
         )}
