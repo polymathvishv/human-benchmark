@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import NumberMemoryInfo from './NumberMemoryInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'showing' | 'input' | 'result';
 
@@ -42,6 +43,7 @@ export default function NumberMemory() {
     setUserInput('');
     setGameState('showing');
     setProgress(100);
+    soundService.playNumberTick();
 
     const timeToShow = Math.max(2000, currentLevel * 1000);
     const intervalTime = 20;
@@ -72,12 +74,22 @@ export default function NumberMemory() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (userInput === targetNumber) {
+      soundService.playNumberSuccess();
       setLevel(l => l + 1);
-      startLevel(level + 1);
+      setTimeout(() => startLevel(level + 1), 500);
     } else {
+      soundService.playNumberWrong();
       saveScore(level);
       setGameState('result');
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value.replace(/[^0-9]/g, '');
+    if (val.length > userInput.length) {
+      soundService.playKeyClick();
+    }
+    setUserInput(val);
   };
 
   const renderGame = () => {
@@ -142,7 +154,7 @@ export default function NumberMemory() {
             pattern="[0-9]*"
             inputMode="numeric"
             value={userInput}
-            onChange={(e) => setUserInput(e.target.value.replace(/[^0-9]/g, ''))}
+            onChange={handleInputChange}
             autoFocus
             className={styles.input}
           />

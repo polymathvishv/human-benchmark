@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import AimTrainerInfo from './AimTrainerInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'playing' | 'result';
 
@@ -43,12 +44,14 @@ export default function AimTrainer() {
 
     const newHits = targetsHit + 1;
     setTargetsHit(newHits);
+    soundService.playAimHit(newHits);
 
     if (newHits >= TOTAL_TARGETS) {
       const rawAvg = Math.floor(timesRef.current.reduce((a, b) => a + b, 0) / timesRef.current.length);
       const avg = Math.max(0, rawAvg - 180); // Account for 180ms device latency
       setAverageTime(avg);
       saveScore(avg);
+      soundService.playVictory();
       setGameState('result');
     } else {
       placeTarget();

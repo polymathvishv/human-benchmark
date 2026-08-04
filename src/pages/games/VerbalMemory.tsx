@@ -7,6 +7,7 @@ import GamePageLayout from '../../components/GamePageLayout';
 import VerbalMemoryInfo from './VerbalMemoryInfo';
 import { WORDS } from '../../utils/words';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'playing' | 'result';
 
@@ -54,6 +55,7 @@ export default function VerbalMemory() {
       newScore += 1;
     } else {
       newLives -= 1;
+      soundService.playLifeLost(newLives);
     }
 
     if (!wordActuallySeen) {

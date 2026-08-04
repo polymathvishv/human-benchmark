@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import SEO from './SEO';
+import SoundToggle from './SoundToggle';
 import GameLeaderboardWidget from './leaderboard/GameLeaderboardWidget';
 import styles from './GamePageLayout.module.css';
 
@@ -116,14 +117,17 @@ export default function GamePageLayout({
         </div>
       </section>
 
-      {/* Breadcrumb */}
+      {/* Breadcrumb & Sound Controls */}
       <div className={styles.breadcrumb}>
         <div className={styles.breadcrumbInner}>
-          <Link to="/" className={styles.breadcrumbLink}>Home</Link>
-          <ChevronRight size={14} className={styles.breadcrumbSep} />
-          <Link to="/" className={styles.breadcrumbLink}>Tests</Link>
-          <ChevronRight size={14} className={styles.breadcrumbSep} />
-          <span className={styles.breadcrumbCurrent}>{title}</span>
+          <div className={styles.breadcrumbLeft}>
+            <Link to="/" className={styles.breadcrumbLink}>Home</Link>
+            <ChevronRight size={14} className={styles.breadcrumbSep} />
+            <Link to="/" className={styles.breadcrumbLink}>Tests</Link>
+            <ChevronRight size={14} className={styles.breadcrumbSep} />
+            <span className={styles.breadcrumbCurrent}>{title}</span>
+          </div>
+          <SoundToggle />
         </div>
       </div>
 

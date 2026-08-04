@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import TypingInfo from './TypingInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'playing' | 'result';
 
@@ -49,8 +50,16 @@ export default function TypingTest() {
     }
 
     if (e.key === 'Backspace') {
+      soundService.playKeyClick();
       setTypedChars(prev => prev.slice(0, -1));
     } else if (e.key.length === 1) {
+      const nextIndex = typedChars.length;
+      if (nextIndex < targetText.length && e.key !== targetText[nextIndex]) {
+        soundService.playTypo();
+      } else {
+        soundService.playKeyClick();
+      }
+
       const newTyped = [...typedChars, e.key];
       setTypedChars(newTyped);
       if (newTyped.length === targetText.length) {
@@ -72,6 +81,7 @@ export default function TypingTest() {
     const finalWpm = Math.round(wordsTyped / timeInMinutes);
     setWpm(finalWpm);
     saveScore(finalWpm);
+    soundService.playVictory();
     setGameState('result');
   };
 

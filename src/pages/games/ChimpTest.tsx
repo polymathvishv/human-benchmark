@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import ChimpTestInfo from './ChimpTestInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'memorize' | 'clicking' | 'failed_level' | 'result';
 
@@ -54,6 +55,7 @@ export default function ChimpTest() {
     if (cell.isClicked) return;
 
     if (cell.value === expectedNext) {
+      soundService.playChimpCorrect(cell.value);
       const newExpected = expectedNext + 1;
       setExpectedNext(newExpected);
       const newCells = cells.map(c => {
@@ -64,12 +66,14 @@ export default function ChimpTest() {
       setCells(newCells);
       if (cell.value === 1) setGameState('clicking');
       if (newExpected > level) {
+        setTimeout(() => soundService.playLevelUp(), 150);
         setTimeout(() => {
           setLevel(l => l + 1);
           generateLevel(level + 1);
         }, 500);
       }
     } else {
+      soundService.playChimpWrong();
       const newStrikes = strikes + 1;
       setCells(cells.map(c => ({ ...c, isHidden: false, isClicked: c.isClicked })));
       if (newStrikes >= 3) {

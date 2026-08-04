@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import ReactionTimeInfo from './ReactionTimeInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'ready' | 'now' | 'too_early' | 'attempt_result' | 'result';
 
@@ -25,19 +26,23 @@ export default function ReactionTime() {
     };
   }, []);
 
+  const triggerGreen = () => {
+    setGameState('now');
+    startTimeRef.current = performance.now();
+    soundService.playReactionGreen();
+  };
+
   const handleClick = () => {
     if (gameState === 'waiting') {
       setAttempts([]);
       setGameState('ready');
       const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(() => {
-        setGameState('now');
-        startTimeRef.current = performance.now();
-      }, randomDelay);
+      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
     } else if (gameState === 'ready') {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
+      soundService.playReactionEarly();
       setGameState('too_early');
     } else if (gameState === 'now') {
       const endTime = performance.now();
@@ -50,25 +55,21 @@ export default function ReactionTime() {
         const average = Math.floor(newAttempts.reduce((a, b) => a + b, 0) / newAttempts.length);
         setScore(average);
         saveScore(average);
+        soundService.playVictory();
         setGameState('result');
       } else {
         setScore(currentScore);
+        soundService.playReactionResult();
         setGameState('attempt_result');
       }
     } else if (gameState === 'too_early') {
       setGameState('ready');
       const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(() => {
-        setGameState('now');
-        startTimeRef.current = performance.now();
-      }, randomDelay);
+      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
     } else if (gameState === 'attempt_result') {
       setGameState('ready');
       const randomDelay = Math.floor(Math.random() * 3000) + 2000;
-      timeoutRef.current = window.setTimeout(() => {
-        setGameState('now');
-        startTimeRef.current = performance.now();
-      }, randomDelay);
+      timeoutRef.current = window.setTimeout(triggerGreen, randomDelay);
     }
   };
 

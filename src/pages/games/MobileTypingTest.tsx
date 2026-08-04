@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import MobileTypingInfo from './MobileTypingInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'countdown' | 'playing' | 'result';
 
@@ -95,9 +96,11 @@ export default function MobileTypingTest() {
   useEffect(() => {
     if (gameState === 'countdown') {
       if (countdown > 0) {
+        soundService.playCountdownTick(false);
         const timer = setTimeout(() => setCountdown(c => c - 1), 1000);
         return () => clearTimeout(timer);
       } else {
+        soundService.playCountdownTick(true);
         startGameplay();
       }
     }
@@ -161,6 +164,7 @@ export default function MobileTypingTest() {
     setWpm(finalWpm);
     setAccuracy(finalAccuracy);
     saveScore(finalWpm);
+    soundService.playVictory();
     setGameState('result');
   };
 
@@ -170,6 +174,17 @@ export default function MobileTypingTest() {
     
     const value = e.target.value;
     const newTyped = value.split('');
+    
+    if (newTyped.length > typedChars.length) {
+      const lastChar = newTyped[newTyped.length - 1];
+      const targetChar = targetText[newTyped.length - 1];
+      if (lastChar === targetChar) {
+        soundService.playKeyClick();
+      } else {
+        soundService.playTypo();
+      }
+    }
+    
     setTypedChars(newTyped);
     
     // Check if sentence is completed

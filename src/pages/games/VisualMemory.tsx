@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import VisualMemoryInfo from './VisualMemoryInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'flashing' | 'input' | 'level_failed' | 'result';
 
@@ -64,9 +65,11 @@ export default function VisualMemory() {
     if (clickedSquares.has(index)) return;
 
     if (activeSquares.has(index)) {
+      soundService.playTileCorrect();
       const newClicked = new Set(clickedSquares).add(index);
       setClickedSquares(newClicked);
       if (newClicked.size === activeSquares.size) {
+        soundService.playLevelUp();
         setGameState('flashing');
         setTimeout(() => {
           setLevel(l => l + 1);
@@ -74,6 +77,7 @@ export default function VisualMemory() {
         }, 1000);
       }
     } else {
+      soundService.playTileWrong();
       setWrongClick(index);
       const newLives = lives - 1;
       if (newLives === 0) {

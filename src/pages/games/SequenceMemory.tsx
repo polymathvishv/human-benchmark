@@ -6,6 +6,7 @@ import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import SequenceMemoryInfo from './SequenceMemoryInfo';
 import { useHighScore } from '../../hooks/useHighScore';
+import soundService from '../../services/soundService';
 
 type GameState = 'waiting' | 'showing' | 'input' | 'result';
 
@@ -33,11 +34,12 @@ export default function SequenceMemory() {
     setUserSequence([]);
     setGameState('showing');
 
-    // Show the sequence
+    // Show the sequence with musical notes
     let i = 0;
     const showNext = () => {
       if (i < newSequence.length) {
         setActiveSquare(newSequence[i]);
+        soundService.playSequenceNote(newSequence[i]);
         timeoutRef.current = window.setTimeout(() => {
           setActiveSquare(null);
           i++;
@@ -67,13 +69,19 @@ export default function SequenceMemory() {
 
     const currentPos = newUserSeq.length - 1;
     if (newUserSeq[currentPos] !== sequence[currentPos]) {
-      // Wrong
+      // Wrong tap
+      soundService.playSequenceWrong();
       saveScore(level);
       setGameState('result');
     } else if (newUserSeq.length === sequence.length) {
-      // Correct - next level
+      // Correct sequence completed - level up!
+      soundService.playSequenceNote(index);
+      setTimeout(() => soundService.playLevelUp(), 180);
       setLevel(l => l + 1);
-      setTimeout(() => startLevel(level + 1), 500);
+      setTimeout(() => startLevel(level + 1), 600);
+    } else {
+      // Correct tap in sequence
+      soundService.playSequenceNote(index);
     }
   };
 
