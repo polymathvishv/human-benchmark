@@ -3,10 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
-  padding: 2rem;
+  min-height: 55vh;
+  padding: 2rem 1.5rem;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   position: relative;
+  touch-action: manipulation;
 }
 
 .startScreen {
@@ -15,21 +18,26 @@
   align-items: center;
   text-align: center;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   animation: fadeIn 0.3s ease;
 }
 
 .icon {
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .startScreen h2 {
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
   font-weight: 700;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .startScreen p {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.25rem);
   color: var(--text-muted);
   max-width: 500px;
 }
@@ -37,11 +45,11 @@
 .startBtn {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.75rem 2.5rem;
+  padding: 0.75rem 2.25rem;
   border-radius: 9999px;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   transition: all var(--transition-speed);
   box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
 }
@@ -55,10 +63,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 800px;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.15rem, 4vw, 1.5rem);
   font-weight: 600;
+  box-sizing: border-box;
 }
 
 .grid {
@@ -67,11 +76,13 @@
   grid-template-rows: repeat(5, 1fr);
   gap: 0.5rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   background: var(--surface-color);
   padding: 1rem;
   border-radius: var(--border-radius);
   aspect-ratio: 8 / 5;
+  box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 .gridCell {
@@ -90,12 +101,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: clamp(1rem, 3.5vw, 2rem);
   font-weight: 800;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.1s ease, background-color 0.2s ease;
   user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .box:active {
@@ -115,23 +128,27 @@
   justify-content: center;
   z-index: 10;
   border-radius: var(--border-radius);
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .failedModal {
   background: var(--surface-color);
-  padding: 3rem;
+  padding: 2.5rem 1.5rem;
   border-radius: var(--border-radius);
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
   animation: fadeIn 0.3s ease;
+  max-width: 90%;
+  box-sizing: border-box;
 }
 
 .failedModal h3 {
-  font-size: 2rem;
+  font-size: clamp(1.35rem, 4vw, 2rem);
   color: var(--game-red);
 }
 
@@ -140,9 +157,52 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .playArea {
+    min-height: 45vh;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .startScreen h2 {
+    font-size: 1.75rem;
+  }
+
+  .startBtn {
+    padding: 0.65rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .header {
+    margin-bottom: 1rem;
+  }
+
+  .grid {
+    padding: 0.5rem;
+    gap: 0.3rem;
+    border-radius: 10px;
+  }
+
   .box {
-    font-size: 1.25rem;
     border-radius: 4px;
   }
+
+  .failedModal {
+    padding: 1.75rem 1rem;
+  }
 }
+
+@media (max-width: 400px) {
+  .playArea {
+    padding: 1rem 0.5rem;
+  }
+
+  .startScreen h2 {
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    padding: 0.35rem;
+    gap: 0.2rem;
+  }
+}
+

@@ -1,5 +1,7 @@
 .pageWrapper {
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Hero Banner */
@@ -8,12 +10,16 @@
   overflow: hidden;
   border-bottom: 1px solid rgba(0,0,0,0.08);
   padding: 3.5rem 0;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .heroInner {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .heroCategory {
@@ -31,6 +37,8 @@
   color: white;
   margin-bottom: 0.75rem;
   line-height: 1.15;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .heroSubtitle {
@@ -114,18 +122,26 @@
 /* Main content area */
 .contentArea {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .twoCol {
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: 3rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .mainCol {
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Game container */
@@ -136,18 +152,27 @@
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .gameArea {
   min-height: 340px;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 /* Info section below game */
 .infoArea {
   margin-top: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Sidebar */

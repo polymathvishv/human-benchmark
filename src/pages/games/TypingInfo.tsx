@@ -13,8 +13,8 @@ export default function TypingInfo() {
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>WPM Percentile Reference</h2>
         
-        <div style={{ width: '100%', height: '200px', margin: '2rem 0', position: 'relative' }}>
-          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+        <div style={{ width: '100%', maxWidth: '100%', height: '200px', margin: '1.5rem 0', position: 'relative', overflow: 'hidden' }}>
+          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ maxWidth: '100%', display: 'block' }}>
             {/* Grid lines */}
             <line x1="0" y1="180" x2="800" y2="180" stroke="#e5e7eb" strokeWidth="2" />
             <line x1="0" y1="135" x2="800" y2="135" stroke="#f3f4f6" strokeWidth="1" />

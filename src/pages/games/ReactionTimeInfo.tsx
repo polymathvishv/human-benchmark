@@ -75,8 +75,8 @@ export default function ReactionTimeInfo() {
           The distribution is right-skewed: most scores cluster between 220–320ms, with a sharp lower tail (genuine fast responders) and a long upper tail (fatigue, mobile devices, and hardware lag). Trimmed means that exclude the slowest tail typically land in the 260s; the raw ~284ms web average is inflated by that upper tail.
         </p>
 
-        <div style={{ width: '100%', height: '200px', margin: '2rem 0', position: 'relative' }}>
-          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+        <div style={{ width: '100%', maxWidth: '100%', height: '200px', margin: '1.5rem 0', position: 'relative', overflow: 'hidden' }}>
+          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ maxWidth: '100%', display: 'block' }}>
             {/* Grid lines */}
             <line x1="0" y1="180" x2="800" y2="180" stroke="#e5e7eb" strokeWidth="2" />
             <line x1="0" y1="135" x2="800" y2="135" stroke="#f3f4f6" strokeWidth="1" />
@@ -227,8 +227,8 @@ export default function ReactionTimeInfo() {
           Simple visual RT peaks in the early-to-mid 20s at approximately 218ms and slows by roughly 2–5ms per decade thereafter. This decline reflects reduced myelination efficiency and slower central processing. By age 65+, the average rises to ~310ms. Trained individuals maintain faster RT into their 40s and 50s compared to sedentary peers, but the underlying biological trend is not reversed.
         </p>
 
-        <div style={{ width: '100%', height: '220px', margin: '2rem 0', position: 'relative', backgroundColor: '#f8fafc', borderRadius: '12px', padding: '1rem' }}>
-          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+        <div style={{ width: '100%', maxWidth: '100%', height: '220px', margin: '1.5rem 0', position: 'relative', backgroundColor: '#f8fafc', borderRadius: '12px', padding: '1rem', overflow: 'hidden', boxSizing: 'border-box' }}>
+          <svg viewBox="0 0 800 200" width="100%" height="100%" preserveAspectRatio="none" style={{ maxWidth: '100%', display: 'block' }}>
             {/* Grid lines */}
             <line x1="50" y1="160" x2="750" y2="160" stroke="#e5e7eb" strokeWidth="2" />
             <line x1="50" y1="110" x2="750" y2="110" stroke="#f3f4f6" strokeWidth="1" strokeDasharray="4 4" />
