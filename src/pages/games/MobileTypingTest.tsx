@@ -75,7 +75,14 @@ export default function MobileTypingTest() {
   const [typedChars, setTypedChars] = useState<string[]>([]);
   const lastIndexRef = useRef<number>(-1);
   
-  // Metrics
+  // Tracking refs to avoid stale closure in timer intervals
+  const completedCorrectCharsRef = useRef(0);
+  const completedTotalCharsRef = useRef(0);
+  const currentTypedCharsRef = useRef<string[]>([]);
+  const currentTargetTextRef = useRef<string>('');
+  const startTimeRef = useRef<number>(0);
+
+  // Metrics state for results display
   const [totalCorrectChars, setTotalCorrectChars] = useState(0);
   const [totalTypedChars, setTotalTypedChars] = useState(0);
   const [wpm, setWpm] = useState(0);
@@ -90,7 +97,58 @@ export default function MobileTypingTest() {
     if (gameState === 'playing' && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [gameState, sentenceIndex]); // Re-focus on new sentence just in case
+  }, [gameState, sentenceIndex]);
+
+  const loadRandomSentence = () => {
+    let nextIdx = Math.floor(Math.random() * SENTENCES.length);
+    if (nextIdx === lastIndexRef.current && SENTENCES.length > 1) {
+      nextIdx = (nextIdx + 1) % SENTENCES.length;
+    }
+    lastIndexRef.current = nextIdx;
+    const newText = SENTENCES[nextIdx];
+    setTargetText(newText);
+    currentTargetTextRef.current = newText;
+    setTypedChars([]);
+    currentTypedCharsRef.current = [];
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+  };
+
+  const finishGame = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Combine completed sentences + in-progress sentence characters
+    let totalCorrect = completedCorrectCharsRef.current;
+    let totalTyped = completedTotalCharsRef.current;
+
+    const currentTyped = currentTypedCharsRef.current;
+    const currentTarget = currentTargetTextRef.current;
+
+    for (let i = 0; i < currentTyped.length; i++) {
+      totalTyped++;
+      if (currentTyped[i] === currentTarget[i]) {
+        totalCorrect++;
+      }
+    }
+
+    // Standard WPM formula: (Total Correct Characters / 5) / (Test Duration in minutes)
+    // 45s test duration = 45 / 60 = 0.75 minutes
+    const testDurationMinutes = GAME_DURATION / 60;
+    const calculatedWpm = Math.max(0, Math.round((totalCorrect / 5) / testDurationMinutes));
+    const calculatedAccuracy = totalTyped === 0 ? 100 : Math.round((totalCorrect / totalTyped) * 100);
+
+    setTotalCorrectChars(totalCorrect);
+    setTotalTypedChars(totalTyped);
+    setWpm(calculatedWpm);
+    setAccuracy(calculatedAccuracy);
+    saveScore(calculatedWpm);
+    soundService.playVictory();
+    setGameState('result');
+  };
 
   // Countdown logic
   useEffect(() => {
@@ -112,7 +170,7 @@ export default function MobileTypingTest() {
       timerRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
-            clearInterval(timerRef.current!);
+            if (timerRef.current) clearInterval(timerRef.current);
             finishGame();
             return 0;
           }
@@ -125,59 +183,38 @@ export default function MobileTypingTest() {
     }
   }, [gameState]);
 
-  const loadRandomSentence = () => {
-    // Pick random sentence from pool, avoiding immediate repetition
-    let nextIdx = Math.floor(Math.random() * SENTENCES.length);
-    if (nextIdx === lastIndexRef.current && SENTENCES.length > 1) {
-      nextIdx = (nextIdx + 1) % SENTENCES.length;
-    }
-    lastIndexRef.current = nextIdx;
-    const newText = SENTENCES[nextIdx];
-    setTargetText(newText);
-    setTypedChars([]);
-    // Clear the hidden input
-    if (inputRef.current) {
-      inputRef.current.value = '';
-    }
-  };
-
   const startCountdown = () => {
     setCountdown(3);
     setTimeLeft(GAME_DURATION);
+    completedCorrectCharsRef.current = 0;
+    completedTotalCharsRef.current = 0;
+    currentTypedCharsRef.current = [];
+    currentTargetTextRef.current = '';
     setTotalCorrectChars(0);
     setTotalTypedChars(0);
+    setSentenceIndex(0);
     setGameState('countdown');
   };
 
   const startGameplay = () => {
     loadRandomSentence();
+    startTimeRef.current = performance.now();
     setGameState('playing');
   };
 
-  const finishGame = () => {
-    // Calculate final metrics
-    // WPM = (correct chars / 5) / (time in minutes)
-    const timeInMinutes = GAME_DURATION / 60;
-    const finalWpm = Math.round((totalCorrectChars / 5) / timeInMinutes);
-    const finalAccuracy = totalTypedChars === 0 ? 0 : Math.round((totalCorrectChars / totalTypedChars) * 100);
-    
-    setWpm(finalWpm);
-    setAccuracy(finalAccuracy);
-    saveScore(finalWpm);
-    soundService.playVictory();
-    setGameState('result');
-  };
-
-  // We use onChange on a hidden input to capture mobile keyboard events better than onKeyDown
+  // We use onChange on a hidden input to capture mobile keyboard events
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (gameState !== 'playing') return;
     
     const value = e.target.value;
-    const newTyped = value.split('');
+    const currentTarget = currentTargetTextRef.current;
+    // Limit to current target text length
+    const boundedValue = value.slice(0, currentTarget.length);
+    const newTyped = boundedValue.split('');
     
-    if (newTyped.length > typedChars.length) {
+    if (newTyped.length > currentTypedCharsRef.current.length) {
       const lastChar = newTyped[newTyped.length - 1];
-      const targetChar = targetText[newTyped.length - 1];
+      const targetChar = currentTarget[newTyped.length - 1];
       if (lastChar === targetChar) {
         soundService.playKeyClick();
       } else {
@@ -186,17 +223,17 @@ export default function MobileTypingTest() {
     }
     
     setTypedChars(newTyped);
+    currentTypedCharsRef.current = newTyped;
     
     // Check if sentence is completed
-    if (newTyped.length === targetText.length) {
-      // Calculate how many were correct in this sentence
+    if (newTyped.length === currentTarget.length && currentTarget.length > 0) {
       let correctInSentence = 0;
       for (let i = 0; i < newTyped.length; i++) {
-        if (newTyped[i] === targetText[i]) correctInSentence++;
+        if (newTyped[i] === currentTarget[i]) correctInSentence++;
       }
       
-      setTotalCorrectChars(prev => prev + correctInSentence);
-      setTotalTypedChars(prev => prev + newTyped.length);
+      completedCorrectCharsRef.current += correctInSentence;
+      completedTotalCharsRef.current += newTyped.length;
       
       // Load next sentence instantly
       loadRandomSentence();
@@ -246,13 +283,17 @@ export default function MobileTypingTest() {
             isLowerBetter: false,
           }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', width: '100%', marginBottom: '1.5rem' }}>
-            <div style={{ background: 'rgba(0,0,0,0.05)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800 }}>{totalCorrectChars}</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem', width: '100%', marginBottom: '1.5rem' }}>
+            <div style={{ background: 'rgba(0,0,0,0.05)', padding: '0.75rem', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{totalTypedChars}</div>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Total Typed</div>
+            </div>
+            <div style={{ background: 'rgba(0,0,0,0.05)', padding: '0.75rem', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{totalCorrectChars}</div>
               <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Correct Chars</div>
             </div>
-            <div style={{ background: 'rgba(0,0,0,0.05)', padding: '1rem', borderRadius: '12px', textAlign: 'center' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800 }}>{wpm * 5}</div>
+            <div style={{ background: 'rgba(0,0,0,0.05)', padding: '0.75rem', borderRadius: '12px', textAlign: 'center' }}>
+              <div style={{ fontSize: '1.25rem', fontWeight: 800 }}>{Math.round(wpm * 5)}</div>
               <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>CPM</div>
             </div>
           </div>
