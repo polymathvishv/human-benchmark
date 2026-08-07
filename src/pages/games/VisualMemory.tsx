@@ -153,7 +153,7 @@ export default function VisualMemory() {
           style={{ 
             gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
             gridTemplateRows: `repeat(${gridSize}, 1fr)`,
-            maxWidth: `${Math.min(gridSize * 70, 480)}px`,
+            maxWidth: `min(${gridSize * 58}px, 100%, 420px)`,
             width: '100%'
           }}
         >
