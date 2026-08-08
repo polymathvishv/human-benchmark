@@ -57,8 +57,8 @@ export default function Header() {
     { to: '/leaderboard', label: 'Leaderboard' },
     { to: '/battle', label: 'Battles', icon: <Swords size={14} /> },
     { to: '/dashboard', label: 'Score Card' },
+    { to: '/science', label: 'Science' },
     { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' },
   ];
 
   return (

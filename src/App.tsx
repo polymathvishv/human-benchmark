@@ -6,6 +6,8 @@ import ScrollToTop from './components/ScrollToTop';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const About = lazy(() => import('./pages/About'));
+const SciencePage = lazy(() => import('./pages/SciencePage'));
+const ScienceArticleDetail = lazy(() => import('./pages/ScienceArticleDetail'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ReactionTime = lazy(() => import('./pages/games/ReactionTime'));
@@ -46,6 +48,8 @@ function App() {
               <Route path="/visual-memory" element={<VisualMemory />} />
               <Route path="/typing" element={<TypingTest />} />
               <Route path="/mobile-typing" element={<MobileTypingTest />} />
+              <Route path="/science" element={<SciencePage />} />
+              <Route path="/science/:slug" element={<ScienceArticleDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/dashboard" element={<StatsPage />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
