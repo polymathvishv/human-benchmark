@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <Link to="/" className={styles.brand}>
-          <img src="/logo.png" alt="Human Benchmark Logo" className={styles.brandLogo} />
+          <img src="/logo.webp" alt="Human Benchmark Logo" className={styles.brandLogo} />
           <span className={styles.brandName}>Human Benchmark</span>
         </Link>
         <div className={styles.links}>

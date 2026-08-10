@@ -48,7 +48,7 @@ export default function ShareCard({ config, theme, id }: ShareCardProps) {
       <div className={styles.footer}>
         <div className={styles.branding}>
           <div className={styles.brandHeader}>
-            <img src="/logo.png" alt="Logo" className={styles.cardLogo} />
+            <img src="/logo.webp" alt="Logo" className={styles.cardLogo} />
             <span className={styles.brandName}>HumanBenchmark.in</span>
           </div>
           <div className={styles.cta}>Can you beat my score?</div>

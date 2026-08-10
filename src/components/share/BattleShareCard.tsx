@@ -47,7 +47,7 @@ export default function BattleShareCard({
       {/* Header */}
       <div className={styles.cardHeader}>
         <div className={styles.brandGroup}>
-          <img src="/logo.png" alt="Human Benchmark" className={styles.brandLogo} />
+          <img src="/logo.webp" alt="Human Benchmark" className={styles.brandLogo} />
           <span className={styles.brandTitle}>Human Benchmark</span>
         </div>
         <span className={styles.battleBadge}>

@@ -98,7 +98,7 @@ export default function AuthModal() {
 
         <div className={styles.header}>
           <div className={styles.logoBadge}>
-            <img src="/logo.png" alt="Human Benchmark" className={styles.logoImg} />
+            <img src="/logo.webp" alt="Human Benchmark" className={styles.logoImg} />
           </div>
           <h2 id="auth-modal-title" className={styles.title}>
             {authModalMode === 'login' ? 'Welcome Back' : 'Create Account'}

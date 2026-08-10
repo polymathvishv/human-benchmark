@@ -66,7 +66,7 @@ export default function Header() {
       <header className={`${styles.header} glass`}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
-            <img src="/logo.png" alt="Human Benchmark Logo" className={styles.logoImg} />
+            <img src="/logo.webp" alt="Human Benchmark Logo" className={styles.logoImg} />
             <span className={styles.logoText}>Human Benchmark</span>
           </Link>
 
@@ -166,7 +166,7 @@ export default function Header() {
         {/* Drawer Header */}
         <div className={styles.drawerHeader}>
           <Link to="/" className={styles.logo} onClick={() => setIsMobileMenuOpen(false)}>
-            <img src="/logo.png" alt="Human Benchmark Logo" className={styles.logoImg} />
+            <img src="/logo.webp" alt="Human Benchmark Logo" className={styles.logoImg} />
             <span className={styles.logoText}>Human Benchmark</span>
           </Link>
           <button className={styles.drawerClose} onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
