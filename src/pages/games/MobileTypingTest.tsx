@@ -388,6 +388,7 @@ export default function MobileTypingTest() {
         { name: 'Desktop Typing', path: '/typing', icon: <MessageCircle size={18} />, color: '#6366f1' },
         { name: 'Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
       ]}
+      aboutText="The Mobile Typing Test measures your touchscreen typing speed in Words Per Minute (WPM) with accuracy scoring. Mobile typing is fundamentally different from desktop — it relies on thumb dexterity, autocorrect behaviour, and haptic feedback rather than touch typing. Average mobile typing speed is around 36–40 WPM, roughly 30–40% slower than desktop. Swipe-based keyboards can push speeds past 50 WPM for experienced users."
       infoContent={<MobileTypingInfo />}
     >
       {renderGame()}
