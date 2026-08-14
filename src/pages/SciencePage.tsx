@@ -328,15 +328,18 @@ export default function SciencePage() {
                     className={styles.faqQuestion}
                     onClick={() => setExpandedFaqIndex(isExpanded ? null : idx)}
                     aria-expanded={isExpanded}
+                    aria-controls={`science-faq-${idx}`}
                   >
                     <span>{faq.q}</span>
                     {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-                  {isExpanded && (
-                    <div className={styles.faqAnswer}>
-                      <p>{faq.a}</p>
-                    </div>
-                  )}
+                  <div
+                    id={`science-faq-${idx}`}
+                    className={styles.faqAnswer}
+                    style={{ display: isExpanded ? 'block' : 'none' }}
+                  >
+                    <p>{faq.a}</p>
+                  </div>
                 </div>
               );
             })}

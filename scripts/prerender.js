@@ -85,7 +85,7 @@ const ALL_ROUTES = [
 
 // Default Fallback Metadata
 const DEFAULT_TITLE = 'Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks'
-const DEFAULT_DESC = "Measure your brain's performance with the official Human Benchmark test suite. Accurate tests for reaction time, sequence memory, aim trainer, typing speed, verbal memory, and more. Compare your score globally."
+const DEFAULT_DESC = "Measure and train your cognitive abilities with free, accurate online tests for reaction time, sequence memory, aim, typing speed, verbal memory, and more. Compare your scores globally."
 const DEFAULT_CANONICAL = 'https://humanbenchmark.in'
 const DEFAULT_IMAGE = 'https://humanbenchmark.in/logo.webp'
 
@@ -118,41 +118,52 @@ async function prerender() {
     try {
       const { html: appHtml } = await render(route)
 
-      // Extract SEO Tags from rendered HTML (rendered by React 19 / SEO component)
-      const titleMatch = appHtml.match(/<title>([^<]+)<\/title>/)
-      const title = titleMatch ? titleMatch[1] : DEFAULT_TITLE
+      // 1. Extract JSON-LD script blocks from rendered HTML
+      const jsonLdBlocks = []
+      const jsonLdRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g
+      let jsonLdMatch
+      while ((jsonLdMatch = jsonLdRegex.exec(appHtml)) !== null) {
+        jsonLdBlocks.push(jsonLdMatch[0])
+      }
 
-      const descMatch = appHtml.match(/<meta name="description" content="([^"]+)"\/>/)
-      const description = descMatch ? descMatch[1] : DEFAULT_DESC
+      // 2. Extract hoisted <title>, <meta>, <link> tags emitted at the start of appHtml by React 19 SSR
+      const hoistedMatch = appHtml.match(/^(?:<link[^>]*\/>|<meta[^>]*\/>|<title>[^<]*<\/title>)+/)
+      const hoistedTags = hoistedMatch ? hoistedMatch[0] : ''
 
-      const canonicalMatch = appHtml.match(/<link rel="canonical" href="([^"]+)"\/>/)
-      const canonical = canonicalMatch ? canonicalMatch[1] : `${DEFAULT_CANONICAL}${route === '/' ? '' : route}`
+      let headTags = ''
+      if (hoistedTags) {
+        // Use the exact hoisted tags from React 19 + JSON-LD blocks
+        headTags = [hoistedTags, ...jsonLdBlocks].filter(Boolean).join('\n')
+      } else {
+        // Fallback for routes without explicit SEO component
+        const canonical = `${DEFAULT_CANONICAL}${route === '/' ? '' : route}`
+        headTags = [
+          `  <title>${DEFAULT_TITLE}</title>`,
+          `  <meta name="description" content="${DEFAULT_DESC}" />`,
+          `  <link rel="canonical" href="${canonical}" />`,
+          `  <meta property="og:title" content="${DEFAULT_TITLE}" />`,
+          `  <meta property="og:description" content="${DEFAULT_DESC}" />`,
+          `  <meta property="og:type" content="website" />`,
+          `  <meta property="og:url" content="${canonical}" />`,
+          `  <meta property="og:image" content="${DEFAULT_IMAGE}" />`,
+          `  <meta property="og:site_name" content="Human Benchmark" />`,
+          `  <meta name="twitter:card" content="summary_large_image" />`,
+          `  <meta name="twitter:title" content="${DEFAULT_TITLE}" />`,
+          `  <meta name="twitter:description" content="${DEFAULT_DESC}" />`,
+          `  <meta name="twitter:image" content="${DEFAULT_IMAGE}" />`,
+          ...jsonLdBlocks,
+        ].filter(Boolean).join('\n')
+      }
 
-      const jsonLdMatch = appHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
-      const jsonLd = jsonLdMatch ? jsonLdMatch[1] : null
+      // 3. Clean appHtml so that #root contains ONLY valid body markup with ZERO duplicate head tags or JSON-LD
+      const cleanAppHtml = appHtml
+        .replace(hoistedTags, '')
+        .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
 
-      // Build clean, comprehensive <head> tags for this route
-      const headTags = [
-        `  <title>${title}</title>`,
-        `  <meta name="description" content="${description}" />`,
-        `  <link rel="canonical" href="${canonical}" />`,
-        `  <meta property="og:title" content="${title}" />`,
-        `  <meta property="og:description" content="${description}" />`,
-        `  <meta property="og:type" content="website" />`,
-        `  <meta property="og:url" content="${canonical}" />`,
-        `  <meta property="og:image" content="${DEFAULT_IMAGE}" />`,
-        `  <meta property="og:site_name" content="Human Benchmark" />`,
-        `  <meta name="twitter:card" content="summary_large_image" />`,
-        `  <meta name="twitter:title" content="${title}" />`,
-        `  <meta name="twitter:description" content="${description}" />`,
-        `  <meta name="twitter:image" content="${DEFAULT_IMAGE}" />`,
-        jsonLd ? `  <script type="application/ld+json">${jsonLd}</script>` : '',
-      ].filter(Boolean).join('\n')
-
-      // Inject head tags and pre-rendered body into the base HTML template
+      // 4. Inject head tags into <head> and clean body into <div id="root">
       let pageHtml = template
         .replace('<!--app-head-->', headTags)
-        .replace('<!--app-html-->', appHtml)
+        .replace('<!--app-html-->', cleanAppHtml)
 
       // Determine output file path
       let outPath

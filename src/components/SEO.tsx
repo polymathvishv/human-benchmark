@@ -13,7 +13,7 @@ interface SEOProps {
 
 export default function SEO({
   title = 'Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks',
-  description = "Measure your brain's performance with the official Human Benchmark test suite. Accurate tests for reaction time, sequence memory, aim trainer, typing speed, verbal memory, and more.",
+  description = "Measure and train your cognitive abilities with free, accurate online tests for reaction time, sequence memory, aim, typing speed, verbal memory, and more. Compare your scores globally.",
   canonical = 'https://humanbenchmark.in',
   type = 'website',
   image = 'https://humanbenchmark.in/logo.webp',

@@ -301,15 +301,18 @@ export default function ScienceArticleDetail() {
                     className={styles.faqQuestion}
                     onClick={() => setExpandedFaqIndex(isExpanded ? null : fIdx)}
                     aria-expanded={isExpanded}
+                    aria-controls={`article-faq-${fIdx}`}
                   >
                     <span>{faq.question}</span>
                     {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </button>
-                  {isExpanded && (
-                    <div className={styles.faqAnswer}>
-                      <p>{faq.answer}</p>
-                    </div>
-                  )}
+                  <div
+                    id={`article-faq-${fIdx}`}
+                    className={styles.faqAnswer}
+                    style={{ display: isExpanded ? 'block' : 'none' }}
+                  >
+                    <p>{faq.answer}</p>
+                  </div>
                 </div>
               );
             })}

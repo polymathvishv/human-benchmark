@@ -86,7 +86,7 @@ const GAMES = [
 const FAQS = [
   {
     q: "What is the Human Benchmark test suite?",
-    a: "The Human Benchmark (also searched as humanbenchmark, human bench mark, or human benchmarks) is a premier collection of online cognitive, perceptual, and motor performance tests. It accurately measures essential human capabilities like visual reaction time, short-term working memory, verbal recall, target aim, and typing speed."
+    a: "Human Benchmark is a premier collection of online cognitive, perceptual, and motor performance tests. It accurately measures essential human capabilities like visual reaction time, short-term working memory, verbal recall, target aim, and typing speed."
   },
   {
     q: "What are typical human benchmark scores for reaction time?",
@@ -124,14 +124,6 @@ export default function Dashboard() {
         "alternateName": [
           "Human Benchmark",
           "HumanBenchmark",
-          "human benchmark test",
-          "human bench mark",
-          "human benchmarks",
-          "human bench mrk",
-          "human bechmark",
-          "human benchamrk",
-          "human benchnmark",
-          "human becnhmark",
           "Human Benchmark Online"
         ],
         "description": "Measure and benchmark your cognitive performance, reaction time, memory, aim, and typing abilities online.",
@@ -176,7 +168,7 @@ export default function Dashboard() {
     <>
       <SEO
         title="Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks"
-        description="Measure your brain's performance with the official Human Benchmark test suite. Accurate tests for reaction time, sequence memory, aim trainer, typing speed, verbal memory, and more. Compare your score globally."
+        description="Measure and train your cognitive abilities with free, accurate online tests for reaction time, sequence memory, aim, typing speed, verbal memory, and more. Compare your scores globally."
         jsonLd={schema}
       />
       
@@ -278,6 +270,7 @@ export default function Dashboard() {
                       className={styles.faqQuestion}
                       onClick={() => toggleFaq(idx)}
                       aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${idx}`}
                     >
                       <span>{faq.q}</span>
                       <ChevronDown
@@ -290,11 +283,13 @@ export default function Dashboard() {
                         }}
                       />
                     </button>
-                    {isOpen && (
-                      <div className={styles.faqAnswer}>
-                        <p>{faq.a}</p>
-                      </div>
-                    )}
+                    <div
+                      id={`faq-answer-${idx}`}
+                      className={styles.faqAnswer}
+                      style={{ display: isOpen ? 'block' : 'none' }}
+                    >
+                      <p>{faq.a}</p>
+                    </div>
                   </div>
                 );
               })}
