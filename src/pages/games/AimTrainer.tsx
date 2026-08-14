@@ -133,6 +133,7 @@ export default function AimTrainer() {
         { name: 'Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
         { name: 'Visual Memory', path: '/visual-memory', icon: <Target size={18} />, color: '#14b8a6' },
       ]}
+      aboutText="The Aim Trainer measures visuomotor coordination and processing speed. You must click 30 targets as fast as possible; your score is the average milliseconds per target. Performance follows Fitts's Law: smaller and more distant targets require more time. Elite esports athletes typically score under 300 ms per target. Regular practice has been shown to produce measurable improvements."
       infoContent={<AimTrainerInfo />}
     >
       {renderGame()}

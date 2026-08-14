@@ -158,6 +158,7 @@ export default function SequenceMemory() {
         { name: 'Visual Memory', path: '/visual-memory', icon: <Grid3x3 size={18} />, color: '#14b8a6' },
         { name: 'Number Memory', path: '/number-memory', icon: <Grid3x3 size={18} />, color: '#a855f7' },
       ]}
+      aboutText="Sequence Memory tests your visuospatial working memory — the brain's ability to temporarily hold and manipulate ordered spatial information. Each level adds one more step to the pattern. Average adults reliably reach 7–9 levels, consistent with Miller's Law (7 ± 2 chunks of working memory). Clinical versions of this task (Corsi Block Task) are used to diagnose memory impairments."
       infoContent={<SequenceMemoryInfo />}
     >
       {renderGame()}

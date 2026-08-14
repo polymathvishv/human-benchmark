@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
 
-# Specifically allow AI bots to consume public information
+# Explicitly allow all major search and AI crawlers
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
 User-agent: GPTBot
 Allow: /
 User-agent: ClaudeBot
@@ -10,7 +14,15 @@ User-agent: Google-Extended
 Allow: /
 User-agent: OAI-SearchBot
 Allow: /
-User-agent: Bingbot
+User-agent: PerplexityBot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
 Allow: /
 
 Sitemap: https://humanbenchmark.in/sitemap.xml

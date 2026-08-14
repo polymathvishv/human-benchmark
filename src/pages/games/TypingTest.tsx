@@ -199,6 +199,7 @@ export default function TypingTest() {
         { name: 'Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
         { name: 'Verbal Memory', path: '/verbal-memory', icon: <MessageSquare size={18} />, color: '#f59e0b' },
       ]}
+      aboutText="The Typing Test measures your typing speed in Words Per Minute (WPM) with accuracy penalty. The average adult types 40\u201360 WPM; fast typists reach 80\u2013100 WPM; professional typists exceed 100 WPM. The current world record exceeds 212 WPM. Typing speed reflects both motor learning (finger placement automaticity) and cognitive processing speed. Regular deliberate practice can yield significant improvement."
       infoContent={<TypingInfo />}
     >
       {renderGame()}

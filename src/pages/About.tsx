@@ -17,14 +17,13 @@ export default function About() {
     <>
       <SEO
         title="About Human Benchmark - Brain & Cognitive Benchmarks"
-        description={schema.description}
-        keywords="about human benchmark, human benchmark test, humanbenchmark, human bench mark, human benchmarks, cognitive test science, brain performance benchmarks"
+        description="Learn about the science behind Human Benchmark and our mission to help people understand their cognitive strengths through reaction time, memory, and typing tests."
         canonical="https://humanbenchmark.in/about"
         jsonLd={schema}
       />
       <div className={styles.container}>
       <div className={styles.content}>
-        <h2 className={styles.heading}>Welcome to Human Benchmark</h2>
+        <h1 className={styles.heading}>Welcome to Human Benchmark</h1>
         <p className={styles.text}>
           Human Benchmark is a comprehensive suite of cognitive tests designed to measure your brain's performance. 
           From reaction time to visual memory, our tools provide accurate insights into your cognitive abilities.

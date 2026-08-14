@@ -162,6 +162,7 @@ export default function VerbalMemory() {
         { name: 'Number Memory', path: '/number-memory', icon: <Hash size={18} />, color: '#a855f7' },
         { name: 'Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
       ]}
+      aboutText="Verbal Memory tests short-term recognition memory for words. You see words one at a time and must label each NEW or SEEN. The longer the list, the more interference builds up between similar words. This task is related to the Yes/No recognition paradigm used in clinical memory assessments. Average users correctly classify around 50 words before making their first error."
       infoContent={<VerbalMemoryInfo />}
     >
       {renderGame()}

@@ -1,10 +1,17 @@
 import styles from './About.module.css';
+import SEO from '../components/SEO';
 
 export default function PrivacyPolicy() {
   return (
-    <div className={styles.container}>
+    <>
+      <SEO
+        title="Privacy Policy | Human Benchmark"
+        description="Read the Human Benchmark privacy policy. Learn how we collect, use, and protect your data when you use our cognitive tests."
+        canonical="https://humanbenchmark.in/privacy"
+      />
+      <div className={styles.container}>
       <div className={styles.content}>
-        <h2 className={styles.heading}>Privacy Policy</h2>
+        <h1 className={styles.heading}>Privacy Policy</h1>
         <p className={styles.text}>
           Last updated: {new Date().toLocaleDateString()}
         </p>
@@ -49,5 +56,6 @@ export default function PrivacyPolicy() {
         </p>
       </div>
     </div>
+    </>
   );
 }

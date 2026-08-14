@@ -138,7 +138,6 @@ export default function SciencePage() {
       <SEO
         title="Cognitive Science & Research Library (26 Articles) - Human Benchmark"
         description="Explore 26 in-depth research articles on reaction time, working memory, visual attention, processing speed, and neuroplasticity. Grounded in peer-reviewed neuroscience."
-        keywords="cognitive science library, human benchmark science, reaction time research, working memory neuroscience, stroop effect, hicks law, fitts law, ebbinghaus forgetting curve, chimp memory ayumu, 240hz reaction time"
         canonical="https://humanbenchmark.in/science"
         jsonLd={combinedSchemas}
       />

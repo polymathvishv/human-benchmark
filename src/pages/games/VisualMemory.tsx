@@ -201,6 +201,7 @@ export default function VisualMemory() {
         { name: 'Chimp Test', path: '/chimp-test', icon: <Smile size={18} />, color: '#ec4899' },
         { name: 'Sequence Memory', path: '/sequence-memory', icon: <Grid3x3 size={18} />, color: '#3b82f6' },
       ]}
+      aboutText="Visual Memory tests spatial set recall \u2014 your ability to remember which squares lit up in a grid, without needing to remember order. It is analogous to the Corsi Block-Tapping Test developed by Milner and Corsi (1970s), a standard clinical tool for assessing visuospatial memory. Average users reach level 7\u20138. The grid grows in size at each level, exponentially increasing the number of possible square combinations."
       infoContent={<VisualMemoryInfo />}
     >
       {renderGame()}

@@ -185,6 +185,7 @@ export default function ChimpTest() {
         { name: 'Visual Memory', path: '/visual-memory', icon: <Grid3x3 size={18} />, color: '#14b8a6' },
         { name: 'Sequence Memory', path: '/sequence-memory', icon: <Zap size={18} />, color: '#3b82f6' },
       ]}
+      aboutText="The Chimp Test is based on research by Inoue & Matsuzawa (2007, Current Biology) demonstrating that young chimpanzees outperform adult humans on rapid positional memory tasks. Numbers flash briefly on a grid, then disappear \u2014 you must click their locations in ascending order from memory. It tests spatial-positional working memory: your ability to bind number identities to grid locations after a single brief exposure."
       infoContent={<ChimpTestInfo />}
     >
       {renderGame()}

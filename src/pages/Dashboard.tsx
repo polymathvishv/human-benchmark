@@ -177,7 +177,6 @@ export default function Dashboard() {
       <SEO
         title="Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks"
         description="Measure your brain's performance with the official Human Benchmark test suite. Accurate tests for reaction time, sequence memory, aim trainer, typing speed, verbal memory, and more. Compare your score globally."
-        keywords="human benchmark, human benchmark test, humanbenchmark, human bench mark, human benchmarks, human bench mrk, human bechmark, human benchamrk, human benchnmark, human becnhmark, human benchmark reaction time, human benchmark memory, human benchmark aim trainer, human benchmark typing, cognitive tests, brain benchmarks"
         jsonLd={schema}
       />
       

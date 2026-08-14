@@ -31,6 +31,7 @@ interface GamePageLayoutProps {
   relatedTests?: RelatedTest[];
   path?: string;
   gameId?: string;
+  aboutText?: string;
 }
 
 export default function GamePageLayout({
@@ -46,6 +47,7 @@ export default function GamePageLayout({
   relatedTests = [],
   path = '',
   gameId,
+  aboutText,
 }: GamePageLayoutProps) {
   const fullUrl = `https://humanbenchmark.in${path}`;
   
@@ -177,7 +179,7 @@ export default function GamePageLayout({
             <div className={styles.sidebarCard}>
               <h3 className={styles.sidebarTitle}>About This Test</h3>
               <p style={{ fontSize: '0.875rem', color: '#6b7280', lineHeight: 1.6 }}>
-                This test measures a specific cognitive ability. Play to climb the global leaderboard and track your brain metrics!
+                {aboutText || `${title} is one of the core cognitive benchmarks on Human Benchmark. Play to track your score, see your global percentile, and monitor your improvement over time.`}
               </p>
             </div>
           </aside>

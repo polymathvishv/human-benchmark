@@ -136,7 +136,6 @@ export default function ScienceArticleDetail() {
       <SEO
         title={`${article.title} - Human Benchmark Science`}
         description={article.excerpt}
-        keywords={`${article.title}, ${article.categoryLabel}, cognitive science, neuropsychology, reaction time research, working memory study, brain benchmark, ${article.keyStats.map(s => s.label).join(', ')}`}
         canonical={`https://humanbenchmark.in/science/${article.slug}`}
         type="article"
         jsonLd={combinedSchemas}

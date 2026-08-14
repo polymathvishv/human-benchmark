@@ -185,6 +185,7 @@ export default function NumberMemory() {
         { name: 'Verbal Memory', path: '/verbal-memory', icon: <MessageSquare size={18} />, color: '#f59e0b' },
         { name: 'Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
       ]}
+      aboutText="Number Memory measures your digit span \u2014 how many digits you can hold in verbal working memory after a single viewing. The average adult span is 7 digits (\u00b12), as described by George Miller (1956). Higher scores correlate with stronger verbal working memory, which underpins language comprehension, mental arithmetic, and academic performance."
       infoContent={<NumberMemoryInfo />}
     >
       {renderGame()}

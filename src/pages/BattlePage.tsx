@@ -86,7 +86,6 @@ export default function BattlePage() {
         title="Cognitive Test Battles — Challenge Friends | Human Benchmark"
         description="Create a free battle room, pick from 9 cognitive tests, and challenge up to 10 friends. Live leaderboard, no account required."
         canonical="https://humanbenchmark.in/battle"
-        keywords="human benchmark battle, cognitive test battle, reaction time challenge friends, multiplayer brain test"
         jsonLd={schema}
       />
 
