@@ -1,28 +1,29 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const About = lazy(() => import('./pages/About'));
-const SciencePage = lazy(() => import('./pages/SciencePage'));
-const ScienceArticleDetail = lazy(() => import('./pages/ScienceArticleDetail'));
-const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const Contact = lazy(() => import('./pages/Contact'));
-const ReactionTime = lazy(() => import('./pages/games/ReactionTime'));
-const SequenceMemory = lazy(() => import('./pages/games/SequenceMemory'));
-const AimTrainer = lazy(() => import('./pages/games/AimTrainer'));
-const NumberMemory = lazy(() => import('./pages/games/NumberMemory'));
-const VerbalMemory = lazy(() => import('./pages/games/VerbalMemory'));
-const ChimpTest = lazy(() => import('./pages/games/ChimpTest'));
-const VisualMemory = lazy(() => import('./pages/games/VisualMemory'));
-const TypingTest = lazy(() => import('./pages/games/TypingTest'));
-const MobileTypingTest = lazy(() => import('./pages/games/MobileTypingTest'));
-const StatsPage = lazy(() => import('./pages/StatsPage'));
-const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
-const BattlePage = lazy(() => import('./pages/BattlePage'));
-const BattleRoomPage = lazy(() => import('./pages/BattleRoomPage'));
+// Static imports — required for SSR (renderToString can't await lazy())
+// Vite still code-splits these per-route in the client build automatically
+import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import SciencePage from './pages/SciencePage';
+import ScienceArticleDetail from './pages/ScienceArticleDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Contact from './pages/Contact';
+import ReactionTime from './pages/games/ReactionTime';
+import SequenceMemory from './pages/games/SequenceMemory';
+import AimTrainer from './pages/games/AimTrainer';
+import NumberMemory from './pages/games/NumberMemory';
+import VerbalMemory from './pages/games/VerbalMemory';
+import ChimpTest from './pages/games/ChimpTest';
+import VisualMemory from './pages/games/VisualMemory';
+import TypingTest from './pages/games/TypingTest';
+import MobileTypingTest from './pages/games/MobileTypingTest';
+import StatsPage from './pages/StatsPage';
+import LeaderboardPage from './pages/LeaderboardPage';
+import BattlePage from './pages/BattlePage';
+import BattleRoomPage from './pages/BattleRoomPage';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -33,29 +34,27 @@ function App() {
         <ScrollToTop />
         <Header />
         <main className="main-content">
-          <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/leaderboard" element={<LeaderboardPage />} />
-              <Route path="/battle" element={<BattlePage />} />
-              <Route path="/battle/:roomCode" element={<BattleRoomPage />} />
-              <Route path="/reaction-time" element={<ReactionTime />} />
-              <Route path="/sequence-memory" element={<SequenceMemory />} />
-              <Route path="/aim-trainer" element={<AimTrainer />} />
-              <Route path="/number-memory" element={<NumberMemory />} />
-              <Route path="/verbal-memory" element={<VerbalMemory />} />
-              <Route path="/chimp-test" element={<ChimpTest />} />
-              <Route path="/visual-memory" element={<VisualMemory />} />
-              <Route path="/typing" element={<TypingTest />} />
-              <Route path="/mobile-typing" element={<MobileTypingTest />} />
-              <Route path="/science" element={<SciencePage />} />
-              <Route path="/science/:slug" element={<ScienceArticleDetail />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/dashboard" element={<StatsPage />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/battle" element={<BattlePage />} />
+            <Route path="/battle/:roomCode" element={<BattleRoomPage />} />
+            <Route path="/reaction-time" element={<ReactionTime />} />
+            <Route path="/sequence-memory" element={<SequenceMemory />} />
+            <Route path="/aim-trainer" element={<AimTrainer />} />
+            <Route path="/number-memory" element={<NumberMemory />} />
+            <Route path="/verbal-memory" element={<VerbalMemory />} />
+            <Route path="/chimp-test" element={<ChimpTest />} />
+            <Route path="/visual-memory" element={<VisualMemory />} />
+            <Route path="/typing" element={<TypingTest />} />
+            <Route path="/mobile-typing" element={<MobileTypingTest />} />
+            <Route path="/science" element={<SciencePage />} />
+            <Route path="/science/:slug" element={<ScienceArticleDetail />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<StatsPage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </main>
         <Footer />
       </div>

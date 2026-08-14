@@ -96,7 +96,7 @@ export default function GamePageLayout({
   return (
     <>
       <SEO 
-        title={`${title} Test`} 
+        title={title.endsWith('Test') ? title : `${title} Test`} 
         description={subtitle}
         canonical={fullUrl}
         jsonLd={schema}

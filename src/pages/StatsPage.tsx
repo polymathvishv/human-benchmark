@@ -108,6 +108,7 @@ interface ActivityEntry {
 }
 
 function getRecentActivity(): ActivityEntry[] {
+  if (typeof window === 'undefined') return [];
   const entries: ActivityEntry[] = [];
   GAMES.forEach(game => {
     const score = getHighScore(game.id);
@@ -164,7 +165,7 @@ export default function StatsPage() {
   const testsCompleted = completedGameItems.length;
   const activity = getRecentActivity();
 
-  const lastSyncStr = localStorage.getItem('hb-last-sync-ts');
+  const lastSyncStr = typeof window !== 'undefined' ? localStorage.getItem('hb-last-sync-ts') : null;
   const lastSyncTime = lastSyncStr ? parseInt(lastSyncStr, 10) : null;
 
   const displayName = profile?.username || user?.user_metadata?.username || (user ? user.email?.split('@')[0] : 'Guest User');

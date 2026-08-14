@@ -2,8 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { saveCloudScore } from '../services/scoreService';
 import { supabase } from '../lib/supabase';
 
+const isBrowser = typeof window !== 'undefined';
+
 export function useHighScore(gameId: string, isHigherBetter: boolean = true) {
   const [highScore, setHighScore] = useState<number | null>(() => {
+    if (!isBrowser) return null;
     const saved = localStorage.getItem(`hb-score-${gameId}`);
     return saved ? Number(saved) : null;
   });
@@ -57,7 +60,9 @@ export function useHighScore(gameId: string, isHigherBetter: boolean = true) {
 }
 
 export function getHighScore(gameId: string): number | null {
+  if (typeof window === 'undefined') return null;
   const saved = localStorage.getItem(`hb-score-${gameId}`);
   return saved ? Number(saved) : null;
 }
+
 
