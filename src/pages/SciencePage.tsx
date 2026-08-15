@@ -216,6 +216,15 @@ export default function SciencePage() {
               key={art.slug} 
               className={`${styles.articleCard} ${art.featured ? styles.featuredCard : ''}`}
             >
+              <Link to={`/science/${art.slug}`} className={styles.cardImageWrapper}>
+                <img 
+                  src={`/images/science/articles/${art.slug}.jpg`} 
+                  alt={art.title} 
+                  className={styles.cardImage} 
+                  loading="lazy" 
+                />
+              </Link>
+
               <div className={styles.cardHeader}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <span className={styles.categoryTag}>{art.categoryLabel}</span>

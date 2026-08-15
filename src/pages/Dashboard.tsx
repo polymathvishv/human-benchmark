@@ -126,7 +126,7 @@ export default function Dashboard() {
           "HumanBenchmark",
           "Human Benchmark Online"
         ],
-        "description": "Measure and benchmark your cognitive performance, reaction time, memory, aim, and typing abilities online.",
+        "description": "How fast is your brain? Test your reaction time, sequence memory, aim, and typing speed against global averages with free cognitive benchmarks.",
         "potentialAction": [
           {
             "@type": "SearchAction",
@@ -167,8 +167,8 @@ export default function Dashboard() {
   return (
     <>
       <SEO
-        title="Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks"
-        description="Measure and train your cognitive abilities with free, accurate online tests for reaction time, sequence memory, aim, typing speed, verbal memory, and more. Compare your scores globally."
+        title="Human Benchmark - Reaction Time, Memory & Brain Tests"
+        description="How fast is your brain? Test your reaction time, sequence memory, aim, and typing speed. Compare your score with global averages. Free instant brain tests."
         jsonLd={schema}
       />
       

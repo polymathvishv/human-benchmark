@@ -84,8 +84,8 @@ const ALL_ROUTES = [
 ]
 
 // Default Fallback Metadata
-const DEFAULT_TITLE = 'Human Benchmark - Brain Tests, Reaction Time & Cognitive Benchmarks'
-const DEFAULT_DESC = "Measure and train your cognitive abilities with free, accurate online tests for reaction time, sequence memory, aim, typing speed, verbal memory, and more. Compare your scores globally."
+const DEFAULT_TITLE = 'Human Benchmark - Reaction Time, Memory & Brain Tests'
+const DEFAULT_DESC = 'How fast is your brain? Test your reaction time, sequence memory, aim, and typing speed. Compare your score with global averages. Free instant brain tests.'
 const DEFAULT_CANONICAL = 'https://humanbenchmark.in'
 const DEFAULT_IMAGE = 'https://humanbenchmark.in/logo.webp'
 

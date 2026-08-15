@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import DataVisualizer from '../components/science/DataVisualizer';
+import ArticleIllustration from '../components/science/ArticleIllustration';
 import { SCIENCE_ARTICLES } from '../data/scienceArticles';
 import styles from './ScienceArticleDetail.module.css';
 
@@ -62,7 +63,7 @@ export default function ScienceArticleDetail() {
     "datePublished": article.publishedDate,
     "dateModified": article.publishedDate,
     "mainEntityOfPage": `https://humanbenchmark.in/science/${article.slug}`,
-    "image": "https://humanbenchmark.in/og-image.png?v=2.0",
+    "image": `https://humanbenchmark.in/images/science/articles/${article.slug}.jpg`,
     "about": {
       "@type": "Thing",
       "name": article.categoryLabel
@@ -137,6 +138,7 @@ export default function ScienceArticleDetail() {
         title={`${article.title} - Human Benchmark Science`}
         description={article.excerpt}
         canonical={`https://humanbenchmark.in/science/${article.slug}`}
+        image={`https://humanbenchmark.in/images/science/articles/${article.slug}.jpg`}
         type="article"
         jsonLd={combinedSchemas}
       >
@@ -180,6 +182,20 @@ export default function ScienceArticleDetail() {
             </div>
           </div>
 
+          {/* ── Photographic Scientific Hero Visualization ── */}
+          <div className={styles.heroImageWrapper}>
+            <img 
+              src={`/images/science/articles/${article.slug}.jpg`} 
+              alt={`${article.title} - Scientific Research Photography`} 
+              className={styles.heroImage}
+              loading="eager"
+            />
+            <div className={styles.heroImageCaption}>
+              <Sparkles size={14} color="#3b82f6" />
+              <span>Scientific Photography: Experimental setup and empirical research in {article.categoryLabel}.</span>
+            </div>
+          </div>
+
           {/* ── AEO: Quick Answer / Key Definitional Summary ── */}
           <section className={styles.aeoBox} aria-label="Direct Answer">
             <div className={styles.aeoHeader}>
@@ -204,6 +220,9 @@ export default function ScienceArticleDetail() {
             ))}
           </section>
         )}
+
+        {/* ── Scientific Visual Model & Architecture ── */}
+        <ArticleIllustration slug={article.slug} title={article.title} category={article.category} />
 
         {/* ── Data Visualization Component (if applicable) ── */}
         {article.visualization && (
@@ -240,6 +259,23 @@ export default function ScienceArticleDetail() {
                     </div>
                   ))}
                 </div>
+              )}
+
+              {/* ── Secondary Authentic Scientific Figure (Mid-Article) ── */}
+              {sIdx === 1 && (
+                <figure className={styles.inlineFigure}>
+                  <div className={styles.inlineImageWrapper}>
+                    <img 
+                      src={`/images/science/articles/${article.slug}-secondary.jpg`} 
+                      alt={`Empirical experimental research and neurobiological investigation of ${article.title}`} 
+                      className={styles.inlineImage}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className={styles.inlineFigcaption}>
+                    <strong>Figure 2.0:</strong> Empirical neurobiological investigations and laboratory findings in <em>{article.title}</em>.
+                  </figcaption>
+                </figure>
               )}
             </section>
           ))}

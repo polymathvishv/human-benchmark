@@ -93,6 +93,49 @@
   gap: 0.4rem;
 }
 
+/* ── Hero Photographic Image ── */
+.heroImageWrapper {
+  margin: 1.75rem 0 2rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.12);
+  background: #0f172a;
+}
+
+:global(.dark) .heroImageWrapper {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.heroImage {
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.heroImageWrapper:hover .heroImage {
+  transform: scale(1.015);
+}
+
+.heroImageCaption {
+  padding: 0.85rem 1.25rem;
+  background: rgba(15, 23, 42, 0.85);
+  color: #cbd5e1;
+  font-size: 0.825rem;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+:global(.dark) .heroImageCaption {
+  color: #94a3b8;
+}
+
 /* ── AEO Quick Answer / Direct Definition Box ── */
 .aeoBox {
   background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
@@ -189,6 +232,65 @@
 
 .articleList li {
   margin-bottom: 0.6rem;
+}
+
+/* ── Inline Secondary Scientific Figure ── */
+.inlineFigure {
+  margin: 2.5rem 0;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+:global(.dark) .inlineFigure {
+  background: #1e293b;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.inlineImageWrapper {
+  width: 100%;
+  max-height: 380px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.inlineImage {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.inlineFigure:hover .inlineImage {
+  transform: scale(1.02);
+}
+
+.inlineFigcaption {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #475569;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+:global(.dark) .inlineFigcaption {
+  background: #0f172a;
+  color: #94a3b8;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.inlineFigcaption strong {
+  color: #2563eb;
+}
+
+:global(.dark) .inlineFigcaption strong {
+  color: #60a5fa;
 }
 
 /* ── Negative / Misconception Subsections ── */
