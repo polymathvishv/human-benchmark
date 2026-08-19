@@ -11,6 +11,7 @@ import SciencePage from './pages/SciencePage';
 import ScienceArticleDetail from './pages/ScienceArticleDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Contact from './pages/Contact';
+import TermsOfService from './pages/TermsOfService';
 import ReactionTime from './pages/games/ReactionTime';
 import SequenceMemory from './pages/games/SequenceMemory';
 import AimTrainer from './pages/games/AimTrainer';
@@ -53,6 +54,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/dashboard" element={<StatsPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

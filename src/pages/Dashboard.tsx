@@ -294,6 +294,17 @@ export default function Dashboard() {
                 );
               })}
             </div>
+
+            {/* ── Disclaimer Banner ── */}
+            <div className={styles.disclaimerBanner}>
+              <span className={styles.disclaimerIcon}>ℹ️</span>
+              <p className={styles.disclaimerText}>
+                <strong>Educational &amp; Entertainment Use Only:</strong> All tests on Human Benchmark are
+                designed for educational insights and entertainment. They are not clinical instruments
+                and do not constitute medical or psychological diagnoses. If you have concerns about
+                your cognitive health, please consult a qualified healthcare professional.
+              </p>
+            </div>
           </section>
 
         </div>

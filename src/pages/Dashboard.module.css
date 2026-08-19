@@ -337,3 +337,32 @@
     font-size: 0.9rem;
   }
 }
+
+/* ── Disclaimer Banner ── */
+.disclaimerBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 10px;
+  padding: 1.125rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.disclaimerIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.disclaimerText {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #6b7280;
+  margin: 0;
+}
+
+.disclaimerText strong {
+  color: #374151;
+}

@@ -42,6 +42,7 @@ const STATIC_ROUTES = [
   '/science',
   '/about',
   '/privacy',
+  '/terms',
   '/contact',
   '/leaderboard',
   '/battle',
