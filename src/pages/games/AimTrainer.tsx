@@ -30,6 +30,7 @@ export default function AimTrainer() {
   };
 
   const startGame = () => {
+    soundService.unlockAudioContext(); // Unlock iOS AudioContext on the first user gesture
     timesRef.current = [];
     setTargetsHit(0);
     placeTarget();
@@ -37,7 +38,13 @@ export default function AimTrainer() {
     startTimeRef.current = performance.now();
   };
 
-  const handleTargetClick = () => {
+  const handleTargetHit = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault(); // Prevents iOS 300ms delay & phantom click after touchend
+    e.stopPropagation();
+
+    // Unlock AudioContext on iOS (must be inside a real user gesture)
+    soundService.unlockAudioContext();
+
     const now = performance.now();
     timesRef.current.push(now - startTimeRef.current);
     startTimeRef.current = now;
@@ -105,7 +112,10 @@ export default function AimTrainer() {
           <div
             className={styles.target}
             style={{ left: `calc(${targetPos.x}% - 24px)`, top: `calc(${targetPos.y}% - 24px)` }}
-            onClick={handleTargetClick}
+            onClick={handleTargetHit}
+            onTouchEnd={handleTargetHit}
+            role="button"
+            aria-label="Hit target"
           >
             <Crosshair size={48} />
           </div>

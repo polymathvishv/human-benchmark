@@ -82,8 +82,13 @@
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   cursor: crosshair;
-  touch-action: none;
+  /* iOS fix: 'manipulation' disables double-tap zoom, removing 300ms click delay */
+  touch-action: manipulation;
   box-sizing: border-box;
+  /* GPU compositing layer for smooth rendering on iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .target {
@@ -95,10 +100,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: crosshair;
-  touch-action: none;
+  cursor: pointer;
+  /* iOS: no 300ms delay, no blue flash on tap */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
+  /* Ensure the element is on its own compositing layer for smooth iOS animation */
+  will-change: left, top;
 }
 
 .targetInner {
@@ -141,12 +150,13 @@
   
   .gameArea {
     height: 48vh;
-    min-height: 280px;
+    min-height: 300px;
   }
 
+  /* Bigger tap targets on mobile for easier touch accuracy */
   .target {
-    width: 66px;
-    height: 66px;
+    width: 72px;
+    height: 72px;
   }
   
   .targetInner {

@@ -39,6 +39,32 @@ class SoundService {
     }
   }
 
+  /**
+   * Must be called inside a touch/click gesture handler to unlock AudioContext on iOS Safari.
+   * iOS suspends AudioContext until the first user gesture fires a resume() call.
+   */
+  public unlockAudioContext(): void {
+    try {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!this.ctx) {
+        this.ctx = new AudioCtx();
+      }
+      if (this.ctx.state === 'suspended') {
+        // Play a silent 0-length buffer to unlock — required on older iOS
+        this.ctx.resume().then(() => {
+          const buf = this.ctx!.createBuffer(1, 1, 22050);
+          const src = this.ctx!.createBufferSource();
+          src.buffer = buf;
+          src.connect(this.ctx!.destination);
+          src.start(0);
+          src.stop(0);
+        }).catch(() => {/* ignore */});
+      }
+    } catch {
+      // ignore
+    }
+  }
+
   public isMuted(): boolean {
     return this.muted;
   }
