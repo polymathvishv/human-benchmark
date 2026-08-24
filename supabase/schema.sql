@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS public.battle_rooms (
   host_name TEXT NOT NULL DEFAULT 'Host',  -- Creator display name (no auth required)
   game_id TEXT NOT NULL,                   -- Which test (e.g. 'reaction-time')
   game_name TEXT NOT NULL,                 -- Human-readable test name
-  max_players INT NOT NULL DEFAULT 10,     -- Max participants (10 per room)
+  max_players INT NOT NULL DEFAULT 100,    -- Max participants (100 per room)
   created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL,
   expires_at TIMESTAMPTZ DEFAULT (timezone('utc'::text, now()) + INTERVAL '48 hours') NOT NULL
 );

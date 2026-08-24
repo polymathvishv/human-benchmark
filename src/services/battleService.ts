@@ -70,7 +70,7 @@ export async function createBattleRoom(
         host_name: hostName.trim() || 'Host',
         game_id: gameId,
         game_name: gameName,
-        max_players: 10,
+        max_players: 100,
       })
       .select('id, room_code')
       .single();
