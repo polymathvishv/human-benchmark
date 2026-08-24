@@ -55,17 +55,38 @@ export default function GamePageLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
+        "@type": ["SoftwareApplication", "WebApplication"],
         "name": title,
-        "description": subtitle,
+        "description": aboutText || subtitle,
         "applicationCategory": "GameApplication",
+        "applicationSubCategory": "Cognitive Test",
         "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
         "url": fullUrl,
+        "inLanguage": "en",
+        "author": {
+          "@type": "Person",
+          "name": "Vishv Kamani",
+          "email": "vishv@humanbenchmark.in"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Human Benchmark",
+          "url": "https://humanbenchmark.in/",
+          "@id": "https://humanbenchmark.in/#organization"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD"
-        }
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Free to use — no account required",
+          "Works on desktop and mobile",
+          "Global percentile comparison",
+          "Multiplayer battle mode"
+        ]
       },
       {
         "@type": "BreadcrumbList",

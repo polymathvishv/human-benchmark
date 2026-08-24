@@ -14,6 +14,8 @@ export default function ReactionTime() {
   const [gameState, setGameState] = useState<GameState>('waiting');
   const [score, setScore] = useState<number>(0);
   const [attempts, setAttempts] = useState<number[]>([]);
+  const [bestTime, setBestTime] = useState<number>(0);
+  const [worstTime, setWorstTime] = useState<number>(0);
   const timeoutRef = useRef<number | null>(null);
   const autoNextTimeoutRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
@@ -67,8 +69,12 @@ export default function ReactionTime() {
       if (newAttempts.length >= 5) {
         clearAllTimers();
         const average = Math.floor(newAttempts.reduce((a, b) => a + b, 0) / newAttempts.length);
+        const lowest = Math.min(...newAttempts);
+        const highest = Math.max(...newAttempts);
         setScore(average);
-        saveScore(average);
+        setBestTime(lowest);
+        setWorstTime(highest);
+        saveScore(average); // Only save average to Supabase
         soundService.playVictory();
         setGameState('result');
       } else {
@@ -112,6 +118,8 @@ export default function ReactionTime() {
             clearAllTimers();
             setGameState('waiting');
             setScore(0);
+            setBestTime(0);
+            setWorstTime(0);
             setAttempts([]);
           }}
           shareConfig={{
@@ -122,6 +130,21 @@ export default function ReactionTime() {
             isLowerBetter: true,
           }}
         >
+          {/* ── Three-stat breakdown ── */}
+          <div className={styles.statsRow}>
+            <div className={styles.statCard}>
+              <span className={styles.statValue}>{score} ms</span>
+              <span className={styles.statLabel}>Average</span>
+            </div>
+            <div className={`${styles.statCard} ${styles.statBest}`}>
+              <span className={styles.statValue}>{bestTime} ms</span>
+              <span className={styles.statLabel}>Best</span>
+            </div>
+            <div className={`${styles.statCard} ${styles.statWorst}`}>
+              <span className={styles.statValue}>{worstTime} ms</span>
+              <span className={styles.statLabel}>Worst</span>
+            </div>
+          </div>
           <GameInsight 
             score={score} 
             average={273} 

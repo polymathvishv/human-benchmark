@@ -1,0 +1,285 @@
+# Human Benchmark — Complete Site Content for LLM Indexing
+# URL: https://humanbenchmark.in
+# Author: Vishv Kamani (vishv@humanbenchmark.in)
+# Last Updated: 2026-08-24
+# License: Content © 2026 Human Benchmark. All rights reserved.
+
+---
+
+## About Human Benchmark
+
+Human Benchmark (humanbenchmark.in) is a free, browser-based platform for measuring cognitive performance. It hosts nine scientifically grounded tests covering reaction time, working memory, visual-spatial memory, verbal memory, typing speed, and motor coordination. No download, app installation, or account is required to use any test. Scores are compared against percentile benchmarks derived from millions of real user sessions.
+
+The site is built and maintained by Vishv Kamani, an independent developer and cognitive science enthusiast based in India. Contact: vishv@humanbenchmark.in | business@humanbenchmark.in
+
+---
+
+## The 9 Cognitive Tests
+
+### 1. Reaction Time Test
+URL: https://humanbenchmark.in/reaction-time
+
+Measures simple visual reaction time (SRT) — the elapsed time from a visual stimulus (screen turning green) to a motor response (mouse click or screen tap). The test runs 5 attempts and shows: average time, fastest time, and slowest time.
+
+**Methodology:** Based on Donders' subtraction method (1868), which isolated the neural processing component of sensorimotor response time. This test measures the full perceptual-motor chain: retinal phototransduction (~8ms) → optic nerve transmission (~20ms) → V1 visual cortex (~50ms) → premotor cortex (~80ms) → motor cortex → finger movement. The theoretical minimum for genuine (non-anticipatory) human RT is ~100–120ms.
+
+**Global Statistics:**
+- Global average (web): ~284ms
+- Laboratory average: ~250ms (no hardware latency)
+- Top 1% threshold: <160ms
+- Top 10% threshold: <200ms
+- Top 25% threshold: <250ms
+- Median (50th percentile): 250–300ms
+- Bottom 25%: 300–360ms
+- Peak performance age: 20–24 years
+- RT declines ~2–5ms per decade after peak
+
+**Factors affecting score:** Sleep deprivation (+30–50ms per bad night), hardware (wireless mouse +5–15ms, 60Hz vs 144Hz monitor +7ms), age, caffeine, hydration, and practice.
+
+---
+
+### 2. Sequence Memory Test
+URL: https://humanbenchmark.in/sequence-memory
+
+Tests working memory by showing a progressively lengthening pattern of highlighted squares in a 3×3 grid. The user must reproduce each pattern in the correct order after it finishes. Each correct level adds one more square to the sequence.
+
+**Methodology:** Analogous to the Corsi Block-Tapping Task developed by Milner and Corsi in the 1970s, a standard clinical tool for assessing visuospatial working memory span. Unlike pure spatial recall tests, sequence memory requires retention of both the identity and order of stimuli.
+
+**Global Statistics:**
+- Average level reached: 7–9
+- Top 10%: 10+ levels
+- Consistent with Miller's Law: "The Magical Number Seven, Plus or Minus Two" (1956)
+
+---
+
+### 3. Aim Trainer
+URL: https://humanbenchmark.in/aim-trainer
+
+Tests visuomotor coordination and processing speed. Users click 30 circular targets that appear at random positions on a canvas. Score is the average milliseconds per target across all 30 hits.
+
+**Methodology:** Based on Fitts's Law — the time to acquire a target is a logarithmic function of the ratio of distance to target width. Smaller and more distant targets take measurably longer to acquire, and this relationship holds across all humans and devices.
+
+**Global Statistics:**
+- Global average: ~400ms per target
+- Top 10%: <250ms per target
+- Elite esports athletes: <200ms per target
+
+---
+
+### 4. Number Memory Test
+URL: https://humanbenchmark.in/number-memory
+
+Tests digit span — verbal working memory for sequential numerical information. A number is displayed briefly, then disappears; the user types it back. The number grows by one digit per correct round.
+
+**Methodology:** Measures the phonological loop component of Baddeley's Working Memory Model. Digit span is one of the most widely used subtests in clinical neuropsychology (WAIS, WISC). Forward digit span averages 7 digits; backward digit span averages 5–6.
+
+**Global Statistics:**
+- Average adult digit span: 7 digits (±2)
+- Exceptional performers: 10+ digits
+- Children aged 5–6: ~4 digits
+
+---
+
+### 5. Verbal Memory Test
+URL: https://humanbenchmark.in/verbal-memory
+
+Short-term word retention test. Words are shown one at a time; the user must label each as NEW (never seen in this session) or SEEN (shown earlier). The word pool grows continuously; performance declines as interference accumulates.
+
+**Methodology:** Measures declarative memory under proactive interference. Related to the DRM paradigm (Deese-Roediger-McDermott) for studying false memory. Controlled by the hippocampus and prefrontal cortex working in concert.
+
+**Global Statistics:**
+- Average score: ~50 words before significant error accumulation
+- Top 10%: 80+ words
+
+---
+
+### 6. Chimp Test
+URL: https://humanbenchmark.in/chimp-test
+
+Spatial-positional working memory test. Numbers 1–N appear briefly on a grid, then their positions are hidden. The user must click all number positions in ascending order from memory.
+
+**Background:** Inspired by landmark research by Sana Inoue and Tetsuro Matsuzawa (Current Biology, 2007) at the Primate Research Institute, Kyoto University. Trained chimpanzees (particularly Ayumu) demonstrated superior short-term photographic memory compared to human adults — reliably recalling 9-item sequences that humans find extremely difficult. The study challenged assumptions about human cognitive superiority.
+
+**Global Statistics:**
+- Average human: correctly completes levels 7–9
+- Trained chimps: reliably complete 9-item sequences
+- Top human performers: can match chimp performance with practice
+
+---
+
+### 7. Visual Memory Test
+URL: https://humanbenchmark.in/visual-memory
+
+Visuospatial set recall test. A grid flashes a pattern of highlighted squares; the user must click all the squares that were lit — without needing to remember the order. Each correct level adds one more square and grows the grid. Users have 3 lives.
+
+**Methodology:** Analogous to the Corsi Block-Tapping Test for spatial memory without serial order requirement. Tests the visuospatial sketchpad component of Baddeley's Working Memory Model. Distinct from sequence memory in that temporal order is irrelevant; only spatial set membership matters.
+
+**Global Statistics:**
+- Average level: 7–8
+- Top 10%: 12+
+- Grid grows from 3×3 up to 7×7 at higher levels
+
+---
+
+### 8. Typing Speed Test (Desktop)
+URL: https://humanbenchmark.in/typing
+
+Standard WPM (Words Per Minute) typing speed test for desktop keyboards. A passage of text is displayed; the user types it verbatim. Score accounts for accuracy — errors reduce final WPM.
+
+**Global Statistics:**
+- Average adult: 40–60 WPM
+- Fast typist: 80–100 WPM
+- Professional/competitive: 100–150+ WPM
+- World record: 212 WPM (Barbara Blackburn, 2005, on a Dvorak keyboard)
+
+---
+
+### 9. Mobile Typing Test
+URL: https://humanbenchmark.in/mobile-typing
+
+WPM typing speed test optimized for smartphone touchscreen keyboards (iOS Safari, Android Chrome). Same scoring methodology as the desktop test but with touch-friendly input.
+
+**Context:** Average mobile typing speed is significantly lower than desktop — typically 30–45 WPM on a touchscreen vs 40–60 WPM on a physical keyboard. Swipe-based keyboard input (Gboard, SwiftKey) can reach 60+ WPM.
+
+---
+
+## Science Library (26 Articles)
+
+### Reaction Time Category
+
+**What Is Reaction Time?** (https://humanbenchmark.in/science/what-is-reaction-time)
+Simple visual reaction time is the elapsed time from a visual stimulus to motor response. It represents the entire perceptual-motor chain. Average ~284ms on web platforms. Scores below 200ms indicate excellent reflexes. Donders (1868) first isolated the neural component by subtracting baseline motor time from total RT.
+
+**Choice vs Simple Reaction Time** (https://humanbenchmark.in/science/choice-vs-simple-reaction-time)
+Simple RT involves one stimulus, one response. Choice RT adds a decision: "which of these N stimuli appeared, and which of N responses should I give?" Each doubling of choices adds ~100–150ms (Hick's Law). Choice RT is slower because the prefrontal cortex must resolve stimulus-response mapping before the motor command fires.
+
+**How Sleep Affects Reaction Time** (https://humanbenchmark.in/science/how-sleep-affects-reaction-time)
+Sleep deprivation degrades psychomotor vigilance before self-reported fatigue appears. One night of 5–6hrs sleep slows mean RT by 30–50ms. 17–19hrs of wakefulness produces impairment equivalent to 0.05% blood alcohol concentration. Adenosine accumulation in the basal forebrain suppresses arousal systems. Recovery requires ~2 full nights of adequate sleep.
+
+**Does Gaming Improve Reaction Time?** (https://humanbenchmark.in/science/does-gaming-improve-reaction-time)
+Green & Bavelier (2003, Nature) showed action video game players (AVGPs) have significantly faster RT and superior divided attention compared to non-gamers. The effect generalizes beyond gaming tasks. AVGPs show enhanced top-down attention modulation in the temporal-parietal junction and superior colliculus. The improvement is real but saturates — professional gamers are not categorically faster than recreational AVGPs.
+
+**Does 240Hz Improve Scores?** (https://humanbenchmark.in/science/does-240hz-improve-scores)
+Monitor refresh rate contributes to hardware latency in web-based RT tests. At 60Hz, a frame takes 16.7ms; at 240Hz, 4.2ms. Combined with input device latency (wired gaming mouse ~1ms, wireless mouse ~5–15ms), total hardware overhead ranges from ~6ms (240Hz + wired) to ~30ms (60Hz + wireless). This is why web-based averages (~284ms) exceed lab averages (~250ms).
+
+**Why Reaction Time Changes With Age** (https://humanbenchmark.in/science/why-reaction-time-changes-with-age)
+RT peaks in the early 20s (~218ms average for age 20–24) and slows ~2–5ms per decade due to reduced myelination efficiency, slower central processing speed, and decreased dopaminergic tone in the prefrontal cortex. By age 65+, average RT rises to ~310ms. Regular aerobic exercise and cognitive engagement attenuate but do not reverse the biological decline.
+
+### Memory Category
+
+**Working Memory Explained** (https://humanbenchmark.in/science/working-memory-explained)
+Baddeley & Hitch's 1974 Working Memory Model replaced the unitary short-term store with a multicomponent system: (1) Central Executive — attentional controller; (2) Phonological Loop — verbal/auditory rehearsal; (3) Visuospatial Sketchpad — spatial and visual information; (4) Episodic Buffer — links to long-term memory and integrates information across subsystems. Working memory capacity strongly predicts fluid intelligence, academic achievement, and reasoning ability.
+
+**Why Humans Forget** (https://humanbenchmark.in/science/why-humans-forget)
+Ebbinghaus (1885) quantified forgetting as an exponential decay curve — 56% of information lost within 1 hour, 66% within 1 day, 75% within 6 days without rehearsal. Mechanisms include: trace decay (passive fading), retroactive interference (new information overwrites old), proactive interference (old information blocks new encoding), and retrieval failure (information stored but cue-inaccessible).
+
+**Visual vs Spatial Memory** (https://humanbenchmark.in/science/visual-vs-spatial-memory)
+Visual memory encodes object properties (color, shape, texture) via the ventral "what" stream (inferior temporal cortex). Spatial memory encodes locations and relationships via the dorsal "where/how" stream (posterior parietal cortex). These systems are functionally and anatomically separate — patients with parietal damage can recognize objects but cannot locate them, while those with temporal damage can locate objects but not identify them.
+
+**Chunking Explained** (https://humanbenchmark.in/science/chunking-explained)
+Miller (1956) proposed that working memory holds 7±2 "chunks" — meaningful units regardless of their raw information content. An expert chess player can chunk a board position into ~5 meaningful patterns; a novice sees 32 individual pieces. Chunking is how experts circumvent working memory limits. Phone numbers, zip codes, and acronyms are everyday applications of deliberate chunking.
+
+**Chimp Memory Research** (https://humanbenchmark.in/science/chimp-memory-research)
+Inoue & Matsuzawa (2007, Current Biology) tested Ayumu, a young male chimpanzee at Kyoto University's Primate Research Institute. Ayumu could reliably recall the positions of 9 briefly flashed numbers — outperforming human adults in both speed and accuracy. The study demonstrated that human language dominance may have evolved at the cost of eidetic-style photographic short-term memory. Subsequent testing confirmed the results were not artifacts of training methodology.
+
+**How Stress Affects Memory** (https://humanbenchmark.in/science/how-stress-affects-memory)
+Acute stress (cortisol + adrenaline surge) enhances memory consolidation for emotionally significant events — an adaptive mechanism. However, acute stress impairs working memory and prefrontal cortex function during the stressor itself. Chronic stress causes hippocampal volume reduction via sustained glucocorticoid exposure, directly impairing spatial navigation and declarative memory formation.
+
+### Attention Category
+
+**The Stroop Effect** (https://humanbenchmark.in/science/the-stroop-effect)
+Stroop (1935) demonstrated that reading a color word (e.g., "RED") in incongruent ink (blue) produces measurable RT slowing (~200ms) compared to congruent conditions. The interference arises because reading is a more automatic process than color-naming; the dominant response (reading) must be suppressed. The Stroop task is a gold standard measure of selective attention and cognitive inhibition, used in clinical diagnosis of ADHD, frontal lobe damage, and aging studies.
+
+**Change Blindness** (https://humanbenchmark.in/science/change-blindness)
+Change blindness is the failure to detect large changes in a visual scene when the change coincides with an interruption (blink, cut, flicker). Simons & Levin (1998) showed participants failed to notice when the person they were speaking to was swapped for a different person during a brief interruption. Reveals that conscious visual experience does not contain the rich detail we believe it does — the brain represents only what attention has been directed toward.
+
+**Inattentional Blindness** (https://humanbenchmark.in/science/inattentional-blindness)
+Simons & Chabris (1999) — the "invisible gorilla" experiment. Participants counting basketball passes failed to notice a person in a gorilla suit walking through the scene. Demonstrates that attention is capacity-limited and objects outside attentional focus are not consciously perceived, even when in plain sight. Has critical implications for driving safety, aviation, and surgical monitoring.
+
+**The Multitasking Myth** (https://humanbenchmark.in/science/multitasking-myth)
+Humans cannot truly multitask cognitive tasks — fMRI studies show the brain rapidly switches between tasks (task-switching) rather than processing them simultaneously. Each switch incurs an executive control cost (task-switch cost) of 150–1000ms. Heavy media multitaskers perform worse on attention tasks than light multitaskers (Ophir et al., 2009). Perceived multitasking ability is poorly correlated with actual performance.
+
+**Global vs Local Attention** (https://humanbenchmark.in/science/global-vs-local-attention)
+Navon (1977) demonstrated that humans preferentially process the global (overall) structure of a visual scene before local details — the "global precedence effect." A large letter "H" made of small "S" characters: participants identify the H faster. The right hemisphere shows global processing dominance; the left hemisphere, local processing dominance. Attention can be voluntarily directed to either level but with some cost.
+
+### Processing Speed Category
+
+**Hick's Law** (https://humanbenchmark.in/science/hicks-law)
+Hick (1952) and Hyman (1953) showed that reaction time increases logarithmically with the number of equally probable stimulus-response alternatives: RT = a + b × log₂(n). Foundational to UI design (fewer options = faster decisions), menu design, emergency response protocols, and military doctrine. Explains why experienced professionals can make faster decisions despite having more options — they chunk alternatives into fewer effective choices.
+
+**Fitts's Law** (https://humanbenchmark.in/science/fitts-law)
+Fitts (1954) quantified the time to move a pointing device to a target: MT = a + b × log₂(2D/W), where D = distance, W = target width. Governs button sizing (larger = easier to click), touch target design (minimum 44×44px), and aim training. The information-theoretic model (bits of motor information) predicts performance across orders of magnitude of distance and size. Foundational to HCI and sports biomechanics.
+
+**Processing Speed vs Reaction Time** (https://humanbenchmark.in/science/processing-speed-vs-reaction-time)
+Processing speed (Gs in CHC theory) is a broad cognitive ability — the rate at which simple cognitive tasks can be performed automatically. It is a component of general intelligence (g) and correlates with IQ. Simple motor RT is a narrower measure — it captures neural conduction speed and motor preparation but not higher-level cognitive processing. The two correlate (r ≈ 0.3–0.4) but are not equivalent.
+
+**Why Fast Decisions Matter** (https://humanbenchmark.in/science/why-fast-decisions-matter)
+Real-world implications of processing speed: in Formula 1, a 100ms advantage in brake reaction saves ~2.7m of stopping distance at 200km/h. In aviation, delayed response to cockpit alarms is a leading cause of controlled-flight-into-terrain accidents. In surgery, faster haptic feedback processing reduces tissue trauma. In driving, a 250ms RT increase (equivalent to one night of poor sleep) doubles stopping distance at 60mph.
+
+### Brain Science Category
+
+**Neuroplasticity** (https://humanbenchmark.in/science/neuroplasticity)
+Neuroplasticity is the brain's ability to reorganize synaptic connections in response to experience, learning, or injury. Hebbian plasticity: "neurons that fire together wire together" — repeated co-activation strengthens synaptic connections (long-term potentiation, LTP). The adult brain retains significant plasticity, particularly in the hippocampus (new neuron formation) and prefrontal cortex (synaptic remodeling). London taxi drivers show enlarged hippocampal grey matter from spatial navigation demands.
+
+**Dopamine and Learning** (https://humanbenchmark.in/science/dopamine-and-learning)
+Dopamine neurons (ventral tegmental area, substantia nigra) encode reward prediction errors — they fire when outcomes are better than expected, are suppressed when outcomes are worse, and are silent when outcomes match expectations. This signal drives reinforcement learning throughout the striatum and prefrontal cortex. Dopamine is not the "pleasure chemical" — it is the learning signal. Addiction hijacks this system by flooding dopamine receptors far beyond what natural rewards can achieve.
+
+**Circadian Rhythm and Cognition** (https://humanbenchmark.in/science/circadian-rhythm)
+The suprachiasmatic nucleus (SCN) in the hypothalamus acts as the master circadian clock, synchronized primarily by light. Cognitive performance follows a circadian pattern: alertness, reaction time, and working memory peak in the late morning to early afternoon for most chronotypes. Core body temperature correlates strongly with cognitive performance — highest alertness coincides with highest temperature. Shift workers and jet-lagged individuals show RT slowing of 30–100ms during circadian nadir.
+
+**Cognitive Fatigue** (https://humanbenchmark.in/science/cognitive-fatigue)
+Mental fatigue is a neurobiological state (not merely subjective tiredness) characterized by reduced activity in the anterior cingulate cortex and prefrontal cortex, increased adenosine levels, and measurable slowing on psychomotor vigilance tasks. After 2+ hours of sustained cognitive effort, RT slows by 15–40ms and error rates increase. Cognitive fatigue does not respond to motivational incentives the way physical fatigue does — willpower cannot override the underlying neural depletion.
+
+**Brain Myths Debunked** (https://humanbenchmark.in/science/brain-myths-debunked)
+- **10% myth**: Humans use 100% of their brain; different regions are active for different tasks, but no region is permanently dormant. Metabolic imaging shows global brain activity even during sleep.
+- **Left brain/right brain**: The dichotomy is vastly overstated. Most cognitive functions require bilateral coordination. Lateralization exists for specific functions (language: left; spatial processing: right) but "left-brained logical" vs "right-brained creative" personalities have no neurological basis.
+- **Brain size = intelligence**: Brain-to-body ratio and neural connectivity patterns are better predictors than raw size.
+- **You can't grow new neurons**: The hippocampus undergoes neurogenesis into adulthood (Eriksson et al., 1998).
+
+---
+
+## Frequently Asked Questions
+
+**What is a good reaction time?**
+A reaction time below 250ms is considered good. Below 200ms is excellent, typical of competitive gamers and young athletes. The global average on Human Benchmark is ~284ms. Context matters: hardware latency (monitor Hz, mouse type), age, and state (rested vs fatigued) all shift your baseline.
+
+**What is the average reaction time for a 14-year-old?**
+Teenagers typically score 220–260ms on simple visual RT tests. RT continues to improve until the early 20s, when it peaks at ~218ms average. Adolescents often score faster than middle-aged adults but slower than young adults in their prime.
+
+**Is 150ms reaction time possible?**
+Scores below 150ms are extremely rare and almost always indicate anticipation (clicking before the stimulus, not in response to it). The theoretical minimum for genuine human RT (based on neural conduction velocity) is approximately 100–120ms. Legitimate 150ms scores are possible at the outer extreme of human performance.
+
+**What is a good score on the chimp test?**
+Successfully completing levels 7–9 is average human performance. Reaching level 10+ puts you in the top 10%. Research by Inoue & Matsuzawa (2007) showed trained chimpanzees reliably recall 9-item sequences — comparable to expert human performance.
+
+**What does the number memory test measure?**
+It measures forward digit span, a key component of verbal working memory. The average adult span is 7 digits (±2), as described by George Miller (1956). Higher scores correlate with stronger verbal working memory and fluid intelligence.
+
+**Does gaming improve reaction time?**
+Yes. Research (Green & Bavelier, 2003, Nature) shows action video game players have faster visuomotor RT and better sustained attention. The improvement generalizes beyond gaming. However, the benefit plateaus — casual gaming provides most of the benefit.
+
+**What WPM is considered fast typing?**
+Average adult: 40–60 WPM. Fast: 80–100 WPM. Professional/competitive: 100–150+ WPM. World record exceeds 212 WPM. 60 WPM is roughly the threshold for professional-grade typing proficiency.
+
+**How can I improve my reaction time?**
+1. Get adequate sleep (most impactful factor — each poor night costs 30–50ms)
+2. Stay hydrated
+3. Upgrade hardware (144Hz+ monitor, wired mouse)
+4. Practice (attentional readiness improves, not neural conduction speed)
+5. Aerobic exercise (improves cerebrovascular health and processing speed)
+6. Reduce alcohol and sedating medications
+
+**What is the average visual memory level?**
+The global average is level 7–8. Top 10% of users reach level 12 or higher. The grid grows from 3×3 at level 1 up to 7×7 at higher levels, exponentially increasing difficulty.
+
+---
+
+## Contact & Legal
+
+- General enquiries: contact@humanbenchmark.in
+- Technical support: support@humanbenchmark.in
+- Business / partnerships: business@humanbenchmark.in
+- Creator: vishv@humanbenchmark.in
+- Privacy Policy: https://humanbenchmark.in/privacy
+- Terms of Service: https://humanbenchmark.in/terms
+- About: https://humanbenchmark.in/about

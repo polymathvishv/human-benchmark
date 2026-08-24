@@ -134,3 +134,68 @@
   }
 }
 
+/* ── Result: 3-stat breakdown row ── */
+.statsRow {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 1.25rem;
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0.5rem;
+  background: var(--surface-color, #f8fafc);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.statBest {
+  background: rgba(16, 185, 129, 0.07);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.statWorst {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  line-height: 1.1;
+}
+
+.statBest .statValue {
+  color: #059669;
+}
+
+.statWorst .statValue {
+  color: #dc2626;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+@media (max-width: 380px) {
+  .statsRow {
+    gap: 0.5rem;
+  }
+  .statCard {
+    padding: 0.75rem 0.25rem;
+  }
+  .statValue {
+    font-size: 1.05rem;
+  }
+}

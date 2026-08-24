@@ -184,6 +184,66 @@ export default function SequenceMemoryInfo() {
           </svg>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is a good sequence memory level?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              The average adult reaches level 7 or 8. Reaching level 10 or above is considered an excellent score, reflecting strong visuospatial working memory. This perfectly aligns with George Miller's psychological law of "Seven, Plus or Minus Two."
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is sequence memory related to IQ?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, tests of working memory capacity (like sequence memory and digit span) correlate strongly with fluid intelligence (Gf). The ability to hold and manipulate temporary information is a core component of problem-solving and reasoning tasks found on IQ tests.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why does music training improve sequence memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Musicians are trained to chunk sequences of notes and rhythms into meaningful phrases. When confronted with a sequence memory test, musicians often unconsciously map the visual pattern to a rhythm or a spatial "melody," using their highly trained auditory-motor networks to assist their visual memory.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is the Corsi Block Test?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              The Corsi Block-Tapping Test is a standard psychological and clinical assessment created in the 1970s. An examiner taps a sequence of physical wooden blocks, and the patient must repeat the sequence. This game is a digital adaptation of that exact clinical test, measuring the "visuospatial sketchpad" of working memory.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How is sequence memory different from visual memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Visual memory (like our other test) requires you to remember *which* squares lit up, regardless of order. Sequence memory requires you to remember the *temporal order* of the squares. It adds a layer of serial processing, making it significantly harder and utilizing slightly different neural pathways.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

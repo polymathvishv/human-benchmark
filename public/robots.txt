@@ -1,28 +1,86 @@
 User-agent: *
 Allow: /
 
-# Explicitly allow all major search and AI crawlers
+# ── Google ────────────────────────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
-User-agent: Bingbot
-Allow: /
-User-agent: GPTBot
-Allow: /
-User-agent: ClaudeBot
+User-agent: Googlebot-Image
 Allow: /
 User-agent: Google-Extended
 Allow: /
+User-agent: AdsBot-Google
+Allow: /
+
+# ── Bing / Microsoft ──────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+User-agent: msnbot
+Allow: /
+
+# ── OpenAI ────────────────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
 User-agent: OAI-SearchBot
 Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic ─────────────────────────────────────────────────────────────────
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# ── Perplexity ────────────────────────────────────────────────────────────────
 User-agent: PerplexityBot
 Allow: /
-User-agent: CCBot
-Allow: /
+
+# ── Apple ─────────────────────────────────────────────────────────────────────
 User-agent: Applebot
 Allow: /
 User-agent: Applebot-Extended
 Allow: /
+
+# ── Amazon ────────────────────────────────────────────────────────────────────
 User-agent: Amazonbot
 Allow: /
 
+# ── Common Crawl (used by many LLM training datasets) ─────────────────────────
+User-agent: CCBot
+Allow: /
+
+# ── Meta / Facebook ───────────────────────────────────────────────────────────
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+
+# ── xAI / Grok ────────────────────────────────────────────────────────────────
+User-agent: Grok
+Allow: /
+
+# ── ByteDance / TikTok ────────────────────────────────────────────────────────
+User-agent: Bytespider
+Allow: /
+
+# ── You.com ───────────────────────────────────────────────────────────────────
+User-agent: YouBot
+Allow: /
+
+# ── DuckDuckGo ────────────────────────────────────────────────────────────────
+User-agent: DuckAssistBot
+Allow: /
+
+# ── Twitter / X ───────────────────────────────────────────────────────────────
+User-agent: Twitterbot
+Allow: /
+
+# ── LinkedIn ──────────────────────────────────────────────────────────────────
+User-agent: LinkedInBot
+Allow: /
+
 Sitemap: https://humanbenchmark.in/sitemap.xml
+Sitemap: https://humanbenchmark.in/llms.txt
+Sitemap: https://humanbenchmark.in/llms-full.txt

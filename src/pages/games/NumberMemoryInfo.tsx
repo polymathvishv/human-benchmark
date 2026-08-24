@@ -202,6 +202,66 @@ export default function NumberMemoryInfo() {
           </div>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How many digits can the average person remember?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              The average adult can remember about 7 digits (plus or minus 2) in short-term working memory. This was famously described by psychologist George Miller in 1956 as "The Magical Number Seven." Remembering beyond 9 digits usually requires active chunking or mnemonic strategies.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is remembering 10 digits impressive?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, scoring 10 or more on a forward digit span test is highly impressive and places you well above average. It suggests excellent working memory capacity and efficient phonological loop processing.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Can I train my digit span?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              You can improve your score on number memory tests through practice, primarily by learning to "chunk" information (e.g., remembering "1984" as a year rather than 1, 9, 8, 4). However, neuroscientists generally agree that while your score on a specific test improves, your brain's fundamental working memory storage capacity remains largely fixed.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What's the difference between short-term and working memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Short-term memory refers strictly to the temporary storage of information (like holding a phone number in your head for 10 seconds). Working memory is a broader concept that includes storing information *and* manipulating it (like doing mental math or reciting the numbers backward).
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why do I remember phone numbers but not other numbers?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Phone numbers are inherently formatted into groups (e.g., 3-3-4 digits). This takes advantage of "chunking," which effectively reduces a 10-digit number into 3 "chunks" of information. When you see a random string of numbers without formatting, your working memory tries to process them as 10 individual items, which quickly overwhelms its capacity.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

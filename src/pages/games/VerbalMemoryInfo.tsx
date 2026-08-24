@@ -208,6 +208,66 @@ export default function VerbalMemoryInfo() {
           </div>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is 50 words a good verbal memory score?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, 50 words is approximately the average score for an adult on this test. If you score above 80 words, you are performing exceptionally well and likely in the top 10% of users.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why do I forget words I just saw?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              This is caused by "proactive interference." As you see more and more words, the older memories begin to interfere with your ability to accurately encode and retrieve newer ones. Your brain starts confusing words you actually saw with words that just sound similar or belong to the same category.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Does reading more improve verbal memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes. Having a larger vocabulary and reading regularly makes word recognition more automatic. When you are highly familiar with a word, it takes less cognitive effort to process it, leaving more of your working memory capacity available to remember whether you've seen it recently.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is the difference between verbal and visual memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Verbal memory involves words, language, and linguistic concepts (processed primarily in the left hemisphere of the brain). Visual memory involves images, spatial locations, and shapes (processed primarily in the right hemisphere). You can be highly gifted in one and average in the other.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why is it easier to remember stories than word lists?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Stories provide semantic context and narrative structure. When words are linked logically, your brain uses "chunking" to remember the underlying meaning rather than the individual words. A random list of words has no structure, forcing your brain to rely purely on brute-force short-term memory capacity.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

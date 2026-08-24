@@ -154,6 +154,66 @@ export default function ChimpTestInfo() {
           </table>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Can humans actually beat chimps at memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes. While the original 2007 study made headlines claiming chimps were superior, later research showed this was largely due to training. The chimps had practiced the task for years, while the human subjects had not. When humans are given equal practice time, they can match or even exceed the chimps' performance on this specific test.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How does the chimp test work?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              You are shown a grid with numbers on it. As soon as you click the number "1", the rest of the numbers are hidden by white blocks. You must then click the remaining blocks in numerical order (2, 3, 4, etc.) purely from spatial memory.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is the chimp test a real scientific study?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, it is based on a famous 2007 study conducted by Tetsuro Matsuzawa at the Primate Research Institute of Kyoto University. The study involved a young chimpanzee named Ayumu, who could consistently remember the location of 9 numbers flashed on a screen for just 210 milliseconds.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What level on the chimp test is impressive?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              The average human completes level 5. Reaching level 8 puts you in the top 5% of users. Successfully completing level 9 or higher is highly impressive and puts you in the "Chimpanzee territory" (top 2%).
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why do young chimps beat adult humans?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Researchers proposed the "cognitive tradeoff hypothesis": humans evolved to trade raw, photographic-like short-term memory capacity for complex language and hierarchical thinking. Chimps lack human language, so they may retain this primitive, rapid spatial mapping ability which helps them navigate forests and spot predators instantly.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

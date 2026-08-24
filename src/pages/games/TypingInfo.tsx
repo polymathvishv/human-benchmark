@@ -172,6 +172,77 @@ export default function TypingInfo() {
           </div>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is 70 WPM a good typing speed?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, 70 WPM is significantly above the global average of 40 WPM. It is fast enough for almost any professional requirement, including administrative, software development, and writing roles.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How long does it take to reach 100 WPM?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Reaching 100 WPM requires mastering touch typing (typing without looking at the keys). If you already touch type at 60 WPM, reaching 100 WPM typically requires 3–6 months of consistent daily practice (15–30 minutes a day) focused heavily on accuracy.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Should I learn Dvorak or stick with QWERTY?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Stick with QWERTY unless you have specific ergonomic pain. While alternative layouts like Dvorak or Colemak are designed to reduce finger travel distance, studies show they do not inherently increase top speed. Most of the fastest typists in the world (150+ WPM) use standard QWERTY.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Does typing speed matter for programming?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Not really. Most programmers average 50–70 WPM. The bottleneck in software development is problem-solving and logic, not raw typing speed. A speed of 50 WPM is more than enough to keep up with how fast most people can formulate code architecture.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How do I type faster without looking at the keyboard?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              You must learn formal "touch typing." This means returning your index fingers to the "F" and "J" keys (which have little bumps on them) and assigning specific keys to specific fingers. Initially, your speed will drop as you break bad habits, but it is the only way to surpass the ~50 WPM limit of "hunt-and-peck" typing.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What WPM do you need for a transcription job?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Professional transcription, data entry, and medical coding roles typically require a minimum of 65–80 WPM, with some high-level legal transcription roles demanding 90+ WPM. Accuracy is often weighted just as heavily, requiring 98% or higher.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

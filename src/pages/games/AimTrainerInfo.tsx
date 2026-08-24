@@ -134,6 +134,66 @@ export default function AimTrainerInfo() {
           </table>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is 300ms a good aim trainer score?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, an average of 300ms per target is a solid score and puts you significantly above the global median (380ms). Hitting 250ms or below is where you enter the top 10% of scores, which is typical for highly competitive FPS players.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Does aim training actually work?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, aim training improves raw mouse control, precision, and flick speed by building muscle memory. However, it will not improve your "game sense" (crosshair placement, positioning, and decision making). Aim training builds the mechanical foundation, but in-game experience is still required.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How long should I practice aim trainer per day?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              If you are warming up before playing matches, 10–15 minutes is ideal to wake up your hand without causing fatigue. If you are doing dedicated aim training to improve your mechanics, 30–60 minutes per day is recommended. Practicing longer often leads to diminishing returns and wrist strain.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why is my mouse aim better in games than in aim trainers?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              In actual games, you rely heavily on anticipation, crosshair placement, and movement to align shots, rather than pure reactionary flicks. Aim trainers isolate raw mechanics without the context of a map or an enemy's predictable movement, which can make them feel unnatural or harder initially.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What does Fitts's Law mean for my aim?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Fitts's Law is a predictive model of human movement that states the time required to rapidly move to a target is a function of the ratio between the distance to the target and the width of the target. Essentially: small, distant targets take exponentially more time to click accurately than large, close ones. Improving aim means optimizing the speed-accuracy tradeoff dictated by this law.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

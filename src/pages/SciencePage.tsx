@@ -81,10 +81,17 @@ export default function SciencePage() {
     "name": "Cognitive Science & Research Library | Human Benchmark",
     "url": "https://humanbenchmark.in/science",
     "description": "Explore 26 peer-reviewed cognitive science articles covering reaction time, working memory, attention, processing speed, and neuroscience.",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Vishv Kamani",
+      "url": "https://humanbenchmark.in/about"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Human Benchmark",
       "url": "https://humanbenchmark.in",
+      "@id": "https://humanbenchmark.in/#organization",
       "logo": {
         "@type": "ImageObject",
         "url": "https://humanbenchmark.in/og-image.png?v=2.0"
@@ -95,7 +102,13 @@ export default function SciencePage() {
       "headline": art.title,
       "description": art.excerpt,
       "about": art.categoryLabel,
-      "url": `https://humanbenchmark.in/science/${art.slug}`
+      "url": `https://humanbenchmark.in/science/${art.slug}`,
+      "inLanguage": "en",
+      "author": {
+        "@type": "Person",
+        "name": "Vishv Kamani"
+      },
+      "datePublished": art.publishedDate
     }))
   };
 

@@ -160,6 +160,37 @@ export default function Dashboard() {
             "text": faq.a
           }
         }))
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://humanbenchmark.in/#organization",
+        "name": "Human Benchmark",
+        "url": "https://humanbenchmark.in/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://humanbenchmark.in/logo.webp",
+          "width": 512,
+          "height": 512
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Vishv Kamani",
+          "email": "vishv@humanbenchmark.in"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "contact@humanbenchmark.in",
+            "contactType": "customer support"
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "business@humanbenchmark.in",
+            "contactType": "sales"
+          }
+        ],
+        "description": "Free browser-based cognitive performance testing platform measuring reaction time, memory, typing speed, and motor coordination.",
+        "inLanguage": "en"
       }
     ]
   };

@@ -110,6 +110,55 @@ export default function MobileTypingInfo() {
           </div>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is the average mobile typing speed?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              The global average mobile typing speed is around 38 WPM. This is noticeably slower than the desktop average (40–60 WPM) because typing on a glass screen with two thumbs is less efficient than using 10 fingers on a physical keyboard.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is swipe typing faster than tapping?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              For one-handed use, swipe typing (like Gboard or SwiftKey) is significantly faster than one-handed tapping. However, for maximum speed, two-thumb typing (tapping) usually beats swipe typing. The fastest mobile typists in the world exclusively use two-thumb tapping to reach 100+ WPM.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How fast can you type on a phone compared to a keyboard?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Most people type about 30% slower on a phone than they do on a desktop keyboard. The gap shrinks for younger users who grew up with smartphones ("digital natives"), some of whom can actually type faster on a phone than on a traditional keyboard.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is a good WPM on a phone?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Anything over 50 WPM on a mobile device is considered a good score. If you can break 70 WPM, you are in the top 5% of smartphone typists.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

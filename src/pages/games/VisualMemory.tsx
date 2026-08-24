@@ -136,47 +136,47 @@ export default function VisualMemory() {
 
     return (
       <div className={styles.playArea}>
-        <div className={styles.header}>
-          <div>Level {level}</div>
-          <div className={styles.lives}>
-            {Array.from({ length: 3 }).map((_, i) => (
-              <Heart 
-                key={i} size={22} 
-                className={i < lives ? styles.lifeActive : styles.lifeLost} 
-                fill={i < lives ? 'var(--game-red)' : 'transparent'} 
-              />
-            ))}
+        <div className={styles.gameWrapper}>
+          <div className={styles.header}>
+            <div>Level {level}</div>
+            <div className={styles.lives}>
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Heart 
+                  key={i} size={22} 
+                  className={i < lives ? styles.lifeActive : styles.lifeLost} 
+                  fill={i < lives ? 'var(--game-red)' : 'transparent'} 
+                />
+              ))}
+            </div>
           </div>
-        </div>
-        <div 
-          className={styles.grid}
-          style={{ 
-            gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
-            gridTemplateRows: `repeat(${gridSize}, 1fr)`,
-            maxWidth: `min(${gridSize * 58}px, 100%, 420px)`,
-            width: '100%'
-          }}
-        >
-          {Array.from({ length: gridSize * gridSize }).map((_, i) => {
-            const isActive = activeSquares.has(i);
-            const isClicked = clickedSquares.has(i);
-            const isWrong = wrongClick === i;
-            let cellState = '';
-            if (gameState === 'flashing' || gameState === 'level_failed') {
-              if (isActive) cellState = styles.active;
-              if (isWrong) cellState = styles.wrong;
-            } else if (gameState === 'input') {
-              if (isClicked) cellState = styles.active;
-              if (isWrong) cellState = styles.wrong;
-            }
-            return (
-              <div 
-                key={i}
-                className={`${styles.cell} ${cellState} ${gameState === 'input' && !isClicked ? styles.clickable : ''}`}
-                onClick={() => handleSquareClick(i)}
-              />
-            );
-          })}
+          <div 
+            className={styles.grid}
+            style={{ 
+              gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+              gridTemplateRows: `repeat(${gridSize}, 1fr)`,
+            }}
+          >
+            {Array.from({ length: gridSize * gridSize }).map((_, i) => {
+              const isActive = activeSquares.has(i);
+              const isClicked = clickedSquares.has(i);
+              const isWrong = wrongClick === i;
+              let cellState = '';
+              if (gameState === 'flashing' || gameState === 'level_failed') {
+                if (isActive) cellState = styles.active;
+                if (isWrong) cellState = styles.wrong;
+              } else if (gameState === 'input') {
+                if (isClicked) cellState = styles.active;
+                if (isWrong) cellState = styles.wrong;
+              }
+              return (
+                <div 
+                  key={i}
+                  className={`${styles.cell} ${cellState} ${gameState === 'input' && !isClicked ? styles.clickable : ''}`}
+                  onClick={() => handleSquareClick(i)}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     );

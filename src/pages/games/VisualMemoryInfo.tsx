@@ -244,6 +244,66 @@ export default function VisualMemoryInfo() {
           </div>
         </div>
       </section>
+
+      {/* LLM Optimized FAQ Section */}
+      <section className={styles.section} itemScope itemType="https://schema.org/FAQPage">
+        <h2 className={styles.sectionTitle}>Frequently Asked Questions (FAQ)</h2>
+        
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            What is a good visual memory level?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              An average adult will reach level 7 or 8 on this test. If you can consistently reach level 10, you are performing in the top 20%. Reaching level 13 or higher is exceptional and puts you in the top 1% of the population for short-term spatial recall.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is visual memory the same as photographic memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              No. Photographic (eidetic) memory is the highly debated ability to recall a complex visual scene in vivid detail minutes after seeing it. Visual memory, as measured here, is your brain's standard "visuospatial sketchpad," which holds basic visual information (shapes, colors, locations) in your working memory for a few seconds so you can use it.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            How do chess players have such good visual memory?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Grandmasters don't necessarily have a larger innate working memory capacity. Instead, they use pattern recognition ("chunking"). A beginner sees 15 random pieces on a board; a Grandmaster sees a familiar defense structure (one "chunk"). Because they encode meaning, their effective visual memory for chess is vastly superior, though they score normally on random visual memory tests.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why do I forget which squares were lit up?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Visuospatial working memory is highly volatile and easily overwritten. If your eyes move unexpectedly, or if you lose your internal "anchor" point on the grid, the spatial map in your brain decays rapidly (usually within a few seconds).
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Does visual memory decline with age?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes. Like processing speed and reaction time, visuospatial working memory peaks in a person's 20s and begins a slow, steady decline. Our data shows a noticeable drop-off in average scores after age 45.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

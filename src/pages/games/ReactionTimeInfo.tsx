@@ -322,6 +322,61 @@ export default function ReactionTimeInfo() {
             </p>
           </div>
         </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why is my reaction time different every time I test?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Reaction time naturally fluctuates by 15–40ms from attempt to attempt. This variability is caused by momentary shifts in attention, eye blinks, cognitive fatigue, and arousal state. Your brain is not a machine; it processes information slightly differently on every trial. Averaging 5 attempts gives a truer baseline.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Does caffeine improve reaction time?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, clinical studies consistently show that moderate caffeine consumption (approx. 75–150mg, roughly one cup of coffee) improves simple reaction time by enhancing alertness and reducing cognitive fatigue. However, taking too much can cause jitters, which degrades motor control and accuracy.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Is reaction time genetic or can I train it?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              It is a mix of both. Your absolute baseline—the physical speed at which nerves conduct signals—is largely genetic and limited by biology. However, you can train your *attentional readiness* to get closer to that biological limit more consistently. Most people can shave 20-30ms off their initial scores just through focused practice.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Why do pro gamers have fast reaction time?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Pro gamers often have excellent raw reaction times (under 200ms), but their true advantage is in visual processing and anticipation. Because they have thousands of hours of experience, they know *where* to look and *what* to expect. They aren't just reacting to random stimuli; they are executing pre-planned motor responses based on game sense.
+            </p>
+          </div>
+        </div>
+
+        <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question" style={{ marginBottom: '1.5rem' }}>
+          <h3 itemProp="name" style={{ fontSize: '1.125rem', fontWeight: 600, color: '#111827', marginBottom: '0.5rem' }}>
+            Do reaction time tests work on mobile?
+          </h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p itemProp="text" className={styles.text}>
+              Yes, but scores on mobile devices are almost universally slower than on desktop PCs. Touchscreens introduce a hardware input delay (often 30–70ms), and mobile browsers cap framerates. If you score 300ms on a phone, you might easily score 240ms on a gaming PC.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   );

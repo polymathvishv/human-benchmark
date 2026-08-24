@@ -47,9 +47,10 @@ export default function ScienceArticleDetail() {
     "articleSection": article.categoryLabel,
     "inLanguage": "en-US",
     "author": {
-      "@type": "Organization",
-      "name": "Human Benchmark Science Lab",
-      "url": "https://humanbenchmark.in/science"
+      "@type": "Person",
+      "name": "Vishv Kamani",
+      "url": "https://humanbenchmark.in/about",
+      "email": "vishv@humanbenchmark.in"
     },
     "publisher": {
       "@type": "Organization",
