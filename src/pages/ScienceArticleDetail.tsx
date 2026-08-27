@@ -9,13 +9,14 @@ import {
   ChevronUp, 
   CheckCircle2, 
   XCircle, 
-  Sparkles,
-  Zap,
-  Layers,
-  Eye,
-  Activity,
-  Cpu,
-  BrainCircuit
+  Sparkles, 
+  Zap, 
+  Layers, 
+  Eye, 
+  Activity, 
+  Cpu, 
+  BrainCircuit,
+  ExternalLink
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import DataVisualizer from '../components/science/DataVisualizer';
@@ -314,14 +315,62 @@ export default function ScienceArticleDetail() {
         {/* ── Academic Bibliography / Citations ── */}
         {article.academicCitations.length > 0 && (
           <section className={styles.citationSection} aria-label="Academic Citations">
-            <h3 className={styles.citationTitle}>
-              <BookOpen size={18} color="#2563eb" />
-              <span>Academic Citations & Literature</span>
-            </h3>
+            <div className={styles.citationHeader}>
+              <h3 className={styles.citationTitle}>
+                <BookOpen size={18} color="#2563eb" />
+                <span>Academic Citations & Literature</span>
+              </h3>
+              <span className={styles.citationSubtext}>Peer-reviewed research and primary literature</span>
+            </div>
             <ul className={styles.citationList}>
-              {article.academicCitations.map((cite, cIdx) => (
-                <li key={cIdx}>{cite}</li>
-              ))}
+              {article.academicCitations.map((cite, cIdx) => {
+                // Extract paper title or core query for verified links
+                const titleMatch = cite.match(/\(\d{4}[a-z]?\)\.\s*([^.]+)\./);
+                const query = titleMatch && titleMatch[1] && titleMatch[1].trim().length > 10 
+                  ? titleMatch[1].trim() 
+                  : cite;
+                const scholarUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(query)}`;
+                const pubmedUrl = `https://pubmed.ncbi.nlm.nih.gov/?term=${encodeURIComponent(query)}`;
+                const crossrefUrl = `https://search.crossref.org/?q=${encodeURIComponent(query)}`;
+
+                return (
+                  <li key={cIdx} className={styles.citationItem}>
+                    <div className={styles.citationText}>{cite}</div>
+                    <div className={styles.citationLinks}>
+                      <a
+                        href={scholarUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.citationBadge}
+                        title="Search and verify paper on Google Scholar"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Google Scholar</span>
+                      </a>
+                      <a
+                        href={pubmedUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.citationBadge} ${styles.citationBadgePubMed}`}
+                        title="Search paper in PubMed / NIH database"
+                      >
+                        <ExternalLink size={12} />
+                        <span>PubMed / NIH</span>
+                      </a>
+                      <a
+                        href={crossrefUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.citationBadge} ${styles.citationBadgeCrossref}`}
+                        title="Verify DOI and metadata on Crossref"
+                      >
+                        <ExternalLink size={12} />
+                        <span>Crossref / DOI</span>
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         )}

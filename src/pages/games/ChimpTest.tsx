@@ -170,7 +170,9 @@ export default function ChimpTest() {
     <GamePageLayout
       path="/chimp-test"
       title="Chimp Test"
-      subtitle="Numbers flash briefly on screen. Remember their positions, then click them in order. Based on the research that revealed chimpanzees outperform humans."
+      seoTitle="Chimp Test — Chimpanzee Memory Test Online | Human Benchmark"
+      seoDescription="Take the famous Chimp Test & Chimpanzee Memory Test online. Test your photographic working memory against primate capabilities. Free instant benchmark."
+      subtitle="Numbers flash briefly on screen. Remember their positions, then click them in order. Based on Kyoto University research where chimpanzees outperformed humans."
       category="Memory Test"
       heroGradient="linear-gradient(135deg, #1a0a00 0%, #3d1a00 40%, #78350f 70%, #92400e 100%)"
       heroTextColor="rgba(254, 243, 199, 0.85)"
@@ -185,7 +187,7 @@ export default function ChimpTest() {
         { name: 'Visual Memory', path: '/visual-memory', icon: <Grid3x3 size={18} />, color: '#14b8a6' },
         { name: 'Sequence Memory', path: '/sequence-memory', icon: <Zap size={18} />, color: '#3b82f6' },
       ]}
-      aboutText="The Chimp Test is based on research by Inoue & Matsuzawa (2007, Current Biology) demonstrating that young chimpanzees outperform adult humans on rapid positional memory tasks. Numbers flash briefly on a grid, then disappear \u2014 you must click their locations in ascending order from memory. It tests spatial-positional working memory: your ability to bind number identities to grid locations after a single brief exposure."
+      aboutText="The Chimp Test (also widely known as the Chimpanzee Memory Test or Ayumu Test) is based on landmark Kyoto University cognitive research by Tetsuro Matsuzawa and Sana Inoue (2007, Current Biology). It demonstrated that young chimpanzees exhibit extraordinary photographic visuospatial memory, outperforming adult humans on rapid numerical recall. Numbers flash briefly on a grid, then disappear — you must click their locations in ascending order from memory."
       infoContent={<ChimpTestInfo />}
     >
       {renderGame()}

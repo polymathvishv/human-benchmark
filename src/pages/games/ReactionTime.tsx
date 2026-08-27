@@ -207,6 +207,8 @@ export default function ReactionTime() {
     <GamePageLayout
       path="/reaction-time"
       title="Reaction Time Test"
+      seoTitle="Reaction Time Test — Free Online with Global Average | Human Benchmark"
+      seoDescription="Test your visual reaction time and reflexes in milliseconds. Measure response speed against global averages and percentiles. Free instant online benchmark."
       subtitle="Click the moment the screen turns green. We average five attempts for your score."
       category="Speed Test"
       heroGradient="linear-gradient(135deg, #022c1a 0%, #064e3b 45%, #065f46 75%, #047857 100%)"

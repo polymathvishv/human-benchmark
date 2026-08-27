@@ -25,6 +25,7 @@ import StatsPage from './pages/StatsPage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import BattlePage from './pages/BattlePage';
 import BattleRoomPage from './pages/BattleRoomPage';
+import NotFound from './pages/NotFound';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

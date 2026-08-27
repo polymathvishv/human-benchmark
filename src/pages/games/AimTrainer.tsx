@@ -128,6 +128,8 @@ export default function AimTrainer() {
     <GamePageLayout
       path="/aim-trainer"
       title="Aim Trainer"
+      seoTitle="Aim Trainer — Free Online Aim Test & Trainer | Human Benchmark"
+      seoDescription="Test and train your mouse aim, click precision, and target acquisition speed. Hit 30 targets and compare your millisecond aim score with global averages."
       subtitle="Hit 30 targets as quickly as you can. Measures your hand-eye coordination and motor speed."
       category="Motor Skill"
       heroGradient="linear-gradient(135deg, #052e16 0%, #14532d 45%, #166534 75%, #15803d 100%)"

@@ -170,6 +170,8 @@ export default function NumberMemory() {
     <GamePageLayout
       path="/number-memory"
       title="Number Memory Test"
+      seoTitle="Number Memory Test — Digit Span Working Memory | Human Benchmark"
+      seoDescription="Test your digit span short-term memory with increasingly long numbers. Free online cognitive number memory test with global percentiles."
       subtitle="Remember the longest number you can. The average person can hold 7 digits in working memory."
       category="Working Memory"
       heroGradient="linear-gradient(135deg, #1e1b4b 0%, #3730a3 45%, #4f46e5 100%)"

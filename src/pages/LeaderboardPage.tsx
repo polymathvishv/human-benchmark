@@ -91,8 +91,9 @@ export default function LeaderboardPage() {
   return (
     <>
       <SEO
-        title={`${selectedGame.name} Global Leaderboard — Human Benchmark`}
-        description={`See the top human benchmark high scores and global rankings for ${selectedGame.name}.`}
+        title="Global Leaderboards — Cognitive Benchmark Rankings | Human Benchmark"
+        description="See real-time global leaderboards and player rankings across all Human Benchmark cognitive tests. Track world records and high scores."
+        canonical="https://humanbenchmark.in/leaderboard"
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'WebPage',

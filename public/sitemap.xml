@@ -2,272 +2,266 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://humanbenchmark.in/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/leaderboard</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/sequence-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/aim-trainer</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/number-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/verbal-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/chimp-test</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/visual-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/typing</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/mobile-typing</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://humanbenchmark.in/dashboard</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/battle</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- Science Articles: Reaction Time -->
+  <url>
+    <loc>https://humanbenchmark.in/about</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humanbenchmark.in/dashboard</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humanbenchmark.in/contact</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://humanbenchmark.in/privacy</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://humanbenchmark.in/terms</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
   <url>
     <loc>https://humanbenchmark.in/science/what-is-reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/choice-vs-simple-reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/how-sleep-affects-reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/does-gaming-improve-reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/does-240hz-improve-scores</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/why-reaction-time-changes-with-age</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Science Articles: Memory -->
   <url>
     <loc>https://humanbenchmark.in/science/working-memory-explained</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/why-humans-forget</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/visual-vs-spatial-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/chunking-explained</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/chimp-memory-research</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/how-stress-affects-memory</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Science Articles: Attention -->
   <url>
     <loc>https://humanbenchmark.in/science/the-stroop-effect</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/change-blindness</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/inattentional-blindness</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/multitasking-myth</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/global-vs-local-attention</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Science Articles: Processing Speed -->
   <url>
     <loc>https://humanbenchmark.in/science/hicks-law</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/fitts-law</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/processing-speed-vs-reaction-time</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/why-fast-decisions-matter</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Science Articles: Brain Science -->
   <url>
     <loc>https://humanbenchmark.in/science/neuroplasticity</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/dopamine-and-learning</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/circadian-rhythm</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/cognitive-fatigue</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://humanbenchmark.in/science/brain-myths-debunked</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <!-- Utility Pages -->
-  <url>
-    <loc>https://humanbenchmark.in/about</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://humanbenchmark.in/contact</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://humanbenchmark.in/privacy</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://humanbenchmark.in/terms</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
   </url>
 </urlset>

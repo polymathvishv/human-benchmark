@@ -186,6 +186,8 @@ export default function VisualMemory() {
     <GamePageLayout
       path="/visual-memory"
       title="Visual Memory Test"
+      seoTitle="Visual Memory Test — Spatial Grid Recall Online | Human Benchmark"
+      seoDescription="Test and benchmark your spatial visual memory. Remember an expanding grid of squares and compare your cognitive score against global averages."
       subtitle="Squares flash on a grid. Memorize which ones lit up, then click them. Each correct level adds more squares. You have 3 lives."
       category="Visuospatial Working Memory"
       heroGradient="linear-gradient(135deg, #2e1065 0%, #4c1d95 40%, #6d28d9 100%)"

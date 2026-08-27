@@ -147,7 +147,9 @@ export default function VerbalMemory() {
     <GamePageLayout
       path="/verbal-memory"
       title="Verbal Memory Test"
-      subtitle="Words appear one at a time. Click Seen if you've encountered the word before, New if it's your first time. Three strikes and the test ends."
+      seoTitle="Verbal Memory Test — Word Recall & Working Memory | Human Benchmark"
+      seoDescription="Test your verbal memory and vocabulary recall. Keep track of seen vs new words and discover how many terms your working memory can hold."
+      subtitle="You are shown words one by one. If you have seen a word before, click SEEN. If it is new, click NEW."
       category="Episodic Memory - Recognition"
       heroGradient="linear-gradient(135deg, #3b0764 0%, #6b21a8 45%, #7c3aed 100%)"
       heroTextColor="rgba(233, 213, 255, 0.85)"

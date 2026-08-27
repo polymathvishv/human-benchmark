@@ -174,7 +174,12 @@ export default function StatsPage() {
 
   return (
     <>
-      <SEO jsonLd={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Score Card — Human Benchmark', url: 'https://humanbenchmark.in/dashboard' }} />
+      <SEO
+        title="Your Score Card & Cognitive Benchmark Stats | Human Benchmark"
+        description="View your personal cognitive scorecard, track historical test scores, and analyze your performance percentiles across all Human Benchmark tests."
+        canonical="https://humanbenchmark.in/dashboard"
+        jsonLd={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Score Card — Human Benchmark', url: 'https://humanbenchmark.in/dashboard' }}
+      />
       <div className="main-content-contained">
         <div className={styles.page} key={syncTick}>
 

@@ -1,0 +1,221 @@
+.container {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem 5rem;
+  background-color: var(--bg-main, #f8fafc);
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(249, 115, 22, 0.12));
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 50%;
+  color: #ef4444;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.12);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main, #111827);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-muted, #6b7280);
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+/* ── Action Buttons ── */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: #ffffff;
+  color: var(--text-main, #111827);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.secondaryButton:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Recommendations ── */
+.recommendations {
+  width: 100%;
+}
+
+.recommendationsTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main, #111827);
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cardIconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main, #111827);
+}
+
+.arrowIcon {
+  color: #9ca3af;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.card:hover .arrowIcon {
+  transform: translateX(4px);
+  color: #3b82f6;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-muted, #6b7280);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

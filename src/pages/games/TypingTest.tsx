@@ -184,6 +184,8 @@ export default function TypingTest() {
     <GamePageLayout
       path="/typing"
       title="Typing Speed Test"
+      seoTitle="Typing Speed Test (WPM) — Free Online Test | Human Benchmark"
+      seoDescription="Test your typing speed and accuracy in Words Per Minute (WPM). Benchmark your typing score against global percentiles with instant free typing tests."
       subtitle="Type the passage as fast and accurately as you can. Your score is measured in words per minute (WPM)."
       category="Motor Skill - Psychomotor Speed"
       heroGradient="linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #334155 100%)"

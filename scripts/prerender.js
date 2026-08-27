@@ -22,6 +22,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { generateSitemap } from './generate-sitemap.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -47,6 +48,7 @@ const STATIC_ROUTES = [
   '/leaderboard',
   '/battle',
   '/dashboard',
+  '/404',
 ]
 
 // Science article slugs — sourced from scienceArticles.ts
@@ -170,13 +172,24 @@ async function prerender() {
       let outPath
       if (route === '/') {
         outPath = path.resolve(DIST, 'client', 'index.html')
+        fs.writeFileSync(outPath, pageHtml, 'utf-8')
+      } else if (route === '/404') {
+        // Write 404.html in root of dist/client for Vercel/CDN native 404 handling
+        const static404 = path.resolve(DIST, 'client', '404.html')
+        fs.writeFileSync(static404, pageHtml, 'utf-8')
+
+        // Also write /404/index.html
+        const routeDir = path.resolve(DIST, 'client', '404')
+        fs.mkdirSync(routeDir, { recursive: true })
+        outPath = path.resolve(routeDir, 'index.html')
+        fs.writeFileSync(outPath, pageHtml, 'utf-8')
       } else {
         const routeDir = path.resolve(DIST, 'client', route.slice(1))
         fs.mkdirSync(routeDir, { recursive: true })
         outPath = path.resolve(routeDir, 'index.html')
+        fs.writeFileSync(outPath, pageHtml, 'utf-8')
       }
 
-      fs.writeFileSync(outPath, pageHtml, 'utf-8')
       rendered++
       console.log(`  ✅ ${route}`)
     } catch (err) {
@@ -185,6 +198,9 @@ async function prerender() {
   }
 
   console.log(`\n✨ Successfully prerendered ${rendered}/${ALL_ROUTES.length} routes into static HTML files.\n`)
+
+  // Auto-regenerate dynamic sitemap.xml
+  generateSitemap()
 }
 
 prerender().catch((err) => {

@@ -20,6 +20,8 @@ interface RelatedTest {
 
 interface GamePageLayoutProps {
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
   subtitle: string;
   category: string;
   heroGradient: string;
@@ -36,6 +38,8 @@ interface GamePageLayoutProps {
 
 export default function GamePageLayout({
   title,
+  seoTitle,
+  seoDescription,
   subtitle,
   category,
   heroGradient,
@@ -117,8 +121,8 @@ export default function GamePageLayout({
   return (
     <>
       <SEO 
-        title={title.endsWith('Test') ? title : `${title} Test`} 
-        description={subtitle}
+        title={seoTitle || (title.endsWith('Test') ? title : `${title} Test`)} 
+        description={seoDescription || subtitle}
         canonical={fullUrl}
         jsonLd={schema}
       />

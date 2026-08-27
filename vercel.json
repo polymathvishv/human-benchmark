@@ -1,9 +1,10 @@
 {
   "outputDirectory": "dist/client",
+  "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/battle/:roomCode",
+      "destination": "/battle/index.html"
     }
   ]
 }

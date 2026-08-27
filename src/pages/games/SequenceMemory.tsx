@@ -143,7 +143,9 @@ export default function SequenceMemory() {
     <GamePageLayout
       path="/sequence-memory"
       title="Sequence Memory Test"
-      subtitle="Remember an increasingly long pattern of button presses. How far can you go?"
+      seoTitle="Sequence Memory Test — Free Online Pattern Memory Test | Human Benchmark"
+      seoDescription="Test your sequential working memory with increasingly long patterns of flashing tiles. Free online sequence memory test with global percentiles."
+      subtitle="Memorize the flashing sequence of tiles, then repeat it back in exact order. Each correct round adds one more step. How far can you go?"
       category="Working Memory"
       heroGradient="linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4338ca 100%)"
       heroTextColor="rgba(199, 210, 254, 0.85)"

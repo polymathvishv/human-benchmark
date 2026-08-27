@@ -373,6 +373,8 @@ export default function MobileTypingTest() {
     <GamePageLayout
       path="/mobile-typing"
       title="Mobile Typing Speed Test"
+      seoTitle="Mobile Typing Speed Test (WPM) — Touchscreen Test | Human Benchmark"
+      seoDescription="Measure your true smartphone touchscreen typing speed in WPM. Test mobile typing speed with instant accuracy and words per minute benchmarks."
       subtitle="Designed specifically for smartphones. Measure your true touchscreen WPM and accuracy."
       category="Mobile Skill"
       heroGradient="linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%)"
