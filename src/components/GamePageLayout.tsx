@@ -163,6 +163,14 @@ export default function GamePageLayout({
         <div className={styles.twoCol}>
           {/* Main Column */}
           <div className={styles.mainCol}>
+            {/* Overview / Introduction above the game */}
+            {aboutText && (
+              <div className={styles.introCard}>
+                <h2 className={styles.introTitle}>Overview &amp; Purpose</h2>
+                <p className={styles.introText}>{aboutText}</p>
+              </div>
+            )}
+
             {/* Game Area */}
             <div className={styles.gameContainer}>
               <div className={styles.gameArea}>

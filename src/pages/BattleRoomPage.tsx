@@ -194,7 +194,9 @@ export default function BattleRoomPage() {
         title={`${room.gameName} Battle — ${room.roomCode} | Human Benchmark`}
         description={`Join this Human Benchmark battle room! Compete on ${room.gameName} with up to ${room.maxPlayers} players. Your score is auto-submitted after the test.`}
         canonical={`https://humanbenchmark.in/battle/${room.roomCode}`}
-      />
+      >
+        <meta name="robots" content="noindex, nofollow" />
+      </SEO>
 
       <div className={styles.page}>
 

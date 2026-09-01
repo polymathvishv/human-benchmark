@@ -28,6 +28,7 @@ import BattleRoomPage from './pages/BattleRoomPage';
 import NotFound from './pages/NotFound';
 
 import { AuthProvider } from './context/AuthContext';
+import CookieConsent from './components/CookieConsent';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </AuthProvider>
   );

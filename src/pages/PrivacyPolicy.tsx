@@ -14,14 +14,14 @@ export default function PrivacyPolicy() {
         <div className={styles.content}>
           <h1 className={styles.heading}>Privacy Policy</h1>
           <p className={privacyStyles.lastUpdated}>
-            Last updated: August 2025
+            Last updated: August 2026
           </p>
           <p className={styles.text}>
             At Human Benchmark (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), accessible from{' '}
             <a href="https://humanbenchmark.in" className={styles.link}>humanbenchmark.in</a>, your
             privacy is important to us. This Privacy Policy explains what information we collect, how
-            we use it, and the choices you have. By using our site, you agree to the practices
-            described in this document.
+            we use it, and the choices you have regarding your data, cookies, and advertising preferences.
+            By using our site, you agree to the practices described in this document.
           </p>
 
           <h2 className={styles.subheading}>1. Information We Collect</h2>
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className={privacyStyles.list}>
             <li><strong>Email address</strong> — used to identify your account and communicate with you.</li>
-            <li><strong>Username</strong> — a display name of your choice for leaderboards.</li>
+            <li><strong>Username</strong> — a display name of your choice for global leaderboards and multiplayer battles.</li>
             <li><strong>Contact form submissions</strong> — the content of messages you send us via our contact form.</li>
           </ul>
 
@@ -49,77 +49,75 @@ export default function PrivacyPolicy() {
             When you visit our website, we automatically collect certain technical information, including:
           </p>
           <ul className={privacyStyles.list}>
-            <li>IP address (used for security and analytics, not personally identified)</li>
+            <li>IP address (used for security, anti-cheat detection, and analytics)</li>
             <li>Browser type and version</li>
-            <li>Operating system and device type</li>
-            <li>Pages visited and time spent on each page</li>
-            <li>Referring website (where you came from)</li>
-            <li>Timestamps of visits</li>
+            <li>Operating system and device category (desktop vs mobile)</li>
+            <li>Pages visited, time spent, and referring URL</li>
+            <li>Timestamps of test completions</li>
           </ul>
 
-          <h2 className={styles.subheading}>2. Cookies and Tracking Technologies</h2>
+          <h2 className={styles.subheading} id="cookies">2. Cookies and Tracking Technologies</h2>
           <p className={styles.text}>
             Human Benchmark uses cookies — small text files stored on your device — to operate and
-            improve the service. We use the following categories of cookies:
+            improve the service. We provide an interactive Cookie Consent banner allowing you to choose
+            whether to accept advertising cookies. We categorize our cookies as follows:
           </p>
           <ul className={privacyStyles.list}>
-            <li><strong>Essential cookies:</strong> Required to keep you logged in and remember your session preferences. These cannot be disabled without breaking core site functionality.</li>
-            <li><strong>Analytics cookies (Google Analytics):</strong> We use Google Analytics to understand how visitors use our site. Google Analytics collects data such as pages visited, time on site, and general location (city-level). This data is aggregated and anonymous. You can opt out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Analytics Opt-out Browser Add-on</a>.</li>
-            <li><strong>Advertising cookies (Google AdSense):</strong> We use Google AdSense to display advertisements on our site. Google AdSense and its advertising partners may use cookies to serve ads based on your prior visits to our website and other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our site and/or other sites on the Internet. You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Ads Settings</a>. You can also opt out of a third-party vendor's use of cookies for personalised advertising by visiting <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className={styles.link}>aboutads.info</a>.</li>
-            <li><strong>Preference cookies:</strong> Store your preferences such as high scores cached locally and display settings.</li>
+            <li><strong>Essential cookies:</strong> Required to keep you authenticated, store your theme preferences, and remember your session state. These cannot be disabled without breaking core platform features.</li>
+            <li><strong>Analytics cookies (Google Analytics):</strong> We use Google Analytics to understand aggregate visitor patterns, popular tests, and site performance. This data is aggregated and anonymized. You can opt out at any time via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Analytics Opt-out Browser Add-on</a>.</li>
+            <li><strong>Advertising cookies (Google AdSense):</strong> We partner with Google AdSense to serve advertisements. Google and its third-party advertising vendors use cookies to serve ads based on your prior visits to our website and other websites on the Internet. AdSense scripts are only loaded after you give consent via our Cookie Banner. You may manage or opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Ads Settings</a> or <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className={styles.link}>AboutAds.info</a>.</li>
+            <li><strong>Preference cookies:</strong> Store your local high scores, sound toggles, and user preferences locally in your browser storage.</li>
           </ul>
           <p className={styles.text}>
             Most browsers allow you to control cookies through their settings. However, disabling certain
-            cookies may limit your ability to use some features of our site. For more information about
-            how Google uses data from partner sites, see:{' '}
+            cookies may limit your ability to use some features of our site. For comprehensive information about
+            how Google processes data on partner websites, please review:{' '}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              How Google uses data when you use our partners&apos; sites or apps
+              How Google uses information from sites or apps that use our services
             </a>.
           </p>
 
-          <h2 className={styles.subheading}>3. Advertising</h2>
+          <h2 className={styles.subheading}>3. Advertising &amp; Third-Party Vendors</h2>
           <p className={styles.text}>
-            Third-party vendors, including Google, use cookies to serve ads on our site. Google's use
-            of the DART cookie enables it to serve ads to our users based on their visit to our site
-            and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting
-            the{' '}
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              Google ad and content network Privacy Policy
-            </a>.
+            Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits
+            to your website or other websites. Google&apos;s use of advertising cookies enables it and its
+            partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.
           </p>
           <p className={styles.text}>
-            Our advertising partners (including Google AdSense) may collect and use information about
-            your visits to our site and other websites in order to provide advertisements about goods
-            and services that may be of interest to you. If you would like more information about this
-            practice and to know your choices about not having this information used by advertising
-            companies, please visit the{' '}
+            Users may opt out of personalized advertising by visiting{' '}
+            <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+              Google Ads Settings
+            </a>. Alternatively, users can opt out of a third-party vendor&apos;s use of cookies for personalized advertising by visiting{' '}
+            <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+              www.aboutads.info
+            </a>{' '}
+            or the{' '}
             <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              Network Advertising Initiative opt-out page
+              Network Advertising Initiative Opt-Out Page
             </a>.
           </p>
 
           <h2 className={styles.subheading}>4. How We Use Your Information</h2>
           <p className={styles.text}>We use the information we collect to:</p>
           <ul className={privacyStyles.list}>
-            <li>Provide, operate, and maintain our website and services</li>
-            <li>Generate anonymous global statistics, percentiles, and leaderboards</li>
-            <li>Process and store your personal high scores (if you have an account)</li>
-            <li>Respond to your enquiries and support requests</li>
-            <li>Send you service-related communications (account-related emails only — no marketing without consent)</li>
-            <li>Monitor and analyse usage to improve site performance and content</li>
-            <li>Detect and prevent abuse, fraud, and security threats</li>
-            <li>Comply with legal obligations</li>
+            <li>Provide, operate, and maintain our cognitive tests and benchmarks</li>
+            <li>Generate anonymous global statistical distributions and percentile curves</li>
+            <li>Process and sync your high scores across devices when logged in</li>
+            <li>Enable real-time multiplayer room battles and leaderboard rankings</li>
+            <li>Respond to your feedback, bug reports, and enquiries</li>
+            <li>Detect and prevent bot abuse, script cheating, and security threats</li>
+            <li>Comply with applicable legal requirements</li>
           </ul>
 
-          <h2 className={styles.subheading}>5. Data Sharing and Disclosure</h2>
+          <h2 className={styles.subheading}>5. Data Sharing and Service Providers</h2>
           <p className={styles.text}>
-            We do not sell your personal data. We may share information in the following limited circumstances:
+            We do not sell, rent, or trade your personal data. We only share information with trusted service providers who adhere to strict data security standards:
           </p>
           <ul className={privacyStyles.list}>
-            <li><strong>Service providers:</strong> We use Firebase (Google) for authentication and database services, and Google Analytics for usage analytics. These providers process data on our behalf under strict data processing agreements.</li>
-            <li><strong>Advertising partners:</strong> Google AdSense operates as a third-party advertising partner on our site (see Section 3 above).</li>
-            <li><strong>Legal requirements:</strong> We may disclose information if required by law, court order, or to protect our legal rights.</li>
-            <li><strong>Aggregated data:</strong> We may share non-identifiable, aggregated statistics (e.g., "the global median reaction time is 273 ms") publicly.</li>
+            <li><strong>Database &amp; Authentication:</strong> We use Supabase (PostgreSQL with Row Level Security) to securely manage user authentication and high-score databases.</li>
+            <li><strong>Analytics:</strong> Google Analytics (aggregated web traffic analysis) and PostHog (feature analytics).</li>
+            <li><strong>Advertising partners:</strong> Google AdSense as an authorized third-party ad network (subject to your consent).</li>
+            <li><strong>Legal Compliance:</strong> We may disclose information if required by law or legal process.</li>
           </ul>
 
           <h2 className={styles.subheading}>6. Data Retention</h2>
@@ -169,7 +167,7 @@ export default function PrivacyPolicy() {
           <p className={styles.text}>
             We take reasonable technical and organisational measures to protect your personal data against
             unauthorised access, loss, or misuse. These include HTTPS encryption, secure authentication
-            via Firebase, and restricted access to backend systems. However, no method of transmission
+            via Supabase with Row Level Security, and restricted access to backend systems. However, no method of transmission
             over the internet is 100% secure, and we cannot guarantee absolute security.
           </p>
 

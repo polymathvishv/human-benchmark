@@ -144,6 +144,30 @@
   overflow-x: hidden;
 }
 
+/* Intro Card above game */
+.introCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.introTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.introText {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #4b5563;
+  margin: 0;
+}
+
 /* Game container */
 .gameContainer {
   background: white;

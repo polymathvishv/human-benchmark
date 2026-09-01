@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /battle/*/
 
 # ── Google ────────────────────────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
+Disallow: /battle/*/
 User-agent: Googlebot-Image
 Allow: /
 User-agent: Google-Extended

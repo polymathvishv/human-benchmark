@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard,
-  Smile, Smartphone, Layers, ChevronDown, Sparkles, Brain, Award
+  Smile, Smartphone, Layers, ChevronDown, Sparkles, Brain, Award,
+  BookOpen, ArrowRight, BarChart3
 } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
+import { SCIENCE_ARTICLES } from '../data/scienceArticles';
 import SEO from '../components/SEO';
 import styles from './Dashboard.module.css';
 
@@ -105,6 +107,8 @@ const FAQS = [
     a: "You can create a free account or log in with email to automatically sync your personal best high scores to the cloud, track your percentile ranking, and compete on the real-time Global Leaderboards."
   }
 ];
+
+const FEATURED_ARTICLES = SCIENCE_ARTICLES.filter(a => a.featured).slice(0, 4);
 
 export default function Dashboard() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -238,6 +242,44 @@ export default function Dashboard() {
             })}
           </div>
 
+          {/* ── How It Works ── */}
+          <section className={styles.seoSection}>
+            <div className={styles.seoHeader}>
+              <div className={styles.seoBadge}>
+                <BarChart3 size={14} />
+                <span>Simple 3-Step Process</span>
+              </div>
+              <h2 className={styles.seoTitle}>How Human Benchmark Works</h2>
+              <p className={styles.seoDescription}>
+                Every test on Human Benchmark is designed with scientific methodology in mind. Take a test, get your result, and see exactly where you stand compared to the global population — all in under 60 seconds.
+              </p>
+            </div>
+
+            <div className={styles.stepsGrid}>
+              <div className={`${styles.stepCard} glass`}>
+                <div className={styles.stepNumber}>1</div>
+                <h3 className={styles.stepTitle}>Take a Cognitive Test</h3>
+                <p className={styles.stepText}>
+                  Choose from 9 scientifically designed tests covering reaction speed, working memory, spatial recall, verbal recognition, motor accuracy, and typing fluency. Each test takes 30–90 seconds and uses established psychometric paradigms adapted for the web.
+                </p>
+              </div>
+              <div className={`${styles.stepCard} glass`}>
+                <div className={styles.stepNumber}>2</div>
+                <h3 className={styles.stepTitle}>See Your Percentile Ranking</h3>
+                <p className={styles.stepText}>
+                  Your score is instantly compared against a global dataset of real test results. See your exact percentile — for example, a 220ms reaction time puts you in the top 15% of all participants worldwide. We use trimmed statistical distributions to exclude outliers and provide honest rankings.
+                </p>
+              </div>
+              <div className={`${styles.stepCard} glass`}>
+                <div className={styles.stepNumber}>3</div>
+                <h3 className={styles.stepTitle}>Track Your Improvement</h3>
+                <p className={styles.stepText}>
+                  Create a free account to save your scores, track progress across sessions, and compete on the real-time global leaderboard. Research shows that consistent practice on cognitive tasks produces measurable improvement — our platform makes it easy to verify that for yourself.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* ── SEO Guide & Cognitive Information Section ── */}
           <section className={styles.seoSection}>
             <div className={styles.seoHeader}>
@@ -247,7 +289,7 @@ export default function Dashboard() {
               </div>
               <h2 className={styles.seoTitle}>Why Measure Your Brain with Human Benchmark?</h2>
               <p className={styles.seoDescription}>
-                Human Benchmark is the standard online platform for quantifying cognitive reflexes, perceptual speed, and memory capacity.
+                Human Benchmark is the standard online platform for quantifying cognitive reflexes, perceptual speed, and memory capacity. Unlike casual quiz apps, our tests are built on established cognitive science paradigms — the same ones used in university research labs — and calibrated against a continuously growing global dataset.
               </p>
             </div>
 
@@ -258,7 +300,7 @@ export default function Dashboard() {
                   <h3 className={styles.infoCardTitle} style={{ margin: 0 }}>Reaction & Motor Speed</h3>
                 </div>
                 <p className={styles.infoCardText}>
-                  Test how quickly your central nervous system processes visual stimuli through the Reaction Time Test and Aim Trainer. Measure millisecond response delays and pinpoint peak alertness.
+                  Test how quickly your central nervous system processes visual stimuli through the Reaction Time Test and Aim Trainer. The Reaction Time Test measures simple visual reaction time — the interval between seeing a green screen and clicking — averaging five attempts to reduce noise. The Aim Trainer quantifies hand-eye coordination using Fitts's Law principles. Together, these tests map the speed of your entire perceptual-motor pathway, from photon hitting retina to finger depressing mouse button.
                 </p>
               </div>
 
@@ -268,7 +310,7 @@ export default function Dashboard() {
                   <h3 className={styles.infoCardTitle} style={{ margin: 0 }}>Working & Spatial Memory</h3>
                 </div>
                 <p className={styles.infoCardText}>
-                  Strengthen your short-term recall with Sequence Memory, Visual Memory, and Number Memory. Discover how many chunks of information your working memory can hold under time pressure.
+                  Explore the limits of your short-term recall with Sequence Memory, Visual Memory, Number Memory, and the Chimp Test. These tests are based on Baddeley's Working Memory Model and decades of cognitive psychology research. The average adult can hold 7 ± 2 items in working memory (Miller's Law). Our tests find your personal ceiling and track how it changes with practice, sleep, and time of day.
                 </p>
               </div>
 
@@ -278,10 +320,52 @@ export default function Dashboard() {
                   <h3 className={styles.infoCardTitle} style={{ margin: 0 }}>Global Percentile Rankings</h3>
                 </div>
                 <p className={styles.infoCardText}>
-                  Compare your personal bests against thousands of players worldwide on real-time leaderboards. Sync your scorecard across all your devices with cloud backups.
+                  Compare your personal bests against thousands of players worldwide on real-time leaderboards. Every score is placed on a percentile curve built from actual test data collected globally. When you see that your reaction time is in the 80th percentile, it means you outperformed 80% of all recorded attempts. Sync your scorecard across all your devices with cloud backups.
                 </p>
               </div>
             </div>
+
+            {/* ── Featured Science Articles ── */}
+            {FEATURED_ARTICLES.length > 0 && (
+              <>
+                <div className={styles.seoHeader} style={{ marginTop: '2rem' }}>
+                  <div className={styles.seoBadge}>
+                    <BookOpen size={14} />
+                    <span>Science Library</span>
+                  </div>
+                  <h2 className={styles.seoTitle}>Featured Articles</h2>
+                  <p className={styles.seoDescription}>
+                    Dive deeper into the neuroscience behind our tests. Each article is based on peer-reviewed research and written to be accessible to a general audience.
+                  </p>
+                </div>
+
+                <div className={styles.articlesGrid}>
+                  {FEATURED_ARTICLES.map((article) => (
+                    <Link
+                      key={article.slug}
+                      to={`/science/${article.slug}`}
+                      className={`${styles.articleCard} glass`}
+                    >
+                      <div className={styles.articleMeta}>
+                        <span className={styles.articleCategory}>{article.categoryLabel}</span>
+                        <span className={styles.articleRead}>{article.readTime}</span>
+                      </div>
+                      <h3 className={styles.articleCardTitle}>{article.title}</h3>
+                      <p className={styles.articleExcerpt}>{article.excerpt}</p>
+                      <span className={styles.articleLink}>
+                        Read article <ArrowRight size={14} />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+                  <Link to="/science" className={styles.ctaButton} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', padding: '0.625rem 1.75rem' }}>
+                    Browse All 26 Articles <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </>
+            )}
 
             {/* ── FAQ Section ── */}
             <div className={styles.seoHeader} style={{ marginTop: '2rem' }}>
@@ -314,10 +398,10 @@ export default function Dashboard() {
                         }}
                       />
                     </button>
+                    {/* Content always in DOM for crawlers; CSS handles expand/collapse */}
                     <div
                       id={`faq-answer-${idx}`}
-                      className={styles.faqAnswer}
-                      style={{ display: isOpen ? 'block' : 'none' }}
+                      className={`${styles.faqAnswer} ${isOpen ? styles.faqAnswerOpen : ''}`}
                     >
                       <p>{faq.a}</p>
                     </div>

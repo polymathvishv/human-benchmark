@@ -57,7 +57,7 @@ export default function Header() {
     { to: '/leaderboard', label: 'Leaderboard' },
     { to: '/battle', label: 'Battles', icon: <Swords size={14} /> },
     { to: '/dashboard', label: 'Score Card' },
-    { to: '/science', label: 'Science' },
+    { to: '/science', label: 'Articles' },
     { to: '/about', label: 'About' },
   ];
 
@@ -72,17 +72,22 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className={styles.nav}>
-            {NAV_LINKS.map(link => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`${styles.navLink} ${location.pathname === link.to ? styles.navLinkActive : ''}`}
-                style={link.icon ? { display: 'flex', alignItems: 'center', gap: '0.35rem' } : undefined}
-              >
-                {link.icon}
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(link => {
+              const isActive = link.to === '/' 
+                ? location.pathname === '/' 
+                : location.pathname.startsWith(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                  style={link.icon ? { display: 'flex', alignItems: 'center', gap: '0.35rem' } : undefined}
+                >
+                  {link.icon}
+                  {link.label}
+                </Link>
+              );
+            })}
 
             {/* Desktop Auth */}
             <div className={styles.authActions}>
@@ -189,17 +194,22 @@ export default function Header() {
 
         {/* Nav Links */}
         <nav className={styles.drawerNav}>
-          {NAV_LINKS.map(link => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`${styles.drawerNavLink} ${location.pathname === link.to ? styles.drawerNavLinkActive : ''}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.icon && <span className={styles.drawerNavIcon}>{link.icon}</span>}
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(link => {
+            const isActive = link.to === '/' 
+              ? location.pathname === '/' 
+              : location.pathname.startsWith(link.to);
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`${styles.drawerNavLink} ${isActive ? styles.drawerNavLinkActive : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.icon && <span className={styles.drawerNavIcon}>{link.icon}</span>}
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Drawer Footer Auth Actions */}
