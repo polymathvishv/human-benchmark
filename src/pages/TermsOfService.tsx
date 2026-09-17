@@ -98,7 +98,7 @@ export default function TermsOfService() {
             Our Service uses or links to third-party services, including:
           </p>
           <ul className={privacyStyles.list}>
-            <li><strong>Google Firebase</strong> — for authentication and database services.</li>
+            <li><strong>Supabase</strong> — for authentication and database services.</li>
             <li><strong>Google Analytics</strong> — for usage analytics.</li>
             <li><strong>Google AdSense</strong> — for displaying advertisements.</li>
           </ul>

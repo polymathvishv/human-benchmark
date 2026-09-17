@@ -49,7 +49,7 @@ export default function PrivacyPolicy() {
             When you visit our website, we automatically collect certain technical information, including:
           </p>
           <ul className={privacyStyles.list}>
-            <li>IP address (used for security, anti-cheat detection, and analytics)</li>
+            <li>IP address (used for security, anti-cheat detection, analytics, and inferring your country for leaderboards)</li>
             <li>Browser type and version</li>
             <li>Operating system and device category (desktop vs mobile)</li>
             <li>Pages visited, time spent, and referring URL</li>
@@ -58,15 +58,15 @@ export default function PrivacyPolicy() {
 
           <h2 className={styles.subheading} id="cookies">2. Cookies and Tracking Technologies</h2>
           <p className={styles.text}>
-            Human Benchmark uses cookies — small text files stored on your device — to operate and
+            Human Benchmark uses cookies and similar tracking technologies (such as local and session browser storage) to operate and
             improve the service. We provide an interactive Cookie Consent banner allowing you to choose
-            whether to accept advertising cookies. We categorize our cookies as follows:
+            whether to accept advertising cookies. We categorize our technologies as follows:
           </p>
           <ul className={privacyStyles.list}>
             <li><strong>Essential cookies:</strong> Required to keep you authenticated, store your theme preferences, and remember your session state. These cannot be disabled without breaking core platform features.</li>
             <li><strong>Analytics cookies (Google Analytics):</strong> We use Google Analytics to understand aggregate visitor patterns, popular tests, and site performance. This data is aggregated and anonymized. You can opt out at any time via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Analytics Opt-out Browser Add-on</a>.</li>
             <li><strong>Advertising cookies (Google AdSense):</strong> We partner with Google AdSense to serve advertisements. Google and its third-party advertising vendors use cookies to serve ads based on your prior visits to our website and other websites on the Internet. AdSense scripts are only loaded after you give consent via our Cookie Banner. You may manage or opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className={styles.link}>Google Ads Settings</a> or <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className={styles.link}>AboutAds.info</a>.</li>
-            <li><strong>Preference cookies:</strong> Store your local high scores, sound toggles, and user preferences locally in your browser storage.</li>
+            <li><strong>Preference &amp; State storage:</strong> We store your local high scores, sound toggles, temporary geolocation data (to show flags on leaderboards), and user preferences locally in your browser storage.</li>
           </ul>
           <p className={styles.text}>
             Most browsers allow you to control cookies through their settings. However, disabling certain
@@ -115,6 +115,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className={privacyStyles.list}>
             <li><strong>Database &amp; Authentication:</strong> We use Supabase (PostgreSQL with Row Level Security) to securely manage user authentication and high-score databases.</li>
+            <li><strong>Geolocation Services:</strong> We use third-party IP geolocation APIs to temporarily process your IP address to infer your country for leaderboards. They do not store this data.</li>
             <li><strong>Analytics:</strong> Google Analytics (aggregated web traffic analysis) and PostHog (feature analytics).</li>
             <li><strong>Advertising partners:</strong> Google AdSense as an authorized third-party ad network (subject to your consent).</li>
             <li><strong>Legal Compliance:</strong> We may disclose information if required by law or legal process.</li>

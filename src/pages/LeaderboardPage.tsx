@@ -15,6 +15,7 @@ import type {
   UserRankStats,
   TimeframeFilter,
 } from '../services/leaderboardService';
+import { countryCodeToFlag } from '../services/geoService';
 import { useAuth } from '../context/AuthContext';
 import SEO from '../components/SEO';
 import styles from './LeaderboardPage.module.css';
@@ -249,7 +250,12 @@ export default function LeaderboardPage() {
                       <div className={styles.podiumAvatar} style={{ background: top2.avatarColor }}>
                         {top2.username.charAt(0).toUpperCase()}
                       </div>
-                      <div className={styles.podiumName}>{top2.username}</div>
+                      <div className={styles.podiumName}>
+                        {top2.countryCode && (
+                          <span className={styles.podiumFlag}>{countryCodeToFlag(top2.countryCode)}</span>
+                        )}
+                        {top2.username}
+                      </div>
                       <div className={styles.podiumScore}>{top2.scoreFormatted}</div>
                       <div className={styles.podiumTime}>{getRelativeTime(top2.createdAt)}</div>
                     </div>
@@ -265,7 +271,12 @@ export default function LeaderboardPage() {
                       <div className={styles.podiumAvatar} style={{ background: top1.avatarColor }}>
                         {top1.username.charAt(0).toUpperCase()}
                       </div>
-                      <div className={styles.podiumName}>{top1.username}</div>
+                      <div className={styles.podiumName}>
+                        {top1.countryCode && (
+                          <span className={styles.podiumFlag}>{countryCodeToFlag(top1.countryCode)}</span>
+                        )}
+                        {top1.username}
+                      </div>
                       <div className={styles.podiumScore}>{top1.scoreFormatted}</div>
                       <div className={styles.podiumTime}>{getRelativeTime(top1.createdAt)}</div>
                     </div>
@@ -280,7 +291,12 @@ export default function LeaderboardPage() {
                       <div className={styles.podiumAvatar} style={{ background: top3.avatarColor }}>
                         {top3.username.charAt(0).toUpperCase()}
                       </div>
-                      <div className={styles.podiumName}>{top3.username}</div>
+                      <div className={styles.podiumName}>
+                        {top3.countryCode && (
+                          <span className={styles.podiumFlag}>{countryCodeToFlag(top3.countryCode)}</span>
+                        )}
+                        {top3.username}
+                      </div>
                       <div className={styles.podiumScore}>{top3.scoreFormatted}</div>
                       <div className={styles.podiumTime}>{getRelativeTime(top3.createdAt)}</div>
                     </div>
@@ -322,6 +338,11 @@ export default function LeaderboardPage() {
                         {entry.username.charAt(0).toUpperCase()}
                       </div>
                       <span className={styles.playerUsername}>
+                        {entry.countryCode && (
+                          <span className={styles.tableFlag} title={entry.countryCode}>
+                            {countryCodeToFlag(entry.countryCode)}
+                          </span>
+                        )}
                         {entry.username}
                         {entry.isCurrentUser && <span className={styles.youTag}>You</span>}
                       </span>

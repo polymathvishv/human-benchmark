@@ -375,7 +375,7 @@ export default function SciencePage() {
             Compare your reaction speed, working memory capacity, and motor precision against millions of benchmarked users globally.
           </p>
           <Link to="/" className={styles.ctaBtn}>
-            <span>Explore All 8 Tests</span>
+            <span>Explore All 9 Tests</span>
             <ArrowRight size={16} />
           </Link>
         </section>

@@ -6,6 +6,7 @@ export interface LeaderboardEntry {
   userId: string;
   username: string;
   avatarColor: string;
+  countryCode: string | null;
   score: number;
   scoreFormatted: string;
   createdAt: string;
@@ -68,7 +69,8 @@ export async function fetchLeaderboard(
         created_at,
         profiles (
           username,
-          avatar_color
+          avatar_color,
+          country_code
         )
       `)
       .eq('game_id', gameId);
@@ -125,9 +127,10 @@ export async function fetchLeaderboard(
 
     // Format final entries with ranks
     const entries: LeaderboardEntry[] = sortedDeduplicated.slice(0, limit).map((row, index) => {
-      const profileData = row.profiles as { username?: string; avatar_color?: string } | null;
+      const profileData = row.profiles as { username?: string; avatar_color?: string; country_code?: string } | null;
       const username = profileData?.username || `User_${row.user_id.substring(0, 6)}`;
       const avatarColor = profileData?.avatar_color || 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)';
+      const countryCode = profileData?.country_code || null;
       const numScore = Number(row.score);
 
       return {
@@ -135,6 +138,7 @@ export async function fetchLeaderboard(
         userId: row.user_id,
         username,
         avatarColor,
+        countryCode,
         score: numScore,
         scoreFormatted: formatGameScore(gameId, numScore),
         createdAt: row.created_at,

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import type { User, Session } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
 import { syncLocalAndCloudScores } from '../services/scoreService';
+import { detectCountry } from '../services/geoService';
 import type { UserProfile } from '../types/auth';
 
 interface AuthContextType {
@@ -53,6 +54,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
+  /**
+   * If a user's profile has no country set, detect it via IP geolocation
+   * and silently update their profile in the background.
+   */
+  const backfillCountryIfMissing = useCallback(async (userId: string, currentProfile: UserProfile | null) => {
+    if (!currentProfile || currentProfile.country_code) return;
+
+    try {
+      const geo = await detectCountry();
+      if (geo) {
+        await supabase
+          .from('profiles')
+          .update({
+            country_code: geo.country_code,
+            country_name: geo.country_name,
+            updated_at: new Date().toISOString(),
+          })
+          .eq('id', userId);
+      }
+    } catch (err) {
+      console.warn('Country backfill failed (non-critical):', err);
+    }
+  }, []);
+
   const syncScores = useCallback(async () => {
     const currentUserId = user?.id || session?.user?.id;
     if (!currentUserId) return;
@@ -82,7 +107,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        fetchProfile(session.user.id).then(p => setProfile(p));
+        fetchProfile(session.user.id).then(p => {
+          setProfile(p);
+          backfillCountryIfMissing(session.user.id, p);
+        });
         syncLocalAndCloudScores(session.user.id);
       }
       setIsLoading(false);
@@ -96,6 +124,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (session?.user) {
         const p = await fetchProfile(session.user.id);
         setProfile(p);
+        backfillCountryIfMissing(session.user.id, p);
         syncLocalAndCloudScores(session.user.id);
       } else {
         setProfile(null);
@@ -106,7 +135,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return () => {
       subscription.unsubscribe();
     };
-  }, [fetchProfile]);
+  }, [fetchProfile, backfillCountryIfMissing]);
 
   const openAuthModal = (mode: 'login' | 'signup' = 'login') => {
     setAuthModalMode(mode);
@@ -144,12 +173,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       // If user profile is not immediately created by trigger (e.g. trigger not installed yet), ensure fallback
       if (data.user) {
+        // Detect country in parallel (non-blocking)
+        const geoPromise = detectCountry();
+
         const existing = await fetchProfile(data.user.id);
         if (!existing) {
+          const geo = await geoPromise;
           await supabase.from('profiles').insert({
             id: data.user.id,
             username: username.trim() || `User_${data.user.id.slice(0, 6)}`,
+            email: email.trim(),
             avatar_color: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+            country_code: geo?.country_code || null,
+            country_name: geo?.country_name || null,
           });
           const newProfile = await fetchProfile(data.user.id);
           setProfile(newProfile);

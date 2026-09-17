@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Trophy, ChevronRight, Loader2 } from 'lucide-react';
 import { fetchLeaderboard, subscribeToLeaderboardUpdates } from '../../services/leaderboardService';
 import type { LeaderboardEntry } from '../../services/leaderboardService';
+import { countryCodeToFlag } from '../../services/geoService';
 import { useAuth } from '../../context/AuthContext';
 import styles from './GameLeaderboardWidget.module.css';
 
@@ -88,6 +89,11 @@ export default function GameLeaderboardWidget({
                   {entry.username.charAt(0).toUpperCase()}
                 </div>
                 <span className={styles.playerName}>
+                  {entry.countryCode && (
+                    <span className={styles.flag} title={entry.countryCode}>
+                      {countryCodeToFlag(entry.countryCode)}
+                    </span>
+                  )}
                   {entry.username}
                   {entry.isCurrentUser && <span className={styles.youTag}>You</span>}
                 </span>

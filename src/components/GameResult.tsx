@@ -6,6 +6,7 @@ import { useShare } from '../hooks/useShare';
 import ShareButton from './share/ShareButton';
 import ShareModal from './share/ShareModal';
 import { useBattleAutoSubmit } from '../hooks/useBattleAutoSubmit';
+import SignUpPromptBanner from './SignUpPromptBanner';
 
 interface GameResultProps {
   score: string | number;
@@ -94,6 +95,9 @@ export default function GameResult({ score, label, onRetry, icon, children, shar
           {children}
         </div>
       )}
+
+      {/* Sign-up prompt for guest users */}
+      <SignUpPromptBanner />
 
       {/* Battle Banner — shown above action buttons */}
       {renderBattleBanner()}

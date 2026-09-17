@@ -129,6 +129,14 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-main, #0f172a);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.flag {
+  font-size: 0.85rem;
+  line-height: 1;
 }
 
 .youTag {

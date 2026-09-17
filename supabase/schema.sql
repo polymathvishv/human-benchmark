@@ -7,7 +7,10 @@
 CREATE TABLE IF NOT EXISTS public.profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   username TEXT UNIQUE NOT NULL,
+  email TEXT,
   avatar_color TEXT DEFAULT 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+  country_code TEXT,
+  country_name TEXT,
   created_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL,
   updated_at TIMESTAMPTZ DEFAULT timezone('utc'::text, now()) NOT NULL
 );
@@ -43,10 +46,11 @@ BEGIN
     'User_' || SUBSTRING(new.id::text, 1, 6)
   );
 
-  INSERT INTO public.profiles (id, username, avatar_color)
+  INSERT INTO public.profiles (id, username, email, avatar_color)
   VALUES (
     new.id,
     initial_username,
+    new.email,
     'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)'
   )
   ON CONFLICT (id) DO NOTHING;
