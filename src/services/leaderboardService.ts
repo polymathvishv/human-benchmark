@@ -59,20 +59,35 @@ export async function fetchLeaderboard(
     const config = GAME_SCORE_CONFIGS[gameId] || { id: gameId, isLowerBetter: false };
     const isLowerBetter = config.isLowerBetter;
 
+    const selectWithCountry = `
+      id,
+      user_id,
+      game_id,
+      score,
+      created_at,
+      profiles (
+        username,
+        avatar_color,
+        country_code
+      )
+    `;
+
+    const selectWithoutCountry = `
+      id,
+      user_id,
+      game_id,
+      score,
+      created_at,
+      profiles (
+        username,
+        avatar_color
+      )
+    `;
+
+    // 1. Try to fetch with country_code first
     let query = supabase
       .from('scores')
-      .select(`
-        id,
-        user_id,
-        game_id,
-        score,
-        created_at,
-        profiles (
-          username,
-          avatar_color,
-          country_code
-        )
-      `)
+      .select(selectWithCountry)
       .eq('game_id', gameId);
 
     // Apply timeframe filter
@@ -87,12 +102,37 @@ export async function fetchLeaderboard(
     // Order by score according to metric
     query = query.order('score', { ascending: isLowerBetter }).limit(limit * 3);
 
-    const { data, error } = await query;
+    let { data: scoresData, error } = await query;
+
+    // 2. If country_code column is missing (error 42703), retry without it
+    if (error && error.code === '42703') {
+      console.warn('Leaderboard fallback: country_code column missing, retrying without it.');
+      query = supabase
+        .from('scores')
+        .select(selectWithoutCountry)
+        .eq('game_id', gameId);
+
+      if (timeframe === 'week') {
+        const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+        query = query.gte('created_at', oneWeekAgo);
+      } else if (timeframe === 'month') {
+        const oneMonthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+        query = query.gte('created_at', oneMonthAgo);
+      }
+
+      query = query.order('score', { ascending: isLowerBetter }).limit(limit * 3);
+
+      const retryResult = await query;
+      scoresData = retryResult.data;
+      error = retryResult.error;
+    }
 
     if (error) {
-      console.warn('Error fetching leaderboard:', error.message);
+      console.error('Error fetching leaderboard:', error);
       return [];
     }
+
+    const data = scoresData;
 
     if (!data || data.length === 0) return [];
 
