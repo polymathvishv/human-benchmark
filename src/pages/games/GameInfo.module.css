@@ -216,3 +216,24 @@
     padding: 0.5rem;
   }
 }
+
+/* ── Author Attribution ── */
+.authorAttribution {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+.authorLink {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed #93c5fd;
+  transition: color 0.15s, border-color 0.15s;
+}
+.authorLink:hover {
+  color: #1d4ed8;
+  border-color: #1d4ed8;
+}

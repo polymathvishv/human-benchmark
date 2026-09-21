@@ -172,7 +172,7 @@ export default function ScienceArticleDetail() {
           <div className={styles.metaBar}>
             <div className={styles.metaItem}>
               <User size={15} />
-              <span>{article.author}</span>
+              <Link to="/about" className={styles.authorLink}>{article.author}</Link>
             </div>
             <div className={styles.metaItem}>
               <Clock size={15} />
@@ -404,6 +404,31 @@ export default function ScienceArticleDetail() {
             })}
           </section>
         )}
+
+        {/* ── Author Bio Box (E-E-A-T) ── */}
+        <section className={styles.authorBox} aria-label="About the author">
+          <div className={styles.authorBoxAvatar}>
+            <User size={28} />
+          </div>
+          <div className={styles.authorBoxInfo}>
+            <h4 className={styles.authorBoxName}>
+              Written by <Link to="/about" className={styles.authorLink}>{article.author}</Link>
+            </h4>
+            <p className={styles.authorBoxBio}>
+              Vishv Kamani is the founder and developer of Human Benchmark — a platform dedicated to making rigorous cognitive benchmarking accessible to everyone. Each article is researched using peer-reviewed studies and written to be accessible to a general audience.
+            </p>
+            <div className={styles.authorBoxLinks}>
+              <Link to="/about" className={styles.authorBoxLink}>
+                <User size={13} />
+                About the Author
+              </Link>
+              <Link to="/science" className={styles.authorBoxLink}>
+                <BookOpen size={13} />
+                All Articles
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {/* ── Related Articles from the Domain ── */}
         {relatedArticles.length > 0 && (

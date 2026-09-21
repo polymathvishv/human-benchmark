@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
         <div className={styles.content}>
           <h1 className={styles.heading}>Privacy Policy</h1>
           <p className={privacyStyles.lastUpdated}>
-            Last updated: August 2026
+            Last updated: September 2026
           </p>
           <p className={styles.text}>
             At Human Benchmark (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), accessible from{' '}

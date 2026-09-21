@@ -14,7 +14,7 @@ export default function TermsOfService() {
         <div className={styles.content}>
 
           <h1 className={styles.heading}>Terms of Service</h1>
-          <p className={privacyStyles.lastUpdated}>Last updated: August 2025</p>
+          <p className={privacyStyles.lastUpdated}>Last updated: September 2026</p>
           <p className={styles.text}>
             Please read these Terms of Service (&quot;Terms&quot;) carefully before using the Human Benchmark
             website located at{' '}

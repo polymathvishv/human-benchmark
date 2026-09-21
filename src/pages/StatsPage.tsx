@@ -383,6 +383,28 @@ export default function StatsPage() {
             )}
           </div>
 
+          {/* ── Educational Value Section (always visible, E-E-A-T for crawlers) ── */}
+          <section className={styles.activityCard} style={{ marginTop: '1.5rem' }}>
+            <div className={styles.activityHeader}>
+              <Info size={18} color="var(--primary-color)" />
+              <h2>How Your Score Card Works</h2>
+            </div>
+            <div style={{ padding: '0.25rem 0', color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7 }}>
+              <p style={{ marginBottom: '0.75rem' }}>
+                Your Score Card is a personal cognitive performance dashboard that tracks your best scores across all 9 Human Benchmark tests. Every time you complete a test, your personal best is automatically saved and your percentile ranking is recalculated against a global dataset of real test results.
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>Percentile rankings</strong> show where you stand relative to all participants. For example, a 75th percentile score means you outperformed 75% of all recorded attempts. The <strong>Overall Score</strong> is the average percentile across all tests you've completed — a single number that summarizes your cognitive performance profile.
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>Guest users</strong> have their scores saved locally on their device using browser storage. <strong>Registered users</strong> enjoy cloud sync across all devices, appear on the global leaderboard, and can share their score card as a visual graphic.
+              </p>
+              <p>
+                Research in cognitive psychology shows that consistent practice on perceptual and memory tasks produces measurable improvement. Track your progress over time and see your own data confirm this.
+              </p>
+            </div>
+          </section>
+
         </div>
       </div>
 

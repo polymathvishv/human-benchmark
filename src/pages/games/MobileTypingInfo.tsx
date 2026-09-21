@@ -159,6 +159,11 @@ export default function MobileTypingInfo() {
           </div>
         </div>
       </section>
+
+      {/* ── Author Attribution (E-E-A-T) ── */}
+      <div className={styles.authorAttribution}>
+        <span>Researched & written by <a href="/about" className={styles.authorLink}>Vishv Kamani</a>, Founder of Human Benchmark.</span>
+      </div>
     </div>
   );
 }

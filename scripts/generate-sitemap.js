@@ -21,7 +21,6 @@ const CORE_ROUTES = [
   { path: '/battle', priority: '0.8', changefreq: 'daily' },
   { path: '/science', priority: '0.9', changefreq: 'weekly' },
   { path: '/about', priority: '0.7', changefreq: 'monthly' },
-  { path: '/dashboard', priority: '0.7', changefreq: 'monthly' },
   { path: '/contact', priority: '0.7', changefreq: 'monthly' },
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
