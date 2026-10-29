@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+.heroAccessory {
+  margin-bottom: 0.25rem;
+}
+
 .heroCategory {
   font-size: 0.6875rem;
   font-weight: 700;
@@ -402,3 +406,47 @@
     padding: 0.75rem 0.5rem;
   }
 }
+
+/* Related Research Articles Links */
+.relatedArticleLink {
+  display: block;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.relatedArticleLink:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+}
+
+.relatedArticleTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #1e293b;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.relatedArticleMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.relatedArticleTag {
+  background: #e2e8f0;
+  color: #475569;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+

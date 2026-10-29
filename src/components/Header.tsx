@@ -66,7 +66,7 @@ export default function Header() {
       <header className={`${styles.header} glass`}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
-            <img src="/logo.webp" alt="Human Benchmark Logo" className={styles.logoImg} />
+            <img src="/logo.webp" alt="Human Benchmark Logo" className={styles.logoImg} width="32" height="32" fetchPriority="high" />
             <span className={styles.logoText}>Human Benchmark</span>
           </Link>
 

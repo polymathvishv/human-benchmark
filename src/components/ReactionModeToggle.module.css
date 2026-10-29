@@ -1,0 +1,85 @@
+.toggleContainer {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  max-width: 100%;
+}
+
+.toggleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.toggleButton:hover:not(.active) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toggleButton.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.toggleButton:hover .icon {
+  transform: scale(1.1);
+}
+
+.avgBadge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  opacity: 0.75;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.toggleButton.active .avgBadge {
+  background: rgba(15, 23, 42, 0.08);
+  color: #334155;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .toggleContainer {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 3px;
+  }
+
+  .toggleButton {
+    flex: 1;
+    justify-content: center;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
+    gap: 0.35rem;
+  }
+
+  .avgBadge {
+    display: none;
+  }
+}

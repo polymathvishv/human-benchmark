@@ -13,6 +13,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Contact from './pages/Contact';
 import TermsOfService from './pages/TermsOfService';
 import ReactionTime from './pages/games/ReactionTime';
+import AudioReactionTime from './pages/games/AudioReactionTime';
 import SequenceMemory from './pages/games/SequenceMemory';
 import AimTrainer from './pages/games/AimTrainer';
 import NumberMemory from './pages/games/NumberMemory';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/battle" element={<BattlePage />} />
             <Route path="/battle/:roomCode" element={<BattleRoomPage />} />
             <Route path="/reaction-time" element={<ReactionTime />} />
+            <Route path="/audio-reaction-time" element={<AudioReactionTime />} />
             <Route path="/sequence-memory" element={<SequenceMemory />} />
             <Route path="/aim-trainer" element={<AimTrainer />} />
             <Route path="/number-memory" element={<NumberMemory />} />

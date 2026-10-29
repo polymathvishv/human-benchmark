@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import SequenceMemoryInfo from './SequenceMemoryInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -162,6 +163,7 @@ export default function SequenceMemory() {
       ]}
       aboutText="Sequence Memory tests your visuospatial working memory — the brain's ability to temporarily hold and manipulate ordered spatial information. Each level adds one more step to the pattern. Average adults reliably reach 7–9 levels, consistent with Miller's Law (7 ± 2 chunks of working memory). Clinical versions of this task (Corsi Block Task) are used to diagnose memory impairments."
       infoContent={<SequenceMemoryInfo />}
+      faqs={GAME_FAQS['sequence-memory']}
     >
       {renderGame()}
     </GamePageLayout>

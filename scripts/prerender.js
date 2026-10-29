@@ -32,6 +32,7 @@ const DIST = path.resolve(ROOT, 'dist')
 const STATIC_ROUTES = [
   '/',
   '/reaction-time',
+  '/audio-reaction-time',
   '/sequence-memory',
   '/aim-trainer',
   '/number-memory',

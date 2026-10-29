@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import TypingInfo from './TypingInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -203,6 +204,7 @@ export default function TypingTest() {
       ]}
       aboutText="The Typing Test measures your typing speed in Words Per Minute (WPM) with accuracy penalty. The average adult types 40\u201360 WPM; fast typists reach 80\u2013100 WPM; professional typists exceed 100 WPM. The current world record exceeds 212 WPM. Typing speed reflects both motor learning (finger placement automaticity) and cognitive processing speed. Regular deliberate practice can yield significant improvement."
       infoContent={<TypingInfo />}
+      faqs={GAME_FAQS['typing']}
     >
       {renderGame()}
     </GamePageLayout>

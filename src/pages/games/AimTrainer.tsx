@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import AimTrainerInfo from './AimTrainerInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -147,6 +148,7 @@ export default function AimTrainer() {
       ]}
       aboutText="The Aim Trainer measures visuomotor coordination and processing speed. You must click 30 targets as fast as possible; your score is the average milliseconds per target. Performance follows Fitts's Law: smaller and more distant targets require more time. Elite esports athletes typically score under 300 ms per target. Regular practice has been shown to produce measurable improvements."
       infoContent={<AimTrainerInfo />}
+      faqs={GAME_FAQS['aim-trainer']}
     >
       {renderGame()}
     </GamePageLayout>

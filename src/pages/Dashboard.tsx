@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard,
   Smile, Smartphone, Layers, ChevronDown, Sparkles, Brain, Award,
-  BookOpen, ArrowRight, BarChart3
+  BookOpen, ArrowRight, BarChart3, Headphones
 } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
 import { SCIENCE_ARTICLES } from '../data/scienceArticles';
@@ -17,6 +17,14 @@ const GAMES = [
     description: 'Test your visual reflexes and reaction speed.',
     icon: Zap,
     color: '#ef4444',
+    formatScore: (s: number) => `${s} ms`
+  },
+  {
+    id: 'audio-reaction-time',
+    name: 'Audio Reaction Time',
+    description: 'Test your auditory reflex speed with an instant 880Hz beep.',
+    icon: Headphones,
+    color: '#8b5cf6',
     formatScore: (s: number) => `${s} ms`
   },
   {

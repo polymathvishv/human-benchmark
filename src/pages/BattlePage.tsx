@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Swords, Zap, Grid3x3, Target, Hash, MessageSquare,
-  Smile, Layers, Keyboard, Smartphone, Users, Clock, Trophy
+  Smile, Layers, Keyboard, Smartphone, Users, Clock, Trophy, Headphones
 } from 'lucide-react';
 import { createBattleRoom } from '../services/battleService';
 import SEO from '../components/SEO';
@@ -10,6 +10,7 @@ import styles from './BattlePage.module.css';
 
 const TESTS = [
   { id: 'reaction-time', name: 'Reaction Time', emoji: '⚡', path: '/reaction-time', icon: Zap, time: '~1 min' },
+  { id: 'audio-reaction-time', name: 'Audio Reaction Time', emoji: '🎧', path: '/audio-reaction-time', icon: Headphones, time: '~1 min' },
   { id: 'aim-trainer', name: 'Aim Trainer', emoji: '🎯', path: '/aim-trainer', icon: Target, time: '~1 min' },
   { id: 'typing', name: 'Typing Test', emoji: '⌨️', path: '/typing', icon: Keyboard, time: '~1 min' },
   { id: 'mobile-typing', name: 'Mobile Typing', emoji: '📱', path: '/mobile-typing', icon: Smartphone, time: '~1 min' },

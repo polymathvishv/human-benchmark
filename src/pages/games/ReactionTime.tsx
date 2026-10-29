@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Zap, AlertTriangle, Clock, Target } from 'lucide-react';
+import { Zap, AlertTriangle, Clock, Target, Headphones } from 'lucide-react';
 import styles from './ReactionTime.module.css';
 import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import ReactionTimeInfo from './ReactionTimeInfo';
+import ReactionModeToggle from '../../components/ReactionModeToggle';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -211,6 +213,7 @@ export default function ReactionTime() {
       seoDescription="Test your visual reaction time and reflexes in milliseconds. Measure response speed against global averages and percentiles. Free instant online benchmark."
       subtitle="Click the moment the screen turns green. We average five attempts for your score."
       category="Speed Test"
+      headerAccessory={<ReactionModeToggle currentMode="visual" />}
       heroGradient="linear-gradient(135deg, #022c1a 0%, #064e3b 45%, #065f46 75%, #047857 100%)"
       heroTextColor="rgba(167, 243, 208, 0.85)"
       heroAccentColor="rgba(110, 231, 183, 0.7)"
@@ -221,11 +224,13 @@ export default function ReactionTime() {
         { value: 'Free', label: 'No sign-up' },
       ]}
       relatedTests={[
+        { name: 'Audio Reaction Time', path: '/audio-reaction-time', icon: <Headphones size={18} />, color: '#8b5cf6' },
         { name: 'Aim Trainer', path: '/aim-trainer', icon: <Target size={18} />, color: '#22c55e' },
         { name: 'Sequence Memory', path: '/sequence-memory', icon: <Zap size={18} />, color: '#3b82f6' },
       ]}
       aboutText="The Reaction Time test measures simple visual reaction time — the delay between seeing a stimulus and responding to it. Your result reflects the combined speed of your visual cortex processing the green signal, your brain deciding to act, and your motor cortex firing your hand. The global average is 284 ms. Top performers score under 200 ms. Reaction time peaks around age 24 and gradually slows with age."
       infoContent={<ReactionTimeInfo />}
+      faqs={GAME_FAQS['reaction-time']}
     >
       {renderGame()}
     </GamePageLayout>

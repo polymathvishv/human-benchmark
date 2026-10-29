@@ -10,6 +10,7 @@ const CORE_ROUTES = [
   { path: '/', priority: '1.0', changefreq: 'daily' },
   { path: '/leaderboard', priority: '0.9', changefreq: 'hourly' },
   { path: '/reaction-time', priority: '0.9', changefreq: 'weekly' },
+  { path: '/audio-reaction-time', priority: '0.9', changefreq: 'weekly' },
   { path: '/sequence-memory', priority: '0.9', changefreq: 'weekly' },
   { path: '/aim-trainer', priority: '0.9', changefreq: 'weekly' },
   { path: '/number-memory', priority: '0.9', changefreq: 'weekly' },

@@ -1,0 +1,264 @@
+.gameArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  /* Neutral dark background — zero visual cue */
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+
+.gameArea.active {
+  border-radius: 16px;
+  min-height: 340px;
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.icon {
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+.content h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.content p {
+  font-size: clamp(0.9rem, 3.5vw, 1.125rem);
+  opacity: 0.9;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.instruction {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.waitHint {
+  font-size: 0.85rem !important;
+  opacity: 0.5 !important;
+  font-style: italic;
+}
+
+/* ── Waiting pulse animation ── */
+.waitingPulse {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.15);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+/* ── Test Sound button ── */
+.testSoundBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(196, 181, 253, 0.95);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.testSoundBtn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.testSoundBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Start button ── */
+.startButton {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4c1d95;
+  background: white;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+}
+
+.startButton:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.startButton:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .gameArea {
+    min-height: 270px;
+    padding: 1.5rem 0.85rem;
+    border-radius: 12px;
+  }
+
+  .gameArea.active {
+    min-height: 270px;
+    border-radius: 12px;
+  }
+
+  .content h2 {
+    font-size: 1.6rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .startButton {
+    padding: 0.65rem 1.75rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .gameArea {
+    min-height: 240px;
+    padding: 1.25rem 0.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.35rem;
+  }
+
+  .content p {
+    font-size: 0.825rem;
+  }
+}
+
+/* ── Result: 4-stat breakdown row ── */
+.statsRow {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto 1.25rem;
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0.5rem;
+  background: var(--surface-color, #f8fafc);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.statBest {
+  background: rgba(16, 185, 129, 0.07);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.statWorst {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.statPercentile {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  line-height: 1.1;
+}
+
+.statBest .statValue {
+  color: #059669;
+}
+
+.statWorst .statValue {
+  color: #dc2626;
+}
+
+.statPercentile .statValue {
+  color: #7c3aed;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+@media (max-width: 380px) {
+  .statsRow {
+    gap: 0.5rem;
+  }
+  .statCard {
+    padding: 0.75rem 0.25rem;
+  }
+  .statValue {
+    font-size: 1.05rem;
+  }
+}

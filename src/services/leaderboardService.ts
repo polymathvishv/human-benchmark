@@ -29,6 +29,7 @@ export type TimeframeFilter = 'all' | 'month' | 'week';
 export function formatGameScore(gameId: string, score: number): string {
   switch (gameId) {
     case 'reaction-time':
+    case 'audio-reaction-time':
     case 'aim-trainer':
       return `${Math.round(score)} ms`;
     case 'typing':

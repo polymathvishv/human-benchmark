@@ -31,6 +31,9 @@ export const getShareMessage = (config: ShareConfig): string => {
     case 'aim-trainer':
       return `🎯 I averaged ${score}${unit} per target in ${gameName}! ${rankText}\nTest your aim:\n${url}`;
 
+    case 'audio-reaction-time':
+      return `🎧 I reacted in ${score}${unit} to sound stimuli in ${gameName}! ${rankText}\nTest your audio reflexes:\n${url}`;
+
     default:
       return `🏆 I scored ${score}${unit ? ` ${unit}` : ''} in ${gameName}! ${rankText}\nPlay now on Human Benchmark:\n${url}`;
   }
@@ -63,6 +66,7 @@ function normalCDF(x: number, mean: number, stdDev: number): number {
 // Real Human Benchmark distribution benchmarks (mean & standard deviation)
 const GAME_DISTRIBUTIONS: Record<string, { mean: number; stdDev: number; isLowerBetter?: boolean }> = {
   'reaction-time': { mean: 273, stdDev: 42, isLowerBetter: true },
+  'audio-reaction-time': { mean: 185, stdDev: 21.5, isLowerBetter: true },
   'aim-trainer': { mean: 410, stdDev: 75, isLowerBetter: true },
   'typing': { mean: 65, stdDev: 20, isLowerBetter: false },
   'mobile-typing': { mean: 38, stdDev: 12, isLowerBetter: false },
@@ -104,6 +108,7 @@ export const getScoreCardShareUrl = () => `${BASE_URL}/dashboard`;
 export const getScoreCardShareMessage = (items: ScoreCardItem[], overallPercentile: number): string => {
   const gameEmojis: Record<string, string> = {
     'reaction-time': '⚡',
+    'audio-reaction-time': '🎧',
     'sequence-memory': '🧠',
     'aim-trainer': '🎯',
     'number-memory': '🔢',

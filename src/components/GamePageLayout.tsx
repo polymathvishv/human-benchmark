@@ -1,9 +1,12 @@
 import { type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, BookOpen } from 'lucide-react';
 import SEO from './SEO';
 import SoundToggle from './SoundToggle';
 import GameLeaderboardWidget from './leaderboard/GameLeaderboardWidget';
+import GameFaqSection from './GameFaqSection';
+import type { GameFaq } from '../data/gameFaqs';
+import { SCIENCE_ARTICLES } from '../data/scienceArticles';
 import styles from './GamePageLayout.module.css';
 
 interface HeroStat {
@@ -34,6 +37,8 @@ interface GamePageLayoutProps {
   path?: string;
   gameId?: string;
   aboutText?: string;
+  faqs?: GameFaq[];
+  headerAccessory?: ReactNode;
 }
 
 export default function GamePageLayout({
@@ -52,8 +57,15 @@ export default function GamePageLayout({
   path = '',
   gameId,
   aboutText,
+  faqs = [],
+  headerAccessory,
 }: GamePageLayoutProps) {
   const fullUrl = `https://humanbenchmark.in${path}`;
+  
+  // Find related science articles for bidirectional internal topic clusters
+  const relatedArticles = SCIENCE_ARTICLES.filter(
+    (article) => article.relatedGame?.path === path
+  ).slice(0, 3);
   
   const schema = {
     "@context": "https://schema.org",
@@ -114,7 +126,19 @@ export default function GamePageLayout({
             "item": fullUrl
           }
         ]
-      }
+      },
+      ...(faqs.length > 0 ? [{
+        "@type": "FAQPage",
+        "@id": `${fullUrl}#faq`,
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }] : [])
     ]
   };
 
@@ -130,6 +154,11 @@ export default function GamePageLayout({
       {/* Hero Banner */}
       <section className={styles.hero} style={{ background: heroGradient }}>
         <div className={styles.heroInner}>
+          {headerAccessory && (
+            <div className={styles.heroAccessory}>
+              {headerAccessory}
+            </div>
+          )}
           <p className={styles.heroCategory} style={{ color: heroAccentColor }}>{category}</p>
           <h1 className={styles.heroTitle}>{title}</h1>
           <p className={styles.heroSubtitle} style={{ color: heroTextColor }}>{subtitle}</p>
@@ -182,6 +211,11 @@ export default function GamePageLayout({
             <div className={styles.infoArea}>
               {infoContent}
             </div>
+
+            {/* FAQ Section — visible accordion + FAQPage schema for rich snippets */}
+            {faqs.length > 0 && (
+              <GameFaqSection faqs={faqs} gameTitle={title} />
+            )}
           </div>
 
           {/* Sidebar */}
@@ -206,6 +240,32 @@ export default function GamePageLayout({
                     {test.name}
                   </Link>
                 ))}
+              </div>
+            )}
+
+            {relatedArticles.length > 0 && (
+              <div className={styles.sidebarCard}>
+                <h3 className={styles.sidebarTitle} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <BookOpen size={16} style={{ color: '#3b82f6' }} />
+                  Related Research
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+                  {relatedArticles.map((article) => (
+                    <Link
+                      key={article.slug}
+                      to={`/science/${article.slug}`}
+                      className={styles.relatedArticleLink}
+                    >
+                      <div className={styles.relatedArticleTitle}>
+                        {article.title}
+                      </div>
+                      <div className={styles.relatedArticleMeta}>
+                        <span className={styles.relatedArticleTag}>{article.categoryLabel}</span>
+                        <span>{article.readTime}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
 

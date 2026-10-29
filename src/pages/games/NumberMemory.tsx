@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import NumberMemoryInfo from './NumberMemoryInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -189,6 +190,7 @@ export default function NumberMemory() {
       ]}
       aboutText="Number Memory measures your digit span \u2014 how many digits you can hold in verbal working memory after a single viewing. The average adult span is 7 digits (\u00b12), as described by George Miller (1956). Higher scores correlate with stronger verbal working memory, which underpins language comprehension, mental arithmetic, and academic performance."
       infoContent={<NumberMemoryInfo />}
+      faqs={GAME_FAQS['number-memory']}
     >
       {renderGame()}
     </GamePageLayout>

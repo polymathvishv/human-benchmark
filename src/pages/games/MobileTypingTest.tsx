@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import MobileTypingInfo from './MobileTypingInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -392,6 +393,7 @@ export default function MobileTypingTest() {
       ]}
       aboutText="The Mobile Typing Test measures your touchscreen typing speed in Words Per Minute (WPM) with accuracy scoring. Mobile typing is fundamentally different from desktop — it relies on thumb dexterity, autocorrect behaviour, and haptic feedback rather than touch typing. Average mobile typing speed is around 36–40 WPM, roughly 30–40% slower than desktop. Swipe-based keyboards can push speeds past 50 WPM for experienced users."
       infoContent={<MobileTypingInfo />}
+      faqs={GAME_FAQS['mobile-typing']}
     >
       {renderGame()}
     </GamePageLayout>

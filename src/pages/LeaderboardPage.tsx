@@ -3,7 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import {
   Trophy, Zap, Grid3x3, Target, Hash, MessageSquare, Smile,
   Layers, Keyboard, Smartphone, Crown, Play, Loader2,
-  Calendar, Flame, Sparkles
+  Calendar, Flame, Sparkles, Headphones
 } from 'lucide-react';
 import {
   fetchLeaderboard,
@@ -22,6 +22,7 @@ import styles from './LeaderboardPage.module.css';
 
 const GAMES = [
   { id: 'reaction-time', name: 'Reaction Time', icon: Zap, path: '/reaction-time' },
+  { id: 'audio-reaction-time', name: 'Audio Reaction', icon: Headphones, path: '/audio-reaction-time' },
   { id: 'sequence-memory', name: 'Sequence Memory', icon: Grid3x3, path: '/sequence-memory' },
   { id: 'aim-trainer', name: 'Aim Trainer', icon: Target, path: '/aim-trainer' },
   { id: 'number-memory', name: 'Number Memory', icon: Hash, path: '/number-memory' },

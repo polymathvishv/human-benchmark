@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import VisualMemoryInfo from './VisualMemoryInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -205,6 +206,7 @@ export default function VisualMemory() {
       ]}
       aboutText="Visual Memory tests spatial set recall \u2014 your ability to remember which squares lit up in a grid, without needing to remember order. It is analogous to the Corsi Block-Tapping Test developed by Milner and Corsi (1970s), a standard clinical tool for assessing visuospatial memory. Average users reach level 7\u20138. The grid grows in size at each level, exponentially increasing the number of possible square combinations."
       infoContent={<VisualMemoryInfo />}
+      faqs={GAME_FAQS['visual-memory']}
     >
       {renderGame()}
     </GamePageLayout>

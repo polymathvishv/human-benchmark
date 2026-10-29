@@ -7,6 +7,7 @@ export interface GameScoreConfig {
 
 export const GAME_SCORE_CONFIGS: Record<string, GameScoreConfig> = {
   'reaction-time': { id: 'reaction-time', isLowerBetter: true },
+  'audio-reaction-time': { id: 'audio-reaction-time', isLowerBetter: true },
   'aim-trainer': { id: 'aim-trainer', isLowerBetter: true },
   'sequence-memory': { id: 'sequence-memory', isLowerBetter: false },
   'number-memory': { id: 'number-memory', isLowerBetter: false },

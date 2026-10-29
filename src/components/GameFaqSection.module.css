@@ -1,0 +1,128 @@
+/* ── FAQ Section Styles ── */
+/* Visually matches the existing GameInfo.module.css and GamePageLayout.module.css design language */
+
+.faqSection {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  text-align: left;
+}
+
+.faqTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #bfdbfe;
+}
+
+.faqSubtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faqItem {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: #d1d5db;
+}
+
+.faqItemOpen {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08);
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.faqQuestion:hover {
+  color: #2563eb;
+}
+
+.faqChevron {
+  flex-shrink: 0;
+  color: #9ca3af;
+  transition: transform 0.25s ease;
+}
+
+.faqChevronOpen {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1.25rem;
+}
+
+.faqAnswerOpen {
+  max-height: 500px;
+  padding: 0 1.25rem 1rem;
+}
+
+.faqAnswer p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .faqSection {
+    margin: 2rem auto 0;
+  }
+
+  .faqTitle {
+    font-size: 1.25rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.875rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .faqAnswer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .faqAnswerOpen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .faqAnswer p {
+    font-size: 0.8125rem;
+  }
+}

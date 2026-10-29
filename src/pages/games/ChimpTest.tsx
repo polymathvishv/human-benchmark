@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import ChimpTestInfo from './ChimpTestInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
 
@@ -189,6 +190,7 @@ export default function ChimpTest() {
       ]}
       aboutText="The Chimp Test (also widely known as the Chimpanzee Memory Test or Ayumu Test) is based on landmark Kyoto University cognitive research by Tetsuro Matsuzawa and Sana Inoue (2007, Current Biology). It demonstrated that young chimpanzees exhibit extraordinary photographic visuospatial memory, outperforming adult humans on rapid numerical recall. Numbers flash briefly on a grid, then disappear — you must click their locations in ascending order from memory."
       infoContent={<ChimpTestInfo />}
+      faqs={GAME_FAQS['chimp-test']}
     >
       {renderGame()}
     </GamePageLayout>

@@ -5,6 +5,7 @@ import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
 import GamePageLayout from '../../components/GamePageLayout';
 import VerbalMemoryInfo from './VerbalMemoryInfo';
+import { GAME_FAQS } from '../../data/gameFaqs';
 import { WORDS } from '../../utils/words';
 import { useHighScore } from '../../hooks/useHighScore';
 import soundService from '../../services/soundService';
@@ -166,6 +167,7 @@ export default function VerbalMemory() {
       ]}
       aboutText="Verbal Memory tests short-term recognition memory for words. You see words one at a time and must label each NEW or SEEN. The longer the list, the more interference builds up between similar words. This task is related to the Yes/No recognition paradigm used in clinical memory assessments. Average users correctly classify around 50 words before making their first error."
       infoContent={<VerbalMemoryInfo />}
+      faqs={GAME_FAQS['verbal-memory']}
     >
       {renderGame()}
     </GamePageLayout>

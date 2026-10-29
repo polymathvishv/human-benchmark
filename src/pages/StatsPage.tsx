@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard, Smile,
-  Smartphone, Layers, Play, Trophy, Activity, Info, Share2, Settings, Cloud, User, RefreshCw, CheckCircle2
+  Smartphone, Layers, Play, Trophy, Activity, Info, Share2, Settings, Cloud, User, RefreshCw, CheckCircle2, Headphones
 } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
 import { generateMockPercentile } from '../services/shareService';
@@ -19,6 +19,14 @@ const GAMES = [
     name: 'Reaction Time',
     icon: Zap,
     color: '#ef4444',
+    isLowerBetter: true,
+    formatScore: (s: number) => `${s} ms`,
+  },
+  {
+    id: 'audio-reaction-time',
+    name: 'Audio Reaction',
+    icon: Headphones,
+    color: '#8b5cf6',
     isLowerBetter: true,
     formatScore: (s: number) => `${s} ms`,
   },
