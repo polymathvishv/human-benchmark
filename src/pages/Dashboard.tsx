@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard,
   Smile, Smartphone, Layers, ChevronDown, Sparkles, Brain, Award,
-  BookOpen, ArrowRight, BarChart3, Headphones
+  BookOpen, ArrowRight, BarChart3, Headphones, GitFork, Palette, Boxes, Binary
 } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
 import { SCIENCE_ARTICLES } from '../data/scienceArticles';
@@ -25,6 +25,22 @@ const GAMES = [
     description: 'Test your auditory reflex speed with an instant 880Hz beep.',
     icon: Headphones,
     color: '#8b5cf6',
+    formatScore: (s: number) => `${s} ms`
+  },
+  {
+    id: 'choice-reaction-time',
+    name: 'Choice Reaction Time',
+    description: "Measure decision overhead across 4 options using Hick's Law.",
+    icon: GitFork,
+    color: '#06b6d4',
+    formatScore: (s: number) => `${s} ms`
+  },
+  {
+    id: 'stroop-test',
+    name: 'Stroop Test',
+    description: 'Test executive inhibition and selective attention under cognitive conflict.',
+    icon: Palette,
+    color: '#f43f5e',
     formatScore: (s: number) => `${s} ms`
   },
   {
@@ -74,6 +90,22 @@ const GAMES = [
     icon: Layers,
     color: '#14b8a6',
     formatScore: (s: number) => `Level ${s}`
+  },
+  {
+    id: 'corsi-block-test',
+    name: 'Corsi Block-Tapping',
+    description: 'Test visuospatial memory span on an asymmetric 3D block board.',
+    icon: Boxes,
+    color: '#0284c7',
+    formatScore: (s: number) => `Span ${s}`
+  },
+  {
+    id: 'dual-n-back',
+    name: 'Dual N-Back',
+    description: 'Track spatial positions and spoken letters simultaneously to expand fluid intelligence.',
+    icon: Binary,
+    color: '#a855f7',
+    formatScore: (s: number) => `${s} pts`
   },
   {
     id: 'typing',

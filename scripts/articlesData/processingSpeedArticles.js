@@ -10,7 +10,7 @@ export const processingSpeedArticles = [
     author: 'Human Benchmark Science Lab',
     featured: true,
     excerpt: 'Decision time does not increase linearly with the number of choices; it increases logarithmically in direct proportion to the information entropy (in bits) of the decision.',
-    relatedGame: { name: 'Reaction Time Test', path: '/reaction-time', ctaText: 'Test Decision Reaction Time' },
+    relatedGame: { name: 'Choice Reaction Time Test', path: '/choice-reaction-time', ctaText: 'Play Test' },
     keyStats: [
       { label: 'Hick\'s Equation', value: 'RT = a + b·log₂(n+1)', subtext: 'Logarithmic entropy scaling' },
       { label: 'Bit Processing Rate', value: '~150–200ms / bit', subtext: 'Human cortical decision constant (b)' },

@@ -10,7 +10,7 @@ export const attentionArticles = [
     author: 'Human Benchmark Science Lab',
     featured: true,
     excerpt: 'Reading a word is so thoroughly automated that when the word "RED" is printed in blue ink, your anterior cingulate cortex must expend 150–250ms of executive inhibitory effort to override the automatic reading impulse.',
-    relatedGame: { name: 'Verbal Memory', path: '/verbal-memory', ctaText: 'Test Cognitive Control' },
+    relatedGame: { name: 'Stroop Effect Test', path: '/stroop-test', ctaText: 'Play Test' },
     keyStats: [
       { label: 'Stroop Congruency Cost', value: '+150–250ms', subtext: 'Incongruent trial latency penalty' },
       { label: 'Key Brain Region', value: 'Anterior Cingulate (ACC)', subtext: 'Conflict monitoring and resolution hub' },

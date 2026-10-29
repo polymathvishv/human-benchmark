@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Swords, Zap, Grid3x3, Target, Hash, MessageSquare,
-  Smile, Layers, Keyboard, Smartphone, Users, Clock, Trophy, Headphones
+  Smile, Layers, Keyboard, Smartphone, Users, Clock, Trophy, Headphones, GitFork, Palette, Boxes, Binary
 } from 'lucide-react';
 import { createBattleRoom } from '../services/battleService';
 import SEO from '../components/SEO';
@@ -11,11 +11,15 @@ import styles from './BattlePage.module.css';
 const TESTS = [
   { id: 'reaction-time', name: 'Reaction Time', emoji: '⚡', path: '/reaction-time', icon: Zap, time: '~1 min' },
   { id: 'audio-reaction-time', name: 'Audio Reaction Time', emoji: '🎧', path: '/audio-reaction-time', icon: Headphones, time: '~1 min' },
+  { id: 'choice-reaction-time', name: 'Choice Reaction Time', emoji: '🔀', path: '/choice-reaction-time', icon: GitFork, time: '~1 min' },
+  { id: 'stroop-test', name: 'Stroop Test', emoji: '🎨', path: '/stroop-test', icon: Palette, time: '~1 min' },
   { id: 'aim-trainer', name: 'Aim Trainer', emoji: '🎯', path: '/aim-trainer', icon: Target, time: '~1 min' },
   { id: 'typing', name: 'Typing Test', emoji: '⌨️', path: '/typing', icon: Keyboard, time: '~1 min' },
   { id: 'mobile-typing', name: 'Mobile Typing', emoji: '📱', path: '/mobile-typing', icon: Smartphone, time: '~1 min' },
   { id: 'sequence-memory', name: 'Sequence Memory', emoji: '🧠', path: '/sequence-memory', icon: Grid3x3, time: '~3 min' },
   { id: 'visual-memory', name: 'Visual Memory', emoji: '👁', path: '/visual-memory', icon: Layers, time: '~3 min' },
+  { id: 'corsi-block-test', name: 'Corsi Block-Tapping', emoji: '🧱', path: '/corsi-block-test', icon: Boxes, time: '~2 min' },
+  { id: 'dual-n-back', name: 'Dual N-Back', emoji: '🔲', path: '/dual-n-back', icon: Binary, time: '~2 min' },
   { id: 'number-memory', name: 'Number Memory', emoji: '🔢', path: '/number-memory', icon: Hash, time: '~2 min' },
   { id: 'verbal-memory', name: 'Verbal Memory', emoji: '📝', path: '/verbal-memory', icon: MessageSquare, time: '~3 min' },
   { id: 'chimp-test', name: 'Chimp Test', emoji: '🐒', path: '/chimp-test', icon: Smile, time: '~2 min' },

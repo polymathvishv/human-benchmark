@@ -39,9 +39,9 @@ export const memoryArticles = [
         heading: 'The Baddeley & Hitch Multi-Component Model',
         paragraphs: [
           'In 1974, Alan Baddeley and Graham Hitch dismantled the simplistic "single storage box" model of short-term memory, replacing it with a modular multi-component architecture that remains the gold standard in cognitive psychology today:',
-          '1. The Central Executive: The master attentional controller located in the Dorsolateral Prefrontal Cortex (DLPFC). It does not store data itself; instead, it coordinates information, shifts focus between tasks, suppresses irrelevant distractors, and allocates cognitive bandwidth.',
+          '1. The Central Executive: The master attentional controller located in the Dorsolateral Prefrontal Cortex (DLPFC). It does not store data itself; instead, it coordinates information, shifts focus between tasks, suppresses irrelevant distractors, and allocates cognitive bandwidth, as trained in the Dual N-Back task.',
           '2. The Phonological Loop: Dedicated to verbal and acoustic information. It consists of two sub-parts: a passive Phonological Store ("inner ear") that holds speech sounds for 1.5–2 seconds before decay, and an active Articulatory Rehearsal Mechanism ("inner voice") that loops words subvocalizing to prevent forgetting.',
-          '3. The Visuospatial Sketchpad: The "inner eye," responsible for holding and manipulating shapes, colors, spatial coordinates, and mental rotations. Located across the right parietal and occipital cortices, it powers performance on the Visual Memory and Chimp Tests.',
+          '3. The Visuospatial Sketchpad: The "inner eye," responsible for holding and manipulating shapes, colors, spatial coordinates, and mental rotations. Located across the right parietal and occipital cortices, it powers performance on the Corsi Block-Tapping Test, Visual Memory, and Chimp Test.',
           '4. The Episodic Buffer (Added by Baddeley in 2000): A multimodal storage interface that binds information from the phonological loop, sketchpad, and long-term memory into coherent, chronological, episodic representations.'
         ]
       },
@@ -203,7 +203,7 @@ export const memoryArticles = [
     author: 'Human Benchmark Science Lab',
     featured: false,
     excerpt: 'The human brain does not store visual memories as unified photographs. It routes object identity (color, shape) through the ventral pathway and spatial location (coordinates, motion) through the dorsal pathway.',
-    relatedGame: { name: 'Visual Memory', path: '/visual-memory', ctaText: 'Test Visual vs Spatial Memory' },
+    relatedGame: { name: 'Corsi Block-Tapping Test', path: '/corsi-block-test', ctaText: 'Test Visuospatial Memory (Corsi Blocks)' },
     keyStats: [
       { label: 'Ventral "What" Stream', value: 'Inferior Temporal', subtext: 'Colors, textures, object identity' },
       { label: 'Dorsal "Where" Stream', value: 'Posterior Parietal', subtext: 'Spatial grid, coordinates, motor planning' },

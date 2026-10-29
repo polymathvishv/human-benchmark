@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Headphones, AlertTriangle, Clock, Zap, Target, Volume2 } from 'lucide-react';
+import { Headphones, AlertTriangle, Clock, Zap, Target, Volume2, GitFork } from 'lucide-react';
 import styles from './AudioReactionTime.module.css';
 import GameResult from '../../components/GameResult';
 import GameInsight from '../../components/GameInsight';
@@ -407,6 +407,7 @@ export default function AudioReactionTime() {
         { value: 'Free', label: 'No sign-up' },
       ]}
       relatedTests={[
+        { name: 'Choice Reaction Time', path: '/choice-reaction-time', icon: <GitFork size={18} />, color: '#06b6d4' },
         { name: 'Visual Reaction Time', path: '/reaction-time', icon: <Zap size={18} />, color: '#ef4444' },
         { name: 'Aim Trainer', path: '/aim-trainer', icon: <Target size={18} />, color: '#22c55e' },
       ]}

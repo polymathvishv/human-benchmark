@@ -110,7 +110,7 @@ export const reactionTimeArticles = [
     author: 'Human Benchmark Science Lab',
     featured: false,
     excerpt: 'Adding choices to a stimulus does not simply scale reaction time linearly—it introduces discrete mental processing stages for stimulus discrimination and response selection.',
-    relatedGame: { name: 'Reaction Time Test', path: '/reaction-time', ctaText: 'Test Simple Reaction Time' },
+    relatedGame: { name: 'Choice Reaction Time Test', path: '/choice-reaction-time', ctaText: 'Play Test' },
     keyStats: [
       { label: 'Simple RT (Detection)', value: '~220ms', subtext: 'Single stimulus, single motor act' },
       { label: 'Go/No-Go RT (Discrimination)', value: '~300ms', subtext: '+80ms discrimination stage' },

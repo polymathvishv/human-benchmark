@@ -408,6 +408,23 @@ class SoundService {
   public playVictory(): void {
     this.playChord([440, 554.37, 659.25, 880], 0.35, 'triangle', 0.2); // A Major
   }
+
+  /**
+   * 11. Dual N-Back Audio Stimulus & Match Feedback
+   */
+  public playNBackStimulus(index: number): void {
+    const scale = [329.63, 392.0, 440.0, 493.88, 523.25, 587.33, 659.25, 783.99];
+    const freq = scale[Math.abs(index) % scale.length];
+    this.playTone(freq, 0.15, 'sine', 0.18);
+  }
+
+  public playNBackMatch(type: 'pos' | 'audio'): void {
+    if (type === 'pos') {
+      this.playTone(523.25, 0.08, 'sine', 0.2); // C5
+    } else {
+      this.playTone(659.25, 0.08, 'sine', 0.2); // E5
+    }
+  }
 }
 
 export const soundService = new SoundService();

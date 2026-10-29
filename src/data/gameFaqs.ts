@@ -255,5 +255,113 @@ export const GAME_FAQS: Record<string, GameFaq[]> = {
       question: 'How do age and fatigue influence auditory reflexes?',
       answer: 'Auditory reflexes peak between ages 18–24 and gradually slow by 2–4 ms per decade. Acute fatigue, poor sleep, and dehydration can impair auditory reaction speed by 15–30%, while proper rest and alertness sharpen response times.'
     }
+  ],
+
+  'choice-reaction-time': [
+    {
+      question: 'What is choice reaction time and how does it differ from simple reaction time?',
+      answer: 'Choice reaction time (CRT) is the latency between detecting one of several stimuli and executing the corresponding specific motor response, such as pressing key D, F, J, or K. Unlike simple reaction time (~250–280 ms), which only requires stimulus detection, choice reaction time requires two additional cognitive stages: stimulus discrimination and response selection, increasing total latency to roughly 350–400 ms.'
+    },
+    {
+      question: "What is Hick's Law (Hick-Hyman Law)?",
+      answer: "Hick's Law states that decision time increases logarithmically as the number of choices increases, modeled by the formula RT = a + b * log2(n + 1). In this equation, 'a' represents baseline simple reaction time, 'b' is the cognitive processing speed constant (~120–180 ms per bit of information), and 'n' is the number of alternatives."
+    },
+    {
+      question: 'What is a good score on the 4-choice reaction time test?',
+      answer: 'For a 4-choice reaction time test, the global average is approximately 370 ms with 90%+ accuracy. Scores under 290 ms place you in the top 10% globally, while elite esports players and fighter pilots can achieve choice reaction times below 245 ms (top 1%).'
+    },
+    {
+      question: "What is the 'decision overhead' in Hick's Law?",
+      answer: "Decision overhead is the extra time your central nervous system takes to process choices compared to a simple reflex (Choice RT minus Simple RT). In a 4-choice visual task (2 bits of entropy), typical healthy adults experience a decision overhead of +80 ms to +140 ms over their baseline simple reaction time."
+    },
+    {
+      question: 'Why are anticipations under 120ms rejected?',
+      answer: 'Responses faster than 120 ms are rejected as anticipations because human neurophysiology cannot detect a visual stimulus, discriminate between four distinct positions, select a motor program, and contract finger muscles in under 120 ms. Physiological transmission from retina to primary visual cortex alone consumes 40–60 ms, making sub-120 ms choices physically impossible without premature guessing.'
+    },
+    {
+      question: 'Can you improve choice reaction time through practice?',
+      answer: 'Yes. With deliberate practice, the brain creates automated stimulus-response mappings in the premotor cortex and basal ganglia, significantly reducing the Hick\'s slope parameter "b". Elite typists, pianists, and competitive gamers demonstrate near-zero decision slope, reacting to multiple distinct stimuli almost as quickly as a simple reflex.'
+    }
+  ],
+
+  'stroop-test': [
+    {
+      question: 'What is the Stroop Effect and how does the Stroop Test work?',
+      answer: 'The Stroop Effect is a psychological phenomenon demonstrating that naming the font color of a word is significantly slower and more error-prone when the ink color conflicts with the printed word (e.g., the word "RED" printed in blue ink). In this test, 24 trials test your executive inhibition by measuring how fast you identify the physical font color while actively suppressing the automatic reflex to read the word.'
+    },
+    {
+      question: 'What brain regions are responsible for resolving the Stroop Effect?',
+      answer: 'The Stroop task primarily recruits the Anterior Cingulate Cortex (ACC) and the Dorsolateral Prefrontal Cortex (dlPFC). The ACC functions as an executive conflict monitoring hub that detects interference between automatic word reading and color recognition, while the dlPFC applies top-down inhibitory control to suppress the reading response.'
+    },
+    {
+      question: 'What is a normal Stroop Interference Cost?',
+      answer: 'The average Stroop interference cost (the latency difference between incongruent and congruent trials) is approximately 150–190 milliseconds in healthy adults. Top 10% performers experience an interference cost below 115 ms, demonstrating superior cognitive inhibition, attentional gating, and prefrontal control.'
+    },
+    {
+      question: 'What is a good score on the Stroop Effect Test?',
+      answer: 'A composite score (incongruent reaction time plus a +50ms penalty per incorrect answer) under 560 ms places you in the top 10% globally, while scores under 470 ms represent the elite top 1%. The global web median for incongruent trials is approximately 720 ms with 90%+ accuracy.'
+    },
+    {
+      question: 'Why is word reading faster and more automatic than color naming?',
+      answer: 'Reading is an overlearned cultural skill practiced millions of times since early childhood. It processes automatically in the visual word form area (VWFA) within 200–250 ms without conscious effort, whereas color naming requires voluntary, controlled processing taking 350–450 ms. Because word reading reaches response selection first, your brain must actively expend cognitive effort to inhibit it.'
+    },
+    {
+      question: 'Can you train your brain to overcome the Stroop Effect?',
+      answer: 'Yes. Deliberate practice on executive inhibition tasks strengthens functional connectivity between the anterior cingulate cortex and prefrontal networks. Video games requiring selective attention, mindfulness meditation, and adequate sleep have also been shown to reduce Stroop interference latency by 15–25%.'
+    }
+  ],
+
+  'corsi-block-test': [
+    {
+      question: 'What is the Corsi Block-Tapping Test and what does it measure?',
+      answer: 'The Corsi Block-Tapping Test is a standardized neuropsychological assessment developed in 1972 by Philip Corsi to measure visuospatial working memory span. Nine irregularly arranged blocks light up in random sequences; test-takers must reproduce the sequence in forward or reverse order. Unlike digit span tests, it isolates pure spatial memory without allowing verbal counting or phonological rehearsal.'
+    },
+    {
+      question: 'What is a normal Corsi block span score?',
+      answer: 'The average adult achieves a Forward Corsi Span of 5 to 6 blocks (mean ~5.6) and a Backward Corsi Span of 4 to 5 blocks (mean ~4.8). Scores of 7 or higher place you in the top 15% globally, while a span of 8+ places you in the top 5% of visuospatial working memory capacity.'
+    },
+    {
+      question: 'What is the difference between Forward and Backward Corsi Span?',
+      answer: 'Forward Corsi Span measures passive spatial storage capacity in the parietal and occipital cortices (the Visuospatial Sketchpad). Backward Corsi Span requires repeating the sequence in reverse order, which demands active executive manipulation, mental spatial rotation, and top-down control orchestrated by the Dorsolateral Prefrontal Cortex (dlPFC).'
+    },
+    {
+      question: 'Why does the Corsi Test use an asymmetric layout instead of a 3x3 grid?',
+      answer: 'An irregular, asymmetric layout prevents test-takers from using verbal recoding shortcuts such as numbering positions 1 through 9 or using geometric labels (e.g., "top-left, middle, bottom-right"). By eliminating verbal mnemonics, the asymmetric Corsi board ensures that 100% of cognitive load falls on spatial coordinate processing in the dorsal visual stream.'
+    },
+    {
+      question: 'How is the Corsi Block Test used in clinical medicine and neurology?',
+      answer: 'Neuropsychologists use the Corsi test to evaluate memory impairment following traumatic brain injury (TBI), concussions, temporal lobe epilepsy resections, stroke, and early Alzheimer\'s disease or Mild Cognitive Impairment (MCI). A Corsi span of 3 or below often indicates a clinical deficit requiring diagnostic follow-up.'
+    },
+    {
+      question: 'Can you improve your Corsi block memory span with practice?',
+      answer: 'Yes. Targeted visuospatial memory training, action video games requiring radar and mini-map awareness, chess, and spatial navigation exercises have all been shown to increase functional connectivity in frontoparietal memory networks, expanding working memory span by 1 to 2 items over time.'
+    }
+  ],
+
+  'dual-n-back': [
+    {
+      question: 'What is the Dual N-Back test and how does it work?',
+      answer: 'The Dual N-Back test is an advanced cognitive training task where you simultaneously track two independent streams of information: a visual square on a 3x3 grid and an auditory spoken letter. For every trial, you must press [A] if the position matches the position from N steps ago, and press [L] if the spoken letter matches the letter heard N steps ago.'
+    },
+    {
+      question: 'Can Dual N-Back training really increase fluid intelligence (IQ)?',
+      answer: 'Yes. A landmark study published by Susanne Jaeggi et al. (PNAS, 2008) demonstrated that daily adaptive Dual N-Back practice produced statistically significant improvements in fluid intelligence (Gf), as measured by Raven\'s Advanced Progressive Matrices. The gains were dose-dependent, meaning individuals who trained more days achieved greater cognitive improvements.'
+    },
+    {
+      question: 'What is a good score on the Dual N-Back test?',
+      answer: 'For Dual 2-Back, healthy adults average roughly 65% to 75% accuracy (265 to 275 composite points). Achieving 80%+ on Dual 2-Back qualifies you to advance to Dual 3-Back, which places you in the top 15% globally. Scores above 75% on Dual 3-Back (375+ points) represent elite executive function in the top 2% of the population.'
+    },
+    {
+      question: 'Why does Dual N-Back use both visual and auditory modalities?',
+      answer: 'Dual N-Back forces the brain to coordinate both Alan Baddeley\'s Visuospatial Sketchpad (dorsal visual pathway) and the Phonological Loop (acoustic auditory cortex) at the exact same time. This multi-modal stress taxes the Central Executive in the prefrontal cortex far more intensely than any single-stream memory test.'
+    },
+    {
+      question: 'How does the scoring formula work in this test?',
+      answer: 'Your score is calculated using Signal Detection Theory: Accuracy % = (Hits / (Hits + Misses + False Alarms)) * 100. Each round intentionally contains exactly 6 Position Matches and 6 Audio Matches (with 2 dual matches). Your leaderboard composite score combines your N-level with your accuracy percentage (e.g., 2-Back at 85% yields 285 points).'
+    },
+    {
+      question: 'How often should I practice Dual N-Back to see results?',
+      answer: 'Cognitive neuroscience research recommends practicing Dual N-Back for 20 to 25 minutes per day, 4 to 5 days per week, over a period of 4 to 6 weeks. Consistent practice stimulates activity-dependent synaptic plasticity, strengthens frontoparietal myelination, and expands working memory capacity.'
+    }
   ]
 };

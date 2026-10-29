@@ -14,12 +14,16 @@ import Contact from './pages/Contact';
 import TermsOfService from './pages/TermsOfService';
 import ReactionTime from './pages/games/ReactionTime';
 import AudioReactionTime from './pages/games/AudioReactionTime';
+import ChoiceReactionTime from './pages/games/ChoiceReactionTime';
+import StroopTest from './pages/games/StroopTest';
 import SequenceMemory from './pages/games/SequenceMemory';
 import AimTrainer from './pages/games/AimTrainer';
 import NumberMemory from './pages/games/NumberMemory';
 import VerbalMemory from './pages/games/VerbalMemory';
 import ChimpTest from './pages/games/ChimpTest';
 import VisualMemory from './pages/games/VisualMemory';
+import CorsiBlockTest from './pages/games/CorsiBlockTest';
+import DualNBack from './pages/games/DualNBack';
 import TypingTest from './pages/games/TypingTest';
 import MobileTypingTest from './pages/games/MobileTypingTest';
 import StatsPage from './pages/StatsPage';
@@ -45,12 +49,16 @@ function App() {
             <Route path="/battle/:roomCode" element={<BattleRoomPage />} />
             <Route path="/reaction-time" element={<ReactionTime />} />
             <Route path="/audio-reaction-time" element={<AudioReactionTime />} />
+            <Route path="/choice-reaction-time" element={<ChoiceReactionTime />} />
+            <Route path="/stroop-test" element={<StroopTest />} />
             <Route path="/sequence-memory" element={<SequenceMemory />} />
             <Route path="/aim-trainer" element={<AimTrainer />} />
             <Route path="/number-memory" element={<NumberMemory />} />
             <Route path="/verbal-memory" element={<VerbalMemory />} />
             <Route path="/chimp-test" element={<ChimpTest />} />
             <Route path="/visual-memory" element={<VisualMemory />} />
+            <Route path="/corsi-block-test" element={<CorsiBlockTest />} />
+            <Route path="/dual-n-back" element={<DualNBack />} />
             <Route path="/typing" element={<TypingTest />} />
             <Route path="/mobile-typing" element={<MobileTypingTest />} />
             <Route path="/science" element={<SciencePage />} />

@@ -229,9 +229,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
     "featured": false,
     "excerpt": "Adding choices to a stimulus does not simply scale reaction time linearly—it introduces discrete mental processing stages for stimulus discrimination and response selection.",
     "relatedGame": {
-      "name": "Reaction Time Test",
-      "path": "/reaction-time",
-      "ctaText": "Test Simple Reaction Time"
+      "name": "Choice Reaction Time Test",
+      "path": "/choice-reaction-time",
+      "ctaText": "Play Test"
     },
     "keyStats": [
       {
@@ -986,9 +986,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
         "heading": "The Baddeley & Hitch Multi-Component Model",
         "paragraphs": [
           "In 1974, Alan Baddeley and Graham Hitch dismantled the simplistic \"single storage box\" model of short-term memory, replacing it with a modular multi-component architecture that remains the gold standard in cognitive psychology today:",
-          "1. The Central Executive: The master attentional controller located in the Dorsolateral Prefrontal Cortex (DLPFC). It does not store data itself; instead, it coordinates information, shifts focus between tasks, suppresses irrelevant distractors, and allocates cognitive bandwidth.",
+          "1. The Central Executive: The master attentional controller located in the Dorsolateral Prefrontal Cortex (DLPFC). It does not store data itself; instead, it coordinates information, shifts focus between tasks, suppresses irrelevant distractors, and allocates cognitive bandwidth, as trained in the Dual N-Back task.",
           "2. The Phonological Loop: Dedicated to verbal and acoustic information. It consists of two sub-parts: a passive Phonological Store (\"inner ear\") that holds speech sounds for 1.5–2 seconds before decay, and an active Articulatory Rehearsal Mechanism (\"inner voice\") that loops words subvocalizing to prevent forgetting.",
-          "3. The Visuospatial Sketchpad: The \"inner eye,\" responsible for holding and manipulating shapes, colors, spatial coordinates, and mental rotations. Located across the right parietal and occipital cortices, it powers performance on the Visual Memory and Chimp Tests.",
+          "3. The Visuospatial Sketchpad: The \"inner eye,\" responsible for holding and manipulating shapes, colors, spatial coordinates, and mental rotations. Located across the right parietal and occipital cortices, it powers performance on the Corsi Block-Tapping Test, Visual Memory, and Chimp Test.",
           "4. The Episodic Buffer (Added by Baddeley in 2000): A multimodal storage interface that binds information from the phonological loop, sketchpad, and long-term memory into coherent, chronological, episodic representations."
         ]
       },
@@ -1201,9 +1201,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
     "featured": false,
     "excerpt": "The human brain does not store visual memories as unified photographs. It routes object identity (color, shape) through the ventral pathway and spatial location (coordinates, motion) through the dorsal pathway.",
     "relatedGame": {
-      "name": "Visual Memory",
-      "path": "/visual-memory",
-      "ctaText": "Test Visual vs Spatial Memory"
+      "name": "Corsi Block-Tapping Test",
+      "path": "/corsi-block-test",
+      "ctaText": "Test Visuospatial Memory (Corsi Blocks)"
     },
     "keyStats": [
       {
@@ -1740,9 +1740,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
     "featured": true,
     "excerpt": "Reading a word is so thoroughly automated that when the word \"RED\" is printed in blue ink, your anterior cingulate cortex must expend 150–250ms of executive inhibitory effort to override the automatic reading impulse.",
     "relatedGame": {
-      "name": "Verbal Memory",
-      "path": "/verbal-memory",
-      "ctaText": "Test Cognitive Control"
+      "name": "Stroop Effect Test",
+      "path": "/stroop-test",
+      "ctaText": "Play Test"
     },
     "keyStats": [
       {
@@ -2403,9 +2403,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
     "featured": true,
     "excerpt": "Decision time does not increase linearly with the number of choices; it increases logarithmically in direct proportion to the information entropy (in bits) of the decision.",
     "relatedGame": {
-      "name": "Reaction Time Test",
-      "path": "/reaction-time",
-      "ctaText": "Test Decision Reaction Time"
+      "name": "Choice Reaction Time Test",
+      "path": "/choice-reaction-time",
+      "ctaText": "Play Test"
     },
     "keyStats": [
       {
@@ -2531,7 +2531,7 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
       },
       {
         "question": "How does Hick's Law apply to the Human Benchmark Reaction Time Test?",
-        "answer": "The Reaction Time Test on Human Benchmark is a Simple Reaction task (n = 1, 0 bits of choice entropy), measuring your baseline \"a\" parameter without Hick's Law choice penalties."
+        "answer": "The Simple Reaction Time Test on Human Benchmark is a simple reaction task (n = 1, 0 bits of choice entropy), measuring your baseline \"a\" parameter without choice penalties. To measure your decision overhead across multiple choices, take our dedicated Choice Reaction Time Test."
       }
     ]
   },
@@ -2943,9 +2943,9 @@ export const SCIENCE_ARTICLES: ScienceArticle[] = [
     "featured": true,
     "excerpt": "The adult human brain is not a static machine. Through Long-Term Potentiation, dendritic spine remodeling, and activity-dependent myelinogenesis, deliberate practice physically alters neural architecture across the entire lifespan.",
     "relatedGame": {
-      "name": "Sequence Memory",
-      "path": "/sequence-memory",
-      "ctaText": "Exercise Brain Plasticity"
+      "name": "Dual N-Back Test",
+      "path": "/dual-n-back",
+      "ctaText": "Train Neuroplasticity with Dual N-Back"
     },
     "keyStats": [
       {

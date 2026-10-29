@@ -30,6 +30,8 @@ export function formatGameScore(gameId: string, score: number): string {
   switch (gameId) {
     case 'reaction-time':
     case 'audio-reaction-time':
+    case 'choice-reaction-time':
+    case 'stroop-test':
     case 'aim-trainer':
       return `${Math.round(score)} ms`;
     case 'typing':
@@ -42,6 +44,10 @@ export function formatGameScore(gameId: string, score: number): string {
     case 'chimp-test':
     case 'visual-memory':
       return `Level ${Math.round(score)}`;
+    case 'corsi-block-test':
+      return `Span ${Math.round(score)}`;
+    case 'dual-n-back':
+      return `${Math.round(score)} pts`;
     default:
       return `${score}`;
   }

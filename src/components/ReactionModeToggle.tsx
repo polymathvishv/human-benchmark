@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Zap, Headphones } from 'lucide-react';
+import { Zap, Headphones, GitFork } from 'lucide-react';
 import styles from './ReactionModeToggle.module.css';
 
 interface ReactionModeToggleProps {
-  currentMode: 'visual' | 'audio';
+  currentMode: 'visual' | 'audio' | 'choice';
 }
 
 export default function ReactionModeToggle({ currentMode }: ReactionModeToggleProps) {
@@ -31,6 +31,18 @@ export default function ReactionModeToggle({ currentMode }: ReactionModeTogglePr
         <Headphones size={15} className={styles.icon} />
         <span className={styles.label}>Audio Mode</span>
         <span className={styles.avgBadge}>~185ms avg</span>
+      </Link>
+
+      <Link
+        to="/choice-reaction-time"
+        className={`${styles.toggleButton} ${currentMode === 'choice' ? styles.active : ''}`}
+        role="tab"
+        aria-selected={currentMode === 'choice'}
+        id="mode-choice-toggle"
+      >
+        <GitFork size={15} className={styles.icon} />
+        <span className={styles.label}>Choice Mode</span>
+        <span className={styles.avgBadge}>~370ms avg</span>
       </Link>
     </div>
   );

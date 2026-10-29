@@ -34,6 +34,18 @@ export const getShareMessage = (config: ShareConfig): string => {
     case 'audio-reaction-time':
       return `🎧 I reacted in ${score}${unit} to sound stimuli in ${gameName}! ${rankText}\nTest your audio reflexes:\n${url}`;
 
+    case 'choice-reaction-time':
+      return `🔀 I scored ${score}${unit} on Choice Reaction Time (Hick's Law)! ${rankText}\nCan you beat my decision speed?\n${url}`;
+
+    case 'stroop-test':
+      return `🎨 I scored ${score}${unit} on the Stroop Effect Test! ${rankText}\nCan your brain overcome cognitive interference?\n${url}`;
+
+    case 'corsi-block-test':
+      return `🧱 I reached a Corsi Span of ${score} in the Corsi Block-Tapping Test! ${rankText}\nCan you beat my visuospatial memory?\n${url}`;
+
+    case 'dual-n-back':
+      return `🔲 I scored ${score}${unit} on the Dual N-Back Test! ${rankText}\nCan your working memory handle two sensory streams?\n${url}`;
+
     default:
       return `🏆 I scored ${score}${unit ? ` ${unit}` : ''} in ${gameName}! ${rankText}\nPlay now on Human Benchmark:\n${url}`;
   }
@@ -67,6 +79,8 @@ function normalCDF(x: number, mean: number, stdDev: number): number {
 const GAME_DISTRIBUTIONS: Record<string, { mean: number; stdDev: number; isLowerBetter?: boolean }> = {
   'reaction-time': { mean: 273, stdDev: 42, isLowerBetter: true },
   'audio-reaction-time': { mean: 185, stdDev: 21.5, isLowerBetter: true },
+  'choice-reaction-time': { mean: 370, stdDev: 55, isLowerBetter: true },
+  'stroop-test': { mean: 720, stdDev: 120, isLowerBetter: true },
   'aim-trainer': { mean: 410, stdDev: 75, isLowerBetter: true },
   'typing': { mean: 65, stdDev: 20, isLowerBetter: false },
   'mobile-typing': { mean: 38, stdDev: 12, isLowerBetter: false },
@@ -75,6 +89,8 @@ const GAME_DISTRIBUTIONS: Record<string, { mean: number; stdDev: number; isLower
   'verbal-memory': { mean: 38, stdDev: 22, isLowerBetter: false },
   'chimp-test': { mean: 9.8, stdDev: 2.8, isLowerBetter: false },
   'visual-memory': { mean: 9.5, stdDev: 2.3, isLowerBetter: false },
+  'corsi-block-test': { mean: 5.6, stdDev: 1.3, isLowerBetter: false },
+  'dual-n-back': { mean: 265, stdDev: 42, isLowerBetter: false },
 };
 
 /**
@@ -109,12 +125,16 @@ export const getScoreCardShareMessage = (items: ScoreCardItem[], overallPercenti
   const gameEmojis: Record<string, string> = {
     'reaction-time': '⚡',
     'audio-reaction-time': '🎧',
+    'choice-reaction-time': '🔀',
+    'stroop-test': '🎨',
     'sequence-memory': '🧠',
     'aim-trainer': '🎯',
     'number-memory': '🔢',
     'verbal-memory': '🗣️',
     'chimp-test': '🐵',
     'visual-memory': '👁️',
+    'corsi-block-test': '🧱',
+    'dual-n-back': '🔲',
     'typing': '⌨️',
     'mobile-typing': '📱',
   };

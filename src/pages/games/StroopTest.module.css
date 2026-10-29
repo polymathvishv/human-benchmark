@@ -1,0 +1,530 @@
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #160a22 0%, #241037 55%, #31154a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  position: relative;
+}
+
+.gameArea.active {
+  background: linear-gradient(135deg, #12071d 0%, #1e0d2f 55%, #2a1140 100%);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.icon {
+  margin-bottom: 0.5rem;
+  color: #f43f5e;
+  filter: drop-shadow(0 4px 12px rgba(244, 63, 94, 0.35));
+}
+
+.content h2 {
+  font-size: clamp(1.5rem, 5vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.content p {
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  opacity: 0.88;
+  max-width: 580px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── HUD Bar ── */
+.hudBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 560px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  box-sizing: border-box;
+}
+
+.hudItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hudValue {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hudValueAccent {
+  color: #f43f5e;
+  font-weight: 700;
+}
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 560px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: -0.5rem;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #f43f5e, #a855f7);
+  transition: width 0.2s ease;
+  border-radius: 9999px;
+}
+
+/* ── Central Stimulus Stage ── */
+.stageCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 560px;
+  min-height: 170px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+.fixationCross {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  opacity: 0.85;
+  line-height: 1;
+  user-select: none;
+  animation: pulseFixation 0.4s ease infinite alternate;
+}
+
+@keyframes pulseFixation {
+  from { transform: scale(0.96); opacity: 0.75; }
+  to { transform: scale(1.04); opacity: 0.95; }
+}
+
+.stimulusWord {
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  animation: wordPop 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+@keyframes wordPop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── 250ms Feedback Badge in Stage ── */
+.feedbackOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: feedbackPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes feedbackPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.feedbackCorrect {
+  color: #10b981;
+  filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.6));
+}
+
+.feedbackWrong {
+  color: #ef4444;
+  filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.7));
+}
+
+/* ── 4 Color Choice Buttons ── */
+.buttonsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
+}
+
+.colorButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.colorButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.colorButton:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.colorButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Specific button colors */
+.btnRed {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+}
+.btnRed:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+}
+
+.btnBlue {
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #3b82f6;
+}
+.btnBlue:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.35);
+}
+
+.btnGreen {
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #10b981;
+}
+.btnGreen:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+}
+
+.btnYellow {
+  border-color: rgba(234, 179, 8, 0.5);
+  color: #eab308;
+}
+.btnYellow:hover:not(:disabled) {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: #eab308;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.35);
+}
+
+.btnColorDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+}
+
+.btnTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.btnKbdHint {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Instruction Badge ── */
+.ruleBanner {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.ruleHighlight {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.startButton {
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  padding: 0.85rem 2.2rem;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  margin-top: 0.5rem;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.startButton:active {
+  transform: translateY(1px);
+}
+
+/* ── Results Screen Breakdown ── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin: 1.5rem 0 1rem;
+}
+
+.statCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.statValue {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statCongruent {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.statCongruent .statValue {
+  color: #15803d;
+}
+
+.statIncongruent {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+.statIncongruent .statValue {
+  color: #e11d48;
+}
+
+.statInterference {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+.statInterference .statValue {
+  color: #b45309;
+}
+
+.statAccuracy {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+}
+.statAccuracy .statValue {
+  color: #0369a1;
+}
+
+/* ── Anterior Cingulate Cortex (ACC) Neuroscience Card ── */
+.accCard {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1.5px solid #fecdd3;
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.07);
+}
+
+.accHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ffe4e6;
+}
+
+.accTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #881337;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accBadge {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fda4af;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.accGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  background: #f8fafc;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.accMetric {
+  display: flex;
+  flex-direction: column;
+}
+
+.accMetricLabel {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.accMetricValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 0.2rem;
+}
+
+.accExplanation {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.accExplanation strong {
+  color: #0f172a;
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 640px) {
+  .gameArea {
+    min-height: 400px;
+    padding: 1.5rem 1rem;
+  }
+
+  .stageCard {
+    min-height: 140px;
+    padding: 1rem;
+  }
+
+  .buttonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .colorButton {
+    min-height: 70px;
+    padding: 0.6rem 0.4rem;
+  }
+
+  .btnTitle {
+    font-size: 0.95rem;
+  }
+
+  .btnKbdHint {
+    font-size: 0.62rem;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .accGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+

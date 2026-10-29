@@ -8,12 +8,16 @@ export interface GameScoreConfig {
 export const GAME_SCORE_CONFIGS: Record<string, GameScoreConfig> = {
   'reaction-time': { id: 'reaction-time', isLowerBetter: true },
   'audio-reaction-time': { id: 'audio-reaction-time', isLowerBetter: true },
+  'choice-reaction-time': { id: 'choice-reaction-time', isLowerBetter: true },
+  'stroop-test': { id: 'stroop-test', isLowerBetter: true },
   'aim-trainer': { id: 'aim-trainer', isLowerBetter: true },
   'sequence-memory': { id: 'sequence-memory', isLowerBetter: false },
   'number-memory': { id: 'number-memory', isLowerBetter: false },
   'verbal-memory': { id: 'verbal-memory', isLowerBetter: false },
   'chimp-test': { id: 'chimp-test', isLowerBetter: false },
   'visual-memory': { id: 'visual-memory', isLowerBetter: false },
+  'corsi-block-test': { id: 'corsi-block-test', isLowerBetter: false },
+  'dual-n-back': { id: 'dual-n-back', isLowerBetter: false },
   'typing': { id: 'typing', isLowerBetter: false },
   'mobile-typing': { id: 'mobile-typing', isLowerBetter: false },
 };

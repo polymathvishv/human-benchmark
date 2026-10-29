@@ -10,7 +10,7 @@ export const brainScienceArticles = [
     author: 'Human Benchmark Science Lab',
     featured: true,
     excerpt: 'The adult human brain is not a static machine. Through Long-Term Potentiation, dendritic spine remodeling, and activity-dependent myelinogenesis, deliberate practice physically alters neural architecture across the entire lifespan.',
-    relatedGame: { name: 'Sequence Memory', path: '/sequence-memory', ctaText: 'Exercise Brain Plasticity' },
+    relatedGame: { name: 'Dual N-Back Test', path: '/dual-n-back', ctaText: 'Train Neuroplasticity with Dual N-Back' },
     keyStats: [
       { label: 'Synaptic Remodeling Time', value: '15–60 mins', subtext: 'Dendritic spine structural changes' },
       { label: 'Myelin Conduction Boost', value: 'Up to 100x speed', subtext: 'Activity-dependent myelination' },

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Zap, Grid3x3, Target, Hash, MessageSquare, Keyboard, Smile,
-  Smartphone, Layers, Play, Trophy, Activity, Info, Share2, Settings, Cloud, User, RefreshCw, CheckCircle2, Headphones
+  Smartphone, Layers, Play, Trophy, Activity, Info, Share2, Settings, Cloud, User, RefreshCw, CheckCircle2, Headphones, GitFork, Palette, Boxes, Binary
 } from 'lucide-react';
 import { getHighScore } from '../hooks/useHighScore';
 import { generateMockPercentile } from '../services/shareService';
@@ -27,6 +27,22 @@ const GAMES = [
     name: 'Audio Reaction',
     icon: Headphones,
     color: '#8b5cf6',
+    isLowerBetter: true,
+    formatScore: (s: number) => `${s} ms`,
+  },
+  {
+    id: 'choice-reaction-time',
+    name: 'Choice Reaction',
+    icon: GitFork,
+    color: '#06b6d4',
+    isLowerBetter: true,
+    formatScore: (s: number) => `${s} ms`,
+  },
+  {
+    id: 'stroop-test',
+    name: 'Stroop Test',
+    icon: Palette,
+    color: '#f43f5e',
     isLowerBetter: true,
     formatScore: (s: number) => `${s} ms`,
   },
@@ -77,6 +93,22 @@ const GAMES = [
     color: '#14b8a6',
     isLowerBetter: false,
     formatScore: (s: number) => `Level ${s}`,
+  },
+  {
+    id: 'corsi-block-test',
+    name: 'Corsi Block-Tapping',
+    icon: Boxes,
+    color: '#0284c7',
+    isLowerBetter: false,
+    formatScore: (s: number) => `Span ${s}`,
+  },
+  {
+    id: 'dual-n-back',
+    name: 'Dual N-Back',
+    icon: Binary,
+    color: '#a855f7',
+    isLowerBetter: false,
+    formatScore: (s: number) => `${s} pts`,
   },
   {
     id: 'typing',

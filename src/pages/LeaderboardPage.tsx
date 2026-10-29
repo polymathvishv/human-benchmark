@@ -3,7 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import {
   Trophy, Zap, Grid3x3, Target, Hash, MessageSquare, Smile,
   Layers, Keyboard, Smartphone, Crown, Play, Loader2,
-  Calendar, Flame, Sparkles, Headphones
+  Calendar, Flame, Sparkles, Headphones, GitFork, Palette, Boxes, Binary
 } from 'lucide-react';
 import {
   fetchLeaderboard,
@@ -23,12 +23,16 @@ import styles from './LeaderboardPage.module.css';
 const GAMES = [
   { id: 'reaction-time', name: 'Reaction Time', icon: Zap, path: '/reaction-time' },
   { id: 'audio-reaction-time', name: 'Audio Reaction', icon: Headphones, path: '/audio-reaction-time' },
+  { id: 'choice-reaction-time', name: 'Choice Reaction', icon: GitFork, path: '/choice-reaction-time' },
+  { id: 'stroop-test', name: 'Stroop Test', icon: Palette, path: '/stroop-test' },
   { id: 'sequence-memory', name: 'Sequence Memory', icon: Grid3x3, path: '/sequence-memory' },
   { id: 'aim-trainer', name: 'Aim Trainer', icon: Target, path: '/aim-trainer' },
   { id: 'number-memory', name: 'Number Memory', icon: Hash, path: '/number-memory' },
   { id: 'verbal-memory', name: 'Verbal Memory', icon: MessageSquare, path: '/verbal-memory' },
   { id: 'chimp-test', name: 'Chimp Test', icon: Smile, path: '/chimp-test' },
   { id: 'visual-memory', name: 'Visual Memory', icon: Layers, path: '/visual-memory' },
+  { id: 'corsi-block-test', name: 'Corsi Block-Tapping', icon: Boxes, path: '/corsi-block-test' },
+  { id: 'dual-n-back', name: 'Dual N-Back', icon: Binary, path: '/dual-n-back' },
   { id: 'typing', name: 'Typing Test', icon: Keyboard, path: '/typing' },
   { id: 'mobile-typing', name: 'Mobile Typing', icon: Smartphone, path: '/mobile-typing' },
 ];

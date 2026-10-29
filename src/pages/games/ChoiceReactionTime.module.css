@@ -1,0 +1,532 @@
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #091a28 0%, #0e2a3f 60%, #10344d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  position: relative;
+}
+
+.gameArea.active {
+  background: linear-gradient(135deg, #071622 0%, #0c2436 60%, #0f2c42 100%);
+}
+
+.gameArea.errorFlash {
+  animation: bgFlashRed 0.4s ease;
+}
+
+@keyframes bgFlashRed {
+  0% { background: rgba(185, 28, 28, 0.4); }
+  100% { background: linear-gradient(135deg, #091a28 0%, #0e2a3f 60%, #10344d 100%); }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.icon {
+  margin-bottom: 0.5rem;
+  color: #06b6d4;
+  filter: drop-shadow(0 4px 12px rgba(6, 182, 212, 0.35));
+}
+
+.content h2 {
+  font-size: clamp(1.5rem, 5vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.content p {
+  font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+  opacity: 0.88;
+  max-width: 580px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── HUD Bar (Progress & Accuracy) ── */
+.hudBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 560px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  box-sizing: border-box;
+}
+
+.hudItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hudValue {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hudValueAccent {
+  color: #06b6d4;
+  font-weight: 700;
+}
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 560px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: -0.5rem;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #06b6d4, #10b981);
+  transition: width 0.25s ease;
+  border-radius: 9999px;
+}
+
+/* ── Pods Grid (4 Horizontal Targets) ── */
+.podsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 580px;
+  margin: 0.75rem 0;
+  box-sizing: border-box;
+}
+
+.pod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 125px;
+  padding: 1rem 0.5rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 2px solid rgba(148, 163, 184, 0.2);
+  cursor: pointer;
+  transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  user-select: none;
+  touch-action: manipulation;
+  outline: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.pod:hover:not(:disabled) {
+  border-color: rgba(6, 182, 212, 0.5);
+  background: rgba(21, 35, 60, 0.85);
+  transform: translateY(-2px);
+}
+
+.pod:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* ── Pod Bulb Indicator ── */
+.podBulb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.6rem;
+  transition: all 0.1s ease;
+}
+
+.podKey {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #cbd5e1;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  transition: all 0.1s ease;
+}
+
+.podFinger {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* ── Pod Illuminated / Stimulus Active ── */
+.podActive {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  border-color: #6ee7b7 !important;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.7), 0 0 12px rgba(52, 211, 153, 0.5) !important;
+  transform: translateY(-3px) scale(1.04) !important;
+}
+
+.podActive .podBulb {
+  background: #ffffff;
+  box-shadow: 0 0 14px #ffffff, 0 0 25px rgba(255, 255, 255, 0.9);
+  border-color: #ffffff;
+}
+
+.podActive .podKey {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.podActive .podFinger {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+/* ── Pod Error State (Wrong Key) ── */
+.podError {
+  background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%) !important;
+  border-color: #fca5a5 !important;
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.8) !important;
+  animation: shake 0.35s ease !important;
+}
+
+.podError .podBulb {
+  background: #fee2e2;
+  box-shadow: 0 0 12px #ef4444;
+}
+
+.podError .podKey {
+  color: #ffffff;
+}
+
+.podError .podFinger {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* ── Pod Correct Flash ── */
+.podCorrect {
+  background: linear-gradient(135deg, #047857 0%, #10b981 100%) !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6) !important;
+}
+
+.statusMessage {
+  min-height: 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.statusWaiting {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.statusStimulus {
+  color: #10b981;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+}
+
+.statusError {
+  color: #f87171;
+  font-weight: 700;
+  animation: pulse 1s ease infinite;
+}
+
+.statusAnticipation {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.desktopKeyHints {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: monospace;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+}
+
+.startButton {
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  padding: 0.85rem 2.2rem;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  margin-top: 0.5rem;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+.startButton:active {
+  transform: translateY(1px);
+}
+
+/* ── Result Screen Stats ── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin: 1.5rem 0 1rem;
+}
+
+.statCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.statValue {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statBest {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.statBest .statValue {
+  color: #15803d;
+}
+
+.statAccuracy {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+}
+.statAccuracy .statValue {
+  color: #0f766e;
+}
+
+.statPercentile {
+  background: #faf5ff;
+  border-color: #e9d5ff;
+}
+.statPercentile .statValue {
+  color: #7e22ce;
+}
+
+/* ── Hick's Law Decision Overhead Banner ── */
+.overheadCard {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1.5px solid #99f6e4;
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.07);
+}
+
+.overheadHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccfbf1;
+}
+
+.overheadTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #134e4a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.overheadBadge {
+  background: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #5eead4;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.overheadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  background: #f8fafc;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.overheadMetric {
+  display: flex;
+  flex-direction: column;
+}
+
+.overheadMetricLabel {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.overheadMetricValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 0.2rem;
+}
+
+.overheadExplanation {
+  font-size: 0.875rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.simpleRtLink {
+  color: #0284c7;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+
+.simpleRtLink:hover {
+  color: #0369a1;
+}
+
+/* ── Mobile Responsive ── */
+@media (max-width: 640px) {
+  .gameArea {
+    min-height: 380px;
+    padding: 1.5rem 1rem;
+  }
+
+  .podsGrid {
+    gap: 0.5rem;
+  }
+
+  .pod {
+    min-height: 100px;
+    padding: 0.75rem 0.25rem;
+    border-radius: 12px;
+  }
+
+  .podKey {
+    font-size: 1.6rem;
+  }
+
+  .podFinger {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+
+  .podBulb {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 0.4rem;
+  }
+
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .overheadGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .desktopKeyHints {
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
+
